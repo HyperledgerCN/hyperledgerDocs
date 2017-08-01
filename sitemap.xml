@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    
+    <url>
+     <loc>https://hyperledgerDocs.github.io//</loc>
+     <lastmod>2017-08-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>https://hyperledgerDocs.github.io//glossary/</loc>
+     <lastmod>2017-08-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>https://hyperledgerDocs.github.io//getting_started/</loc>
+     <lastmod>2017-08-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>https://hyperledgerDocs.github.io//protocol-spec_zh/</loc>
+     <lastmod>2017-08-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+        
+    <url>
+     <loc>https://hyperledgerDocs.github.io//build_network_zh/</loc>
+     <lastmod>2017-08-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://hyperledgerDocs.github.io//write_first_app_zh/</loc>
+     <lastmod>2017-08-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://hyperledgerDocs.github.io//chaincode_zh/</loc>
+     <lastmod>2017-08-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>https://hyperledgerDocs.github.io//msp_zh/</loc>
+     <lastmod>2017-08-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://hyperledgerDocs.github.io//configtx_zh/</loc>
+     <lastmod>2017-08-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://hyperledgerDocs.github.io//configtxgen_zh/</loc>
+     <lastmod>2017-08-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://hyperledgerDocs.github.io//configtxlator_zh/</loc>
+     <lastmod>2017-08-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://hyperledgerDocs.github.io//endorsement-policies_zh/</loc>
+     <lastmod>2017-08-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://hyperledgerDocs.github.io//error-handling_zh/</loc>
+     <lastmod>2017-08-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://hyperledgerDocs.github.io//logging-control_zh/</loc>
+     <lastmod>2017-08-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>https://hyperledgerDocs.github.io//arch-deep-dive_zh/</loc>
+     <lastmod>2017-08-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://hyperledgerDocs.github.io//txflow_zh/</loc>
+     <lastmod>2017-08-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://hyperledgerDocs.github.io//ca-setup_zh/</loc>
+     <lastmod>2017-08-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://hyperledgerDocs.github.io//sdk_node_zh/</loc>
+     <lastmod>2017-08-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://hyperledgerDocs.github.io//sdk_java_zh/</loc>
+     <lastmod>2017-08-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://hyperledgerDocs.github.io//kafka_zh/</loc>
+     <lastmod>2017-08-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://hyperledgerDocs.github.io//channels_zh/</loc>
+     <lastmod>2017-08-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://hyperledgerDocs.github.io//ledger_zh/</loc>
+     <lastmod>2017-08-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://hyperledgerDocs.github.io//read-write-set/</loc>
+     <lastmod>2017-08-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://hyperledgerDocs.github.io//gossip_zh/</loc>
+     <lastmod>2017-08-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+    <url>
+     <loc>https://hyperledgerDocs.github.io//msp_acl_zh/</loc>
+     <lastmod>2017-08-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>https://hyperledgerDocs.github.io//sdk-design_zh/</loc>
+     <lastmod>2017-08-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>https://hyperledgerDocs.github.io//makefile_zh/</loc>
+     <lastmod>2017-08-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+</urlset>

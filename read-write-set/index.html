@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Hyperledger国际化工作组">
+  
+  <title>Read-Write set - Hyperledger中文文档</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Read-Write set";
+    var mkdocs_page_input_path = "read-write-set.md";
+    var mkdocs_page_url = "/read-write-set/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Hyperledger中文文档</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">欢迎</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../glossary/">词汇表</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../getting_started/">快速入门</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../protocol-spec_zh/">协议规范</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric教程</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../build_network_zh/">构建第一个fabric网络</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../write_first_app_zh/">编写第一个应用</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../chaincode_zh/">Chaincode</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric操作指南</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../msp_zh/">MSP</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configtx_zh/">Channel 配置(configtx)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configtxgen_zh/">Channel 配置(configtxgen)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configtxlator_zh/">Channel 重新配置(configtxlator)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../endorsement-policies_zh/">背书策略</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../error-handling_zh/">错误处理</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../logging-control_zh/">日志控制</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric设计</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../arch-deep-dive_zh/">架构说明</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../txflow_zh/">交易流程</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ca-setup_zh/">CA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../sdk_node_zh/">SDK--node</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../sdk_java_zh/">SDK--java</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../kafka_zh/">基于kafka的排序服务</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../channels_zh/">Channels</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ledger_zh/">账本</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Read-Write set</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#read-write-set">交易模拟和read-write set</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#read-write-set-worldstate">使用read-write set 验证交易和更新worldState</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#_1">交易模拟与交易验证 示例</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../gossip_zh/">Gossip数据传输协议</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../msp_acl_zh/">MSP&ACL</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../sdk-design_zh/">Fabric SDK 设计</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../makefile_zh/">Makefile文件解析</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Hyperledger中文文档</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Fabric设计 &raquo;</li>
+        
+      
+    
+    <li>Read-Write set</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/hyperledgerDocs/hyperledgerDocs" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <table>
+<thead>
+<tr>
+<th>原文</th>
+<th>作者</th>
+<th>审核修正</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://hyperledger-fabric.readthedocs.io/en/latest/readwrite.html">原文</a></td>
+<td>Linsheng Yu</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="read-write-set">交易模拟和read-write set<a class="headerlink" href="#read-write-set" title="Permanent link">&para;</a></h2>
+<p>在背书节点上的交易模拟期间会产生一个交易的read-write set。<code>read set</code>包含在模拟期间交易读取到的唯一key及对应version。<code>write set</code>交易改写的唯一key（可能与<code>read set</code>中的key重叠）及对应的新value。如果交易的更新操作是删除一个key，则在<code>write set</code>为该key设置一个delete标记。</p>
+<p>此外，如果交易中对一个key改写多次，则只保留最后的修改值。如果交易中读取一个key的值，即使交易在读取之前更新了该key的值，读取到的也会是之前提交过的而不是刚更新的。换句话说，不能读取到同一交易中修改的值。</p>
+<p>如前所述，key的version只记录在<code>read set</code>；<code>write set</code>只包含key及对应新value。</p>
+<p>对于<code>read set</code>的version的实现有很多种方案，最基本要求就是为key生成一个非重复标识符。例如用递增的序号作为version。在目前的代码实现中我们使用了blockchain height作为version方案，就是用交易的height作为该交易所修改的key的version。交易height由一个结构表示（见下面Height struc），其中TxNum表示这个tx在block中的height（译注：也就是交易在区块中的顺序）。该方案相较于递增序号有很多优点&ndash;主要是这样的version可以很好地利用到诸如statedb、交易模拟和校验这些模块中。</p>
+<p>此外，如果模拟交易中执行了批量查询（range query），批量查询结果会被放到read-write set中的<code>query-info</code>。</p>
+<pre><code>// 译注
+
+// read-write set 结构
+type TxReadWriteSet struct {
+    NsRWs []*NsReadWriteSet
+}
+type NsReadWriteSet struct {
+    NameSpace        string
+    Reads            []*KVRead
+    Writes           []*KVWrite
+    RangeQueriesInfo []*RangeQueryInfo
+}
+type RangeQueryInfo struct {
+    StartKey     string
+    EndKey       string
+    ItrExhausted bool
+    Results      []*KVRead
+    ResultHash   *MerkleSummary
+}
+type MerkleSummary struct {
+    MaxDegree      int
+    MaxLevel       MerkleTreeLevel
+    MaxLevelHashes []Hash
+}
+type MerkleTreeLevel int
+type Hash []byte
+
+// read set 结构
+type KVRead struct {
+    Key     string
+    Version *Height
+}
+type Height struct {
+    BlockNum uint64
+    TxNum    uint64
+}
+
+// write set 结构
+type KVWrite struct {
+    Key      string
+    IsDelete bool
+    Value    []byte
+}
+</code></pre>
+<p>下面是一个假设的交易模拟生成的read-write set示例，简单起见，示例中使用了递增序号作为version。</p>
+<pre><code>&lt;TxReadWriteSet&gt;
+  &lt;NsReadWriteSet name="chaincode1"&gt;
+    &lt;read-set&gt;
+      &lt;read key="K1", version="1"&gt;
+      &lt;read key="K2", version="1"&gt;
+    &lt;/read-set&gt;
+    &lt;write-set&gt;
+      &lt;write key="K1", value="V1"&gt;
+      &lt;write key="K3", value="V2"&gt;
+      &lt;write key="K4", isDelete="true"&gt;
+    &lt;/write-set&gt;
+  &lt;/NsReadWriteSet&gt;
+&lt;TxReadWriteSet&gt;
+</code></pre>
+<h2 id="read-write-set-worldstate">使用read-write set 验证交易和更新worldState<a class="headerlink" href="#read-write-set-worldstate" title="Permanent link">&para;</a></h2>
+<p>提交节点（committer）利用<code>read set</code>部分校验交易的有效性；用<code>write set</code>部分更新key的version和value。</p>
+<p>在验证阶段，如果<code>read set</code>中每个key的version都与stateDB中对应worldState（假设所有之前的有效交易，包括同一个block中的交易，都已经提交完成，即已更新ledger）的version相匹配，则认为此交易有效。</p>
+<p>如果read-write set中包含<code>query-info</code>，则还要对此执行额外的校验。该校验确保在此批量查询的结果范围内没有key被增删改。换句话说，如果在验证阶段重新执行该批量查询（模拟期间执行的交易）应该产生与模拟交易期间相同的结果。此校验确保交易在提交时出现幻读会被认为无效。注意，这个幻读保护仅限于Chaincode的<code>GetStateByRange</code>和<code>GetStateByPartialCompositeKey</code>两个方法<strong><em>（译注：此处文档上提到的是<code>GetStateByRange</code>和<code>GetQueryResult</code>两个方法，但在代码里的注释却不是这样，此处以代码为准。详见fabric/examples/chaincode/go/marbles02/marbles_chaincode.go）</em></strong>。而其他批量查询方法（如：<code>GetQueryResult</code>）会有幻读风险，因此这种查询应该只用于不会被提交到ordering的<code>只读交易</code>，除非app能保证交易模拟和交易验证提交两阶段之间结果集稳定。</p>
+<p>如果交易验证通过，committer就会用<code>write set</code>更新worldState。在更新阶段，<code>write set</code>中的每个key在worldState中对应的value都会被更新，然后worldState中这些key的version也会随着更新。</p>
+<h2 id="_1">交易模拟与交易验证 示例<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>本节通过示例场景帮助理解read-write set。存在一个key设为<code>k</code>，在worldState中由元组<code>(k,var,val)</code>表示，其中<code>ver</code>是<code>k</code>的最新的version，<code>val</code>是<code>k</code>的value。</p>
+<p>现在有五个交易，分别是<code>T1,T2,T3,T4,T5</code>，这五个交易的模拟过程是针对相同的worldSate快照，下面的代码片段显示了模拟交易的worldState快照以及每个交易执行读写的顺序。</p>
+<pre><code>World state: (k1,1,v1), (k2,1,v2), (k3,1,v3), (k4,1,v4), (k5,1,v5)
+T1 -&gt; Write(k1, v1'), Write(k2, v2')
+T2 -&gt; Read(k1), Write(k3, v3')
+T3 -&gt; Write(k2, v2'')
+T4 -&gt; Write(k2, v2'''), read(k2)
+T5 -&gt; Write(k6, v6'), read(k5)
+</code></pre>
+<p>假设这些交易的顺序是T1,&hellip;T5（可能在同一个block或者不同block）</p>
+<ol>
+<li><code>T1</code>验证成功，因为它没有read操作。之后在worldState中的<code>k1</code>和<code>k2</code>会被更新成<code>(k1,2,v1'), (k2,2,v2')</code></li>
+<li><code>T2</code>验证失败，因为它读取的<code>k1</code>在之前的交易<code>T1</code>中被修改了<strong>（译注：需要特别注意一个前提，即这五个交易的模拟过程是对于相同的worldState快照，而且T2又有write操作，所以T2会进入commit阶段进行验证，这样T2的k1.ver=1，T1完成后实际的k1.ver=2了，然后T2在commit校验是就会失败。也就是上文提到的一个交易的模拟和提交期间，某key的值被修改。。。<em>但是有个疑问，正常使用中应该会经常出现T1、T2这种顺序的情况，难道会经常发生交易校验失败？？如果如此，那对于用户来说岂不很难用?暂有此疑，有待研究</em>）</strong></li>
+<li><code>T3</code>验证成功，因为它没有read操作。之后在worldState中的<code>k2</code>会被更新成<code>(k2,3,v2'')</code></li>
+<li><code>T4</code>验证失败，因为它读取的<code>k2</code>在之前的交易<code>T1</code>中被修改了</li>
+<li><code>T5</code>验证成功，因为它读取的<code>k5</code>没有在之前的任何交易中修改</li>
+</ol>
+<p><strong>注意：</strong>交易不支持多read-write set</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../gossip_zh/" class="btn btn-neutral float-right" title="Gossip数据传输协议">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../ledger_zh/" class="btn btn-neutral" title="账本"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Hyperledger国际化工作组(yls@chainnova.com)</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/hyperledgerDocs/hyperledgerDocs" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../ledger_zh/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../gossip_zh/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

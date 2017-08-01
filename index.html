@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hyperledger中文文档">
+  <meta name="author" content="Hyperledger国际化工作组">
+  
+  <title>Hyperledger中文文档</title>
+  
+
+  <link rel="shortcut icon" href="./img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="./css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="./css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="./css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "None";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = "/";
+  </script>
+  
+  <script src="./js/jquery-2.1.1.min.js"></script>
+  <script src="./js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="./js/highlight.pack.js"></script>
+  <script src="./js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="." class="icon icon-home"> Hyperledger中文文档</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href=".">欢迎</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#_1">简介</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#_2">如何贡献</a></li>
+                
+                    <li><a class="toctree-l4" href="#_3">加入组织</a></li>
+                
+                    <li><a class="toctree-l4" href="#_4">贡献资源</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="glossary/">词汇表</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="getting_started/">快速入门</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="protocol-spec_zh/">协议规范</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric教程</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="build_network_zh/">构建第一个fabric网络</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="write_first_app_zh/">编写第一个应用</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="chaincode_zh/">Chaincode</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric操作指南</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="msp_zh/">MSP</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="configtx_zh/">Channel 配置(configtx)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="configtxgen_zh/">Channel 配置(configtxgen)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="configtxlator_zh/">Channel 重新配置(configtxlator)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="endorsement-policies_zh/">背书策略</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="error-handling_zh/">错误处理</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="logging-control_zh/">日志控制</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric设计</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="arch-deep-dive_zh/">架构说明</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="txflow_zh/">交易流程</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="ca-setup_zh/">CA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="sdk_node_zh/">SDK--node</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="sdk_java_zh/">SDK--java</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="kafka_zh/">基于kafka的排序服务</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="channels_zh/">Channels</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="ledger_zh/">账本</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="read-write-set/">Read-Write set</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="gossip_zh/">Gossip数据传输协议</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="msp_acl_zh/">MSP&ACL</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="sdk-design_zh/">Fabric SDK 设计</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="makefile_zh/">Makefile文件解析</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">Hyperledger中文文档</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>欢迎</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/hyperledgerDocs/hyperledgerDocs" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p><strong><em>欢迎阅读！！！</em></strong></p>
+<p><strong><em>欢迎贡献！！！</em></strong></p>
+<h2 id="_1">简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p><strong>Hyperledger国际化工作组</strong>是Hyperledger中国工作组(TWGC)下属的一个小组，主要负责相关文档的中文编写和翻译，以及组织讨论、教育培训活动等。</p>
+<p>目前小组有成员100余名，活跃贡献者20余名，已完成文章30余篇。</p>
+<h2 id="_2">如何贡献<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>以前我们用<a href="https://wiki.hyperledger.org/groups/twgc/team_ie">Hyperledger Wiki</a>管理文章，但Wiki读写操作有诸多不便，为此我们将文档转移到<a href="https://github.com/ChainNova/hyperledgerDocs">github上</a>，以使大家更方便地阅读和编辑贡献资源。</p>
+<p><strong><em>贡献内容包括但不限于：文档翻译、知识总结、经验教训、好文链接、奇思妙想&hellip;</em></strong></p>
+<p><strong><em>如果您不想作如下操作，可将直接内容邮件（见页面最下方）发送给工作组，我们为您发布</em></strong></p>
+<h3 id="_3">加入组织<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>加入微信群</p>
+<p>目前微信群已超一百人，只能通过邀请方式加入。您可以请认识的小伙伴拉你入群，也可以联系管理员（见页面最下方）。</p>
+</li>
+<li>
+<p>加入wiki</p>
+<p>Hyperledger Wiki是官方的信息渠道，所以请将您的信息加入其中。<a href="https://wiki.hyperledger.org/groups/twgc/team_ie">点击进入</a>，登陆，然后编辑<code>Volunteers</code>表格，将自己的信息写入并保存。</p>
+</li>
+</ol>
+<h3 id="_4">贡献资源<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>目前以<a href="https://github.com">github</a>管理文档，以<a href="https://pages.github.com/">github pages</a>展示文档，以<a href="http://www.mkdocs.org/">MkDocs</a>构建文档。其中文档都是以Markdown编写。</p>
+<h4 id="_5">准备<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<ol>
+<li>github账号</li>
+<li><a href="https://git-scm.com/book/zh/v1/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git">安装git</a></li>
+<li>安装<a href="http://www.mkdocs.org/">MkDocs</a>（可参照<a href="http://markdown-docs-zh.readthedocs.io/zh_CN/latest/">中文文档</a>）</li>
+</ol>
+<h4 id="_6">本地编辑&amp;预览<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p>下载源码</p>
+<pre><code>git clone https://github.com/ChainNova/hyperledgerDocs.git
+</code></pre>
+</li>
+<li>
+<p>编辑预览</p>
+<p><strong>注意：</strong>文档开头固定以下格式：</p>
+<pre><code>| 原文 | 作者 | 审核修正 |
+| --- | --- | —--- |
+| [原文](&lt;原文路径&gt;) | &lt;如果你是作者，请在此留名&gt; | &lt;如果你是修改者，请在此留名，可以多个&gt; |
+</code></pre>
+<p>图片放到<code>hyperledgerDocs/docs/img</code>里，文档中以<code>img/xx.png</code>引用。</p>
+<ul>
+<li>
+<p>修改已有文档：进入<code>hyperledgerDocs/docs</code>目录，编辑对应文件。</p>
+</li>
+<li>
+<p>添加新文档：进入<code>hyperledgerDocs/docs</code>目录，添加新的<code>Markdown文件</code>并编辑内容；然后编辑<code>mkdocs.yml</code>，将新加文档按如下格式添加到配置文件中。</p>
+<pre><code>pages:
+    - 欢迎: index.md
+    - 词汇表: glossary.md
+    - 快速入门: getting_started.md
+    - 协议规范: protocol-spec_zh.md
+    - Fabric教程:
+        - 构建第一个fabric网络: build_network_zh.md
+        - 编写第一个应用: write_first_app_zh.md
+        - Chaincode: chaincode_zh.md
+</code></pre>
+</li>
+<li>
+<p>本地预览：在<code>hyperledgerDocs</code>目录下执行</p>
+<pre><code>mkdocs serve
+</code></pre>
+<p>然后浏览器打开<code>http://127.0.0.1:8000/</code>找到相应页面。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="_7">线上提交&amp;部署<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<p>本地预览无误后，即可提交到线上供大家阅读。</p>
+<p>在<code>hyperledgerDocs</code>目录下执行</p>
+<pre><code>./build.sh
+</code></pre>
+<p>如无报错，浏览器打开<code>https://chainnova.github.io/hyperledgerDocs/</code>查看修改结果。</p>
+<p><strong>线上确认成功后，千万不要忘了将本地修改的源文件提交到github仓库：</strong></p>
+<pre><code>git add .
+git commit -m "your message"
+git push
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="glossary/" class="btn btn-neutral float-right" title="词汇表">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Hyperledger国际化工作组(yls@chainnova.com)</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/hyperledgerDocs/hyperledgerDocs" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+        <span style="margin-left: 15px"><a href="glossary/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 0.15.3
+Build Date UTC : 2017-08-01 08:15:41.468242
+-->

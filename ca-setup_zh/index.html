@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Hyperledger国际化工作组">
+  
+  <title>CA - Hyperledger中文文档</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "CA";
+    var mkdocs_page_input_path = "ca-setup_zh.md";
+    var mkdocs_page_url = "/ca-setup_zh/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Hyperledger中文文档</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">欢迎</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../glossary/">词汇表</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../getting_started/">快速入门</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../protocol-spec_zh/">协议规范</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric教程</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../build_network_zh/">构建第一个fabric网络</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../write_first_app_zh/">编写第一个应用</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../chaincode_zh/">Chaincode</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric操作指南</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../msp_zh/">MSP</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configtx_zh/">Channel 配置(configtx)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configtxgen_zh/">Channel 配置(configtxgen)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configtxlator_zh/">Channel 重新配置(configtxlator)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../endorsement-policies_zh/">背书策略</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../error-handling_zh/">错误处理</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../logging-control_zh/">日志控制</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric设计</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../arch-deep-dive_zh/">架构说明</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../txflow_zh/">交易流程</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">CA</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#_1">概述</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#_2">入门</a></li>
+                
+                    <li><a class="toctree-l4" href="#_3">前置条件</a></li>
+                
+                    <li><a class="toctree-l4" href="#_4">安装</a></li>
+                
+                    <li><a class="toctree-l4" href="#fabric-ca">体验 Fabric CA 命令行</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#_6">文件格式</a></li>
+                
+                    <li><a class="toctree-l4" href="#fabric-ca_1">Fabric CA 服务端配置文件格式</a></li>
+                
+                    <li><a class="toctree-l4" href="#fabric-ca_2">Fabric CA 客户端配置文件格式</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#_7">配置优先级说明</a></li>
+                
+                    <li><a class="toctree-l4" href="#_8">关于路径的一些说明</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#fabric-ca_3">Fabric CA 服务端</a></li>
+                
+                    <li><a class="toctree-l4" href="#_9">初始化服务端</a></li>
+                
+                    <li><a class="toctree-l4" href="#_10">启动服务端</a></li>
+                
+                    <li><a class="toctree-l4" href="#_11">配置数据库</a></li>
+                
+                    <li><a class="toctree-l4" href="#ldap">配置LDAP</a></li>
+                
+                    <li><a class="toctree-l4" href="#_12">构建一个集群</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#farbic-ca">Farbic CA 客户端</a></li>
+                
+                    <li><a class="toctree-l4" href="#_13">登陆启动用户</a></li>
+                
+                    <li><a class="toctree-l4" href="#_14">注册一个新的身份</a></li>
+                
+                    <li><a class="toctree-l4" href="#_15">登录一个节点</a></li>
+                
+                    <li><a class="toctree-l4" href="#fabric-caca">从另一个Fabric CA服务器获得CA证书链</a></li>
+                
+                    <li><a class="toctree-l4" href="#_16">重新登陆一个身份</a></li>
+                
+                    <li><a class="toctree-l4" href="#_17">撤销一个证书或身份</a></li>
+                
+                    <li><a class="toctree-l4" href="#tls">启用TLS</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#_18">附录</a></li>
+                
+                    <li><a class="toctree-l4" href="#postgres-ssl">Postgres SSL 配置</a></li>
+                
+                    <li><a class="toctree-l4" href="#mysql-ssl">MySQL SSL 配置</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../sdk_node_zh/">SDK--node</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../sdk_java_zh/">SDK--java</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../kafka_zh/">基于kafka的排序服务</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../channels_zh/">Channels</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ledger_zh/">账本</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../read-write-set/">Read-Write set</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../gossip_zh/">Gossip数据传输协议</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../msp_acl_zh/">MSP&ACL</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../sdk-design_zh/">Fabric SDK 设计</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../makefile_zh/">Makefile文件解析</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Hyperledger中文文档</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Fabric设计 &raquo;</li>
+        
+      
+    
+    <li>CA</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/hyperledgerDocs/hyperledgerDocs" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <table>
+<thead>
+<tr>
+<th>原文</th>
+<th>作者</th>
+<th>审核修正</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://hyperledger-fabric-ca.readthedocs.io/en/latest/users-guide.html">原文</a></td>
+<td>Yaocheng Ye</td>
+<td>Ruijun Ou、Zhangjiong Xuan</td>
+</tr>
+</tbody>
+</table>
+<p>Fabric CA is a Certificate Authority for Hyperledger Fabric.</p>
+<p>It provides features such as:</p>
+<ol>
+<li>registration of identities, or connects to LDAP as the user registry;</li>
+<li>issuance of Enrollment Certificates (ECerts);</li>
+<li>issuance of Transaction Certificates (TCerts), providing both anonymity and unlinkability when transacting on a Hyperledger Fabric blockchain;</li>
+<li>certificate renewal and revocation.</li>
+</ol>
+<p>Fabric CA为Hyperledger Fabric行使证书机构的功能。</p>
+<p>Fabric CA提供以下功能：</p>
+<ol>
+<li>身份注册，或者将连接到LDAP作为用户注册；</li>
+<li>颁发登录证书(ECerts)；</li>
+<li>颁发交易证书(TCerts)，保证链上交易的匿名性与不可连接性；</li>
+<li>证书续期与撤销</li>
+</ol>
+<p>Fabric CA consists of both a server and a client component as described later in this document.</p>
+<p>For developers interested in contributing to Fabric CA, see the Fabric CA repository for more information.</p>
+<p>Fabric CA 包含一个服务端组件和一个客户端组件，稍后会进行介绍。</p>
+<p>对贡献Fabric CA感兴趣的开发者，可以参考 <a href="https://github.com/hyperledger/fabric-ca">Fabric CA repository</a></p>
+<h2 id="_1">概述<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>The diagram below illustrates how the Fabric CA server fits into the overall Hyperledger Fabric architecture.</p>
+<p>下图说明了 Fabric CA 服务端如何在 Hyperledger Fabric 架构中发挥作用</p>
+<p><img alt="" src="../img/fabric-ca.png" /></p>
+<p>There are two ways of interacting with a Fabric CA server: via the Fabric CA client or through one of the Fabric SDKs. All communication to the Fabric CA server is via REST APIs. See fabric-ca/swagger/swagger-fabric-ca.json for the swagger documentation for these REST APIs.</p>
+<p>有两种方式与 Fabric CA 服务端交互：通过 Fabric CA 客户端，或者 Fabric SDK，所有与 Fabric CA 的交互都是通过 REST APIs 来实现的。REST APIs 的swagger说明文档见 <em>fabric-ca/swagger/swagger-fabric-ca.json</em> </p>
+<p>The Fabric CA client or SDK may connect to a server in a cluster of Fabric CA servers. This is illustrated in the top right section of the diagram. The client routes to an HA Proxy endpoint which load balances traffic to one of the fabric-ca-server cluster members. All Fabric CA servers in a cluster share the same database for keeping track of users and certificates. If LDAP is configured, the user information is kept in LDAP rather than the database.</p>
+<p>Fabric CA 客户端或者 SDK 可能会连接到 Fabric CA 集群中某一个 Fabric CA 服务端，这一部分可以通过上图右上部分获得更好的理解。客户端连接的是一个 HA 代理节点，这个 HA 代理节点为 Fabric CA 集群作负载均衡。所有的 Fabric CA 服务端共享同一个数据库。数据库用来保存用户和证书信息。如果配置了 LDAP，那么用户信息将会保存在 LDAP 中，而不是数据库中。</p>
+<h2 id="_2">入门<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">前置条件<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Go 1.7+ 或更高版本</li>
+<li>GOPATH 环境变量正确设置</li>
+<li>libtool 和 libtdhl-dev 这两个包安装好</li>
+</ul>
+<p>以下命令安装 libtool</p>
+<pre><code># sudo apt install libtool libltdl-dev
+</code></pre>
+<p>了解更多有关 libtool 的信息，参考 <a href="https://www.gnu.org/software/libtool/">https://www.gnu.org/software/libtool/</a></p>
+<p>了解更多有关 libtdhr-dev 的信息，参考 <a href="https://www.gnu.org/software/libtool/manual/html_node/Using-libltdl.html">https://www.gnu.org/software/libtool/manual/html_node/Using-libltdl.html</a></p>
+<h3 id="_4">安装<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>以下命令会同时安装 fabric-ca-server 和 fabric-ca-client</p>
+<pre><code># go get -u github.com/hyperledger/fabric-ca/cmd/...
+</code></pre>
+<h4 id="_5">原生启动服务器<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<p>默认配置启动 fabric-ca-server</p>
+<pre><code># fabric-ca-server start -b admin:adminpw
+</code></pre>
+<p>The -b option provides the enrollment ID and secret for a bootstrap administrator. A default configuration file named fabric-ca-server-config.yaml is created in the local directory which can be customized.</p>
+<p><em>-b</em> 选项用来提供启动管理员的登录 ID 和密码。默认配置文件 <em>fabric-ca-server-config.yaml</em> 会自动在本地目录创建，这个配置文件可以自定义。</p>
+<h4 id="docker">通过 Docker 启动服务器<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h4>
+<p>使用 docker-compose 来启动</p>
+<pre><code># cd $GOPATH/src/github.com/hyperledger/fabric-ca
+# make docker
+# cd docker/server
+# docker-compose up -d
+</code></pre>
+<p>hyperledger/fabric-ca docker 镜像包含 fabric-ca-server 和 the fabric-ca-client</p>
+<h3 id="fabric-ca">体验 Fabric CA 命令行<a class="headerlink" href="#fabric-ca" title="Permanent link">&para;</a></h3>
+<p>这一部分提供 fabric-ca-server 和 fabric-ca-client 命令行的使用说明。另外的使用信息会在接下来的内容中提供。</p>
+<p>fabric-ca-server</p>
+<pre><code>Hyperledger Fabric Certificate Authority Server
+
+Usage:
+    fabric-ca-server [command]
+
+Available Commands:
+    init        Initialize the Fabric CA server
+    start       Start the Fabric CA server
+
+Flags:
+        --address string                         Listening address of Fabric CA server (default "0.0.0.0")
+    -b, --boot string                            The user:pass for bootstrap admin which is required to build default config file
+        --ca.certfile string                     PEM-encoded CA certificate file (default "ca-cert.pem")
+        --ca.chainfile string                    PEM-encoded CA chain file (default "ca-chain.pem")
+        --ca.keyfile string                      PEM-encoded CA key file (default "ca-key.pem")
+    -n, --ca.name string                         Certificate Authority name
+    -c, --config string                          Configuration file (default "fabric-ca-server-config.yaml")
+        --csr.cn string                          The common name field of the certificate signing request to a parent Fabric CA server
+        --csr.hosts stringSlice                  A list of space-separated host names in a certificate signing request to a parent Fabric CA server
+        --csr.serialnumber string                The serial number in a certificate signing request to a parent Fabric CA server
+        --db.datasource string                   Data source which is database specific (default "fabric-ca-server.db")
+        --db.tls.certfiles stringSlice           PEM-encoded list of trusted certificate files
+        --db.tls.client.certfile string          PEM-encoded certificate file when mutual authenticate is enabled
+        --db.tls.client.keyfile string           PEM-encoded key file when mutual authentication is enabled
+        --db.type string                         Type of database; one of: sqlite3, postgres, mysql (default "sqlite3")
+    -d, --debug                                  Enable debug level logging
+        --ldap.enabled                           Enable the LDAP client for authentication and attributes
+        --ldap.groupfilter string                The LDAP group filter for a single affiliation group (default "(memberUid=%s)")
+        --ldap.url string                        LDAP client URL of form ldap://adminDN:adminPassword@host[:port]/base
+        --ldap.userfilter string                 The LDAP user filter to use when searching for users (default "(uid=%s)")
+    -p, --port int                               Listening port of Fabric CA server (default 7054)
+        --registry.maxenrollments int            Maximum number of enrollments; valid if LDAP not enabled
+        --tls.certfile string                    PEM-encoded TLS certificate file for server's listening port (default "ca-cert.pem")
+        --tls.clientauth.certfiles stringSlice   PEM-encoded list of trusted certificate files
+        --tls.clientauth.type string             Policy the server will follow for TLS Client Authentication. (default "noclientcert")
+        --tls.enabled                            Enable TLS on the listening port
+        --tls.keyfile string                     PEM-encoded TLS key for server's listening port (default "ca-key.pem")
+    -u, --url string                             URL of the parent Fabric CA server
+
+
+Use "fabric-ca-server [command] --help" for more information about a command.
+</code></pre>
+<p>fabric-ca-client</p>
+<pre><code># fabric-ca-client
+Hyperledger Fabric Certificate Authority Client
+
+Usage:
+    fabric-ca-client [command]
+
+Available Commands:
+    enroll      Enroll an identity
+    getcacert   Get CA certificate chain
+    reenroll    Reenroll an identity
+    register    Register an identity
+    revoke      Revoke an identity
+
+Flags:
+    -c, --config string                Configuration file (default "$HOME/.fabric-ca-client/fabric-ca-client-config.yaml")
+        --csr.cn string                The common name field of the certificate signing request
+        --csr.hosts stringSlice        A list of space-separated host names in a certificate signing request
+        --csr.serialnumber string      The serial number in a certificate signing request
+    -d, --debug                        Enable debug level logging
+        --enrollment.hosts string      Comma-separated host list
+        --enrollment.label string      Label to use in HSM operations
+        --enrollment.profile string    Name of the signing profile to use in issuing the certificate
+        --id.affiliation string        The identity's affiliation
+        --id.attr string               Attributes associated with this identity (e.g. hf.Revoker=true)
+        --id.maxenrollments int        The maximum number of times the secret can be reused to enroll
+        --id.name string               Unique name of the identity
+        --id.secret string             The enrollment secret for the identity being registered
+        --id.type string               Type of identity being registered (e.g. 'peer, app, user')
+    -M, --mspdir string                Membership Service Provider directory (default "msp")
+    -m, --myhost string                Hostname to include in the certificate signing request during enrollment (default "$HOSTNAME")
+        --tls.certfiles stringSlice    PEM-encoded list of trusted certificate files
+        --tls.client.certfile string   PEM-encoded certificate file when mutual authenticate is enabled
+        --tls.client.keyfile string    PEM-encoded key file when mutual authentication is enabled
+    -u, --url string                   URL of the Fabric CA server (default "http://localhost:7054")
+
+Use "fabric-ca-client [command] --help" for more information about a command.
+</code></pre>
+<p>Note that command line options that are string slices (lists) can be specified either by specifying the option with space-separated list elements or by specifying the option multiple times, each with a string value that make up the list. For example, to specify host1 and host2 for csr.hosts option, you can either pass –csr.hosts “host1 host2” or –csr.hosts host1 –csr.hosts host2</p>
+<p>注意在命令行中需要给某个选项输入列表时，可以用空格分割，或者多次使用该选项。例如，指定<code>host1</code>和<code>host2</code>给csr.hosts选项，你可以用–csr.hosts “host1 host2”或者–csr.hosts host1 –csr.hosts host2</p>
+<h2 id="_6">文件格式<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h3 id="fabric-ca_1">Fabric CA 服务端配置文件格式<a class="headerlink" href="#fabric-ca_1" title="Permanent link">&para;</a></h3>
+<p>A configuration file can be provided to the server using the -c or &ndash;config option. If the &ndash;config option is used and the specified file doesn’t exist, a default configuration file (like the one shown below) will be created in the specified location. However, if no config option was used, it will be created in the server’s home directory (see Fabric CA Server section more info).</p>
+<p>配置文件可以通过 <code>-c</code> 或者 <code>--config</code> 选项来指定。如果 <code>--config</code> 选项使用了，而指定的文件不存在，默认的配置文件（如下）会在指定的位置被创建。然而，如果没有指定配置文件，默认配置文件会在 fabric-ca-server 的 home 目录下创建。（参考 <a href="#fabric-ca-服务端">Fabric CA 服务端</a> 了解更多）</p>
+<pre><code># Server's listening port (default: 7054)
+port: 7054
+
+# Enables debug logging (default: false)
+debug: false
+
+#############################################################################
+#  TLS section for the server's listening port
+#############################################################################
+tls:
+    # Enable TLS (default: false)
+    enabled: false
+    certfile: ca-cert.pem
+    keyfile: ca-key.pem
+
+#############################################################################
+#  The CA section contains the key and certificate files used when
+#  issuing enrollment certificates (ECerts) and transaction
+#  certificates (TCerts).
+#############################################################################
+ca:
+    # Certificate file (default: ca-cert.pem)
+    certfile: ca-cert.pem
+    # Key file (default: ca-key.pem)
+    keyfile: ca-key.pem
+
+#############################################################################
+#  The registry section controls how the Fabric CA server does two things:
+#  1) authenticates enrollment requests which contain identity name and
+#     password (also known as enrollment ID and secret).
+#  2) once authenticated, retrieves the identity's attribute names and
+#     values which the Fabric CA server optionally puts into TCerts
+#     which it issues for transacting on the Hyperledger Fabric blockchain.
+#     These attributes are useful for making access control decisions in
+#     chaincode.
+#  There are two main configuration options:
+#  1) The Fabric CA server is the registry
+#  2) An LDAP server is the registry, in which case the Fabric CA server
+#     calls the LDAP server to perform these tasks.
+#############################################################################
+registry:
+    # Maximum number of times a password/secret can be reused for enrollment
+    # (default: 0, which means there is no limit)
+    maxEnrollments: 0
+
+    # Contains identity information which is used when LDAP is disabled
+    identities:
+        - name: &lt;&lt;&lt;ADMIN&gt;&gt;&gt;
+        pass: &lt;&lt;&lt;ADMINPW&gt;&gt;&gt;
+        type: client
+        affiliation: ""
+        attrs:
+            hf.Registrar.Roles: "client,user,peer,validator,auditor,ca"
+            hf.Registrar.DelegateRoles: "client,user,validator,auditor"
+            hf.Revoker: true
+            hf.IntermediateCA: true
+
+#############################################################################
+#  Database section
+#  Supported types are: "sqlite3", "postgres", and "mysql".
+#  The datasource value depends on the type.
+#  If the type is "sqlite3", the datasource value is a file name to use
+#  as the database store.  Since "sqlite3" is an embedded database, it
+#  may not be used if you want to run the Fabric CA server in a cluster.
+#  To run the Fabric CA server in a cluster, you must choose "postgres"
+#  or "mysql".
+#############################################################################
+db:
+    type: sqlite3
+    datasource: fabric-ca-server.db
+    tls:
+        enabled: false
+        certfiles:
+            - db-server-cert.pem
+        client:
+            certfile: db-client-cert.pem
+            keyfile: db-client-key.pem
+
+#############################################################################
+#  LDAP section
+#  If LDAP is enabled, the Fabric CA server calls LDAP to:
+#  1) authenticate enrollment ID and secret (i.e. identity name and password)
+#     for enrollment requests
+#  2) To retrieve identity attributes
+#############################################################################
+ldap:
+    # Enables or disables the LDAP client (default: false)
+    enabled: false
+    # The URL of the LDAP server
+    url: ldap://&lt;adminDN&gt;:&lt;adminPassword&gt;@&lt;host&gt;:&lt;port&gt;/&lt;base&gt;
+    tls:
+        certfiles:
+            - ldap-server-cert.pem
+        client:
+            certfile: ldap-client-cert.pem
+            keyfile: ldap-client-key.pem
+
+#############################################################################
+#  Affiliation section
+#############################################################################
+affiliations:
+    org1:
+        - department1
+        - department2
+    org2:
+        - department1
+
+#############################################################################
+#  Signing section
+#############################################################################
+signing:
+    profiles:
+        ca:
+            usage:
+            - cert sign
+            expiry: 8000h
+            caconstraint:
+            isca: true
+    default:
+        usage:
+            - cert sign
+        expiry: 8000h
+
+###########################################################################
+#  Certificate Signing Request section for generating the CA certificate
+###########################################################################
+csr:
+    cn: fabric-ca-server
+    names:
+        - C: US
+            ST: North Carolina
+            L:
+            O: Hyperledger
+            OU: Fabric
+    hosts:
+        - &lt;&lt;&lt;MYHOST&gt;&gt;&gt;
+    ca:
+        pathlen:
+        pathlenzero:
+        expiry:
+
+#############################################################################
+#  Crypto section configures the crypto primitives used for all
+#############################################################################
+crypto:
+    software:
+        hash_family: SHA2
+        security_level: 256
+        ephemeral: false
+        key_store_dir: keys
+</code></pre>
+<h3 id="fabric-ca_2">Fabric CA 客户端配置文件格式<a class="headerlink" href="#fabric-ca_2" title="Permanent link">&para;</a></h3>
+<p>A configuration file can be provided to the client using the -c or &ndash;config option. If the config option is used and the specified file doesn’t exist, a default configuration file (like the one shown below) will be created in the specified location. However, if no config option was used, it will be created in the client’s home directory (see Fabric CA Client section more info).</p>
+<p>配置文件可以通过 <code>-c</code> 或者 <code>--config</code> 选项来指定。如果 <code>--config</code> 选项使用了，而指定的文件不存在，默认的配置文件（如下）会在指定的位置被创建。然而，如果没有指定配置文件，默认配置文件会在 fabric-ca-client 的 home 目录下创建。（参考 <a href="#fabric-ca-客户端">Fabric CA 客户端</a> 了解更多）</p>
+<pre><code>#############################################################################
+# Client Configuration
+#############################################################################
+
+# URL of the fabric-ca-server (default: http://localhost:7054)
+URL: http://localhost:7054
+
+# Membership Service Provider (MSP) directory
+# When the client is used to enroll a peer or an orderer, this field must be
+# set to the MSP directory of the peer/orderer
+MSPDir:
+
+#############################################################################
+#    TLS section for secure socket connection
+#############################################################################
+tls:
+    # Enable TLS (default: false)
+    enabled: false
+    certfiles:   # Comma Separated (e.g. root.pem, root2.pem)
+    client:
+        certfile:
+        keyfile:
+
+#############################################################################
+#  Certificate Signing Request section for generating the CSR for
+#  an enrollment certificate (ECert)
+#############################################################################
+csr:
+    cn: &lt;&lt;&lt;ENROLLMENT_ID&gt;&gt;&gt;
+    names:
+        - C: US
+        ST: North Carolina
+        L:
+        O: Hyperledger
+        OU: Fabric
+    hosts:
+    - &lt;&lt;&lt;MYHOST&gt;&gt;&gt;
+    ca:
+        pathlen:
+        pathlenzero:
+        expiry:
+
+#############################################################################
+#  Registration section used to register a new user with fabric-ca server
+#############################################################################
+id:
+    name:
+    type:
+    affiliation:
+    attrs:
+        - name:
+        value:
+
+#############################################################################
+#  Enrollment section used to enroll a user with fabric-ca server
+#############################################################################
+enrollment:
+    hosts:
+    profile:
+    label:
+</code></pre>
+<h2 id="_7">配置优先级说明<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>The Fabric CA provides 3 ways to configure settings on the Fabric CA server and client. The precedence order is:</p>
+<ol>
+<li>CLI flags</li>
+<li>Environment variables</li>
+<li>Configuration file</li>
+</ol>
+<p>In the remainder of this document, we refer to making changes to configuration files. However, configuration file changes can be overridden through environment variables or CLI flags.</p>
+<p>For example, if we have the following in the client configuration file:</p>
+<p>Fabric CA 提供3种方式来配置 fabric-ca-server 和 fabric-ca-client 。优先级如下：</p>
+<ol>
+<li>命令行参数</li>
+<li>环境变量</li>
+<li>配置文件</li>
+</ol>
+<p>接下来，我们试着对配置文件进行修改。配置文件的修改可以被环境变量或者命令行参数覆盖。</p>
+<p>举个例子，假设我们有以下客户端的配置文件：</p>
+<pre><code>tls:
+    # Enable TLS (default: false)
+    enabled: false
+
+    # TLS for the client's listenting port (default: false)
+    certfiles:   # Comma Separated (e.g. root.pem, root2.pem)
+    client:
+        certfile: cert.pem
+        keyfile:
+</code></pre>
+<p>The following environment variable may be used to override the cert.pem setting in the configuration file:</p>
+<p><code>export FABRIC_CA_CLIENT_TLS_CLIENT_CERTFILE=cert2.pem</code></p>
+<p>If we wanted to override both the environment variable and configuration file, we can use a command line flag.</p>
+<p><code>fabric-ca-client enroll --tls.client.certfile cert3.pem</code></p>
+<p>The same approach applies to fabric-ca-server, except instead of using FABIRC_CA_CLIENT as the prefix to environment variables, FABRIC_CA_SERVER is used.</p>
+<p>可以用以下环境变量来覆盖配置文件中 <code>cert.pem</code> 的配置</p>
+<p><code>export FABRIC_CA_CLIENT_TLS_CLIENT_CERTFILE=cert2.pem</code></p>
+<p>如果我们想同时覆盖环境变量和配置文件，可以通过命令行参数</p>
+<p><code>fabric-ca-client enroll --tls.client.certfile cert3.pem</code></p>
+<p>以上方法对fabric-ca-server同样适用，区别是在环境变量的前缀，把<code>FABIRC_CA_CLIENT</code>替换为<code>FABRIC_CA_SERVER</code>。</p>
+<h3 id="_8">关于路径的一些说明<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>All the properties in the Fabric CA server and client configuration file, that specify file names support both relative and absolute paths. Relative paths are relative to the config directory, where the configuration file is located. For example, if the config directory is ~/config and the tls section is as shown below, the Fabric CA server or client will look for the root.pem file in the ~/config directory, cert.pem file in the ~/config/certs directory and the key.pem file in the /abs/path directory</p>
+<p>fabric-ca-server 和 fabirc-ca-client 的配置文件里的所有属性都支持相对路径和绝对路径。相对路径是相对于配置目录，即配置文件所在的目录。比如，如果配置目录是 <code>~/config</code> ，而 tls 部分的配置如下所示，那么Fabric CA 服务端或者客户端会在 <code>~/config</code> 目录下查找 <code>root.pem</code> ，在 <code>~/config／certs</code> 下查找 <code>cert.pem</code> ，在 <code>/abs/path</code> 目录下查找 <code>key.pem</code></p>
+<pre><code>tls:
+    enabled: true
+    certfiles:   root.pem
+    client:
+        certfile: certs/cert.pem
+        keyfile: /abs/path/key.pem
+</code></pre>
+<h2 id="fabric-ca_3">Fabric CA 服务端<a class="headerlink" href="#fabric-ca_3" title="Permanent link">&para;</a></h2>
+<p>This section describes the Fabric CA server.</p>
+<p>You may initialize the Fabric CA server before starting it. This provides an opportunity for you to generate a default configuration file but to review and customize its settings before starting it.</p>
+<p>The Fabric CA server’s home directory is determined as follows:
+- if the FABRIC_CA_SERVER_HOME environment variable is set, use its value;
+- otherwise, if FABRIC_CA_HOME environment variable is set, use its value;
+- otherwise, if the CA_CFG_PATH environment variable is set, use its value;
+- otherwise, use current working directory.</p>
+<p>For the remainder of this server section, we assume that you have set the FABRIC_CA_HOME environment variable to $HOME/fabric-ca/server.</p>
+<p>The instructions below assume that the server configuration file exists in the server’s home directory.</p>
+<p>这一部分说明Fabric CA服务端。</p>
+<p>在启动Fabric CA服务端之前，你可以先初始化Fabric CA服务端。通过初始化，程序会自动生成一份默认配置文件，方便用户在启动前自行修改一些配置项。</p>
+<p>Fabric CA服务端的根目录通过以下方式决定：
+- 如果存在环境变量 <code>FABRIC_CA_SERVER_HOME</code> ，则使用这个值
+- 否则，如果存在环境变量 <code>FABRIC_CA_HOME</code> ，则使用这个值
+- 否则，如果存在环境变量 <code>CA_CFG_PATH</code> ，则使用这个值
+- 否则，使用当前的工作目录作为根目录</p>
+<p>本章接下来的部分，我们假设你已经设置了环境变量 <code>FABRIC_CA_HOME</code> ，并且值设置为 <code>$HOME/fabric-ca/server</code>。</p>
+<p>接下来的内容都默认服务端配置文件存在于服务端根目录下。</p>
+<h3 id="_9">初始化服务端<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>用以下命令初始化Fabric CA服务端</p>
+<pre><code># fabric-ca-server init -b admin:adminpw
+</code></pre>
+<p>The <code>-b</code> (bootstrap identity) option is required for initialization. At least one bootstrap identity is required to start the Fabric CA server. The server configuration file contains a Certificate Signing Request (CSR) section that can be configured. The following is a sample CSR.</p>
+<p>初始化时必须提供 <code>-b</code> (bootstrap identity: 引导身份) 选项。启动服务端时，至少需要提供一个引导身份。服务端配置文件包含一个可以配置的证书签名请求 (Certificate Signing Request, CSR) 部分。下面是一个CSR的例子。</p>
+<p>If you are going to connect to the Fabric CA server remotely over TLS, replace “localhost” in the CSR section below with the hostname where you will be running your Fabric CA server.</p>
+<p>如果你想通过TLS远程连接Fabric CA服务端，把下面的CSR配置内容中的&rdquo;localhost&rdquo;替换成你将会运行Fabric CA服务端的域名。</p>
+<pre><code>cn: localhost
+key:
+    algo: ecdsa
+    size: 256
+names:
+- C: US
+    ST: "North Carolina"
+    L:
+    O: Hyperledger
+    OU: Fabric
+</code></pre>
+<p>All of the fields above pertain to the X.509 signing key and certificate which is generated by the <code>fabric-ca-server</code> init. This corresponds to the <code>ca.certfile</code> and <code>ca.keyfile</code> files in the server’s configuration file. The fields are as follows:</p>
+<ul>
+<li>cn is the Common Name</li>
+<li>key specifies the algorithm and key size as described below</li>
+<li>O is the organization name</li>
+<li>OU is the organizational unit</li>
+<li>L is the location or city</li>
+<li>ST is the state</li>
+<li>C is the country</li>
+</ul>
+<p>上面所有的字段都符合X.509签名与证书规范，可以由<code>fabric-ca-server</code> init命令来生成。服务端配置文件中提到的<code>ca.certfile</code>和<code>ca.keyfile</code>这两个文件也符合X.509规范。字段如下：</p>
+<ul>
+<li>cn 通用名</li>
+<li>key 指明算法和密钥长度</li>
+<li>O 组织</li>
+<li>OU 组织单位</li>
+<li>L 地址或城市</li>
+<li>ST 州（省）</li>
+<li>C 国家</li>
+</ul>
+<p>If custom values for the CSR are required, you may customize the configuration file, delete the files specified by the ca.certfile and ca-keyfile configuration items, and then run the fabric-ca-server init -b admin:adminpw command again.</p>
+<p>如果需要修改CSR里面的值，你可以修改配置文件，然后把配置中由<code>ca.certfile</code>和<code>ca.keyfile</code>这两项指明的文件删除。然后再运行一次 <code>fabric-ca-server init -b admin:adminpw</code> 命令。</p>
+<p>The <code>fabric-ca-server init</code> command generates a self-signed CA certificate unless the <code>-u \&lt;parent-fabric-ca-server-URL\&gt;</code> option is specified. If the <code>-u</code> is specified, the server’s CA certificate is signed by the parent Fabric CA server. The <code>fabric-ca-server init</code> command also generates a default configuration file named fabric-ca-server-config.yaml in the server’s home directory.</p>
+<p><code>fabirc-ca-server init</code> 命令生成一个自签名的CA证书，除非使用了 <code>-u &lt;parent-fabric-ca-server-URL&gt;</code> 选项。如果使用了 <code>-u</code> 选项，本服务端CA证书会由父Fabric CA服务端签名。<code>fabirc-ca-server init</code> 命令同时也会在服务端的根目录生成一个默认配置文件<em>fabric-ca-server-config.yaml</em>。</p>
+<p>算法和密钥长度</p>
+<p>The CSR can be customized to generate X.509 certificates and keys that support both RSA and Elliptic Curve (ECDSA). The following setting is an example of the implementation of Elliptic Curve Digital Signature Algorithm (ECDSA) with curve prime256v1 and signature algorithm ecdsa-with-SHA256:</p>
+<p>可以通过自定义CSR来生成支持ECDSA和RSA的X.509证书和密钥。以下是一个椭圆曲线数字签名算法（ECDSA）的设置，采用的曲线是<code>prime256v1</code>，签名算法是<code>ecdsa-with-SHA256</code>。</p>
+<pre><code>key:
+    algo: ecdsa
+    size: 256
+</code></pre>
+<p>对算法和密钥长度的选择取决于你对安全的考量。</p>
+<p>ECDSA提供以下选项：</p>
+<table>
+<thead>
+<tr>
+<th align="center">size</th>
+<th align="center">ASN1 OID</th>
+<th align="center">Signature Algorithm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">256</td>
+<td align="center">prime256v1</td>
+<td align="center">ecdsa-with-SHA256</td>
+</tr>
+<tr>
+<td align="center">384</td>
+<td align="center">secp384r1</td>
+<td align="center">ecdsa-with-SHA384</td>
+</tr>
+<tr>
+<td align="center">521</td>
+<td align="center">secp384r1</td>
+<td align="center">ecdsa-with-SHA521</td>
+</tr>
+</tbody>
+</table>
+<p>RSA提供以下选项：</p>
+<table>
+<thead>
+<tr>
+<th align="center">size</th>
+<th align="center">Modulus (bits)</th>
+<th align="center">Signature Algorithm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">2048</td>
+<td align="center">2048</td>
+<td align="center">sha256WithRSAEncryption</td>
+</tr>
+<tr>
+<td align="center">4096</td>
+<td align="center">2096</td>
+<td align="center">sha512WithRSAEncryption</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_10">启动服务端<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>启动Fabric CA服务器：</p>
+<pre><code># fabric-ca-server start -b &lt;admin&gt;:&lt;adminpw&gt;
+</code></pre>
+<p>If the server has not been previously initialized, it will initialize itself as it starts for the first time. During this initialization, the server will generate the ca-cert.pem and ca-key.pem files if they don’t yet exist and will also create a default configuration file if it does not exist. See the <code>Initialize the Fabric CA server</code> section.</p>
+<p>如果服务器之前没有初始化过，它会在第一次启动的时候进行初始化。在初始化的过程中，它会如果ca-cert.pem和ca-key.pem这两个文件不存在，它会生成这两个文件；如果配置文件不存在，它会生成默认配置文件。参考<a href="#初始化服务端">初始化服务端</a>。</p>
+<p>Unless the Fabric CA server is configured to use LDAP, it must be configured with at least one pre-registered bootstrap identity to enable you to register and enroll other identities. The <code>-b</code> option specifies the name and password for a bootstrap identity.</p>
+<p>除非Fabric CA服务端配置了使用LDAP，否则它必须配置至少一个预注册引导身份来允许你登录其他身份。<code>-b</code>选项指明引导身份的用户名和密码。</p>
+<p>A different configuration file may be specified with the -c option as shown below.</p>
+<p>可以通过<code>-c</code>选项来指明其他的配置文件。</p>
+<pre><code># fabric-ca-server start -c &lt;path-to-config-file&gt; -b &lt;admin&gt;:&lt;adminpw&gt;
+</code></pre>
+<p>To cause the Fabric CA server to listen on https rather than http, set tls.enabled to true.</p>
+<p>为了使fabric ca server监听<code>https</code>而不是<code>http</code>，配置<code>tls.enabled</code>为<code>true</code>。</p>
+<p>To limit the number of times that the same secret (or password) can be used for enrollment, set the <code>registry.maxEnrollments</code> in the configuration file to the appropriate value. If you set the value to 1, the Fabric CA server allows passwords to only be used once for a particular enrollment ID. If you set the value to 0, the Fabric CA server places no limit on the number of times that a secret can be reused for enrollment. The default value is 0.</p>
+<p>为了限制登录时相同密码的次数，可以在配置文件中设置<code>registry.maxEnrollments</code>为恰当的值。如果你设置这个值为1，Fabric CA服务端只允许一个密码被一个登录ID使用（即不会出现多个ID有相同的密码）。如果你设置这个值为0，Fabric CA服务端不会限制密码的重复使用次数。默认值为0。</p>
+<p>The Fabric CA server should now be listening on port 7054.</p>
+<p>Fabric CA服务端现在应该正在监听7054端口。</p>
+<p>You may skip to the Fabric CA Client section if you do not want to configure the Fabric CA server to run in a cluster or to use LDAP.</p>
+<p>如果你不想配置Fabric CA服务端集群，也不想使用LDAP，你可以直接跳到<a href="#farbic-ca-客户端">Fabric CA 客户端</a>这一章节。</p>
+<h3 id="_11">配置数据库<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>This section describes how to configure the Fabric CA server to connect to Postgres or MySQL databases. The default database is SQLite and the default database file is <code>fabric-ca-server.db</code> in the Fabric CA server’s home directory.</p>
+<p>这一部分讲解如何配置Fabric CA服务端连接到Postgres或者MySQL。默认的数据库是SQLite，默认的数据库文件是<code>fabric-ca-server.db</code>，存放在Fabric CA服务端的根目录。</p>
+<p>If you don’t care about running the Fabric CA server in a cluster, you may skip this section; otherwise, you must configure either Postgres or MySQL as described below.</p>
+<p>如果你不想运行Fabric CA服务端集群，你可以跳过这一章；不然的话你可以照下面的指引配置Postgres或者MySQL。</p>
+<h4 id="postgres">Postgres<a class="headerlink" href="#postgres" title="Permanent link">&para;</a></h4>
+<p>The following sample may be added to the server’s configuration file in order to connect to a Postgres database. Be sure to customize the various values appropriately.</p>
+<p>下面的例子可以添加到服务端的配置文件中，来使服务端连接到一个Postgres数据库。别忘了正确地自定义各种参数。</p>
+<pre><code>db:
+    type: postgres
+    datasource: host=localhost port=5432 user=Username password=Password dbname=fabric-ca-server sslmode=verify-full
+</code></pre>
+<p>Specifying sslmode configures the type of SSL authentication. Valid values for sslmode are:</p>
+<p>指定sslmode来配置SSL认证的类型。sslmode有效的值为：</p>
+<p>If you would like to use TLS, then the db.tls section in the Fabric CA server configuration file must be specified. If SSL client authentication is enabled on the Postgres server, then the client certificate and key file must also be specified in the db.tls.client section. The following is an example of the db.tls section:</p>
+<p>如果你想使用TLS，那么需要在配置文件中指明<code>db.tls</code>这一部分。如果Postgres服务器开启了SSL客户端认证，那么客户端的证书和密钥文件必须在<code>db.tls.client</code>这一部分指明。下面是<code>db.tls</code>部分的一个例子：</p>
+<pre><code>db:
+    ...
+    tls:
+        enabled: true
+        certfiles:
+            - db-server-cert.pem
+        client:
+                certfile: db-client-cert.pem
+                keyfile: db-client-key.pem
+</code></pre>
+<p><em>certfiles</em> - A list of PEM-encoded trusted root certificate files.</p>
+<p><em>certfile</em> and <em>keyfile</em> - PEM-encoded certificate and key files that are used by the Fabric CA server to communicate securely with the Postgres server</p>
+<p><em>certfiles</em> - 可信任的根证书文件列表，采用PEM编码</p>
+<p><em>certfile</em> and <em>keyfile</em> - 用于与Postgres服务器安全通信的证书和密钥文件，采用PEM编码</p>
+<h4 id="mysql">MySQL<a class="headerlink" href="#mysql" title="Permanent link">&para;</a></h4>
+<p>The following sample may be added to the Fabric CA server configuration file in order to connect to a MySQL database. Be sure to customize the various values appropriately.</p>
+<p>下面的例子可以添加到Fabric CA服务端配置文件，用来连接到MySQL数据库。别忘了正确地自定义各种参数。</p>
+<pre><code>db:
+    type: mysql
+    datasource: root:rootpw@tcp(localhost:3306)/fabric-ca?parseTime=true&amp;tls=custom
+</code></pre>
+<p>If connecting over TLS to the MySQL server, the db.tls.client section is also required as described in the Postgres section above.</p>
+<p>如果要使用TLS，需要配置<code>db.tls.client</code>部分，参考Postgres部分。</p>
+<h3 id="ldap">配置LDAP<a class="headerlink" href="#ldap" title="Permanent link">&para;</a></h3>
+<p>The Fabric CA server can be configured to read from an LDAP server.</p>
+<p>In particular, the Fabric CA server may connect to an LDAP server to do the following:</p>
+<ul>
+<li>authenticate an identity prior to enrollment</li>
+<li>retrieve an identity’s attribute values which are used for authorization.</li>
+</ul>
+<p>Modify the LDAP section of the Fabric CA server’s configuration file to configure the server to connect to an LDAP server.</p>
+<p>Fabric CA服务端可以配置为连接到一个LDAP服务器。</p>
+<p>特别地，Fabric CA服务端可以连接到一个LDAP服务器来做下面的事情：</p>
+<ul>
+<li>登录前验证一个身份</li>
+<li>授权时获取一个身份的属性值</li>
+</ul>
+<p>在配置文件中修改LDAP的配置来连接到一个LDAP服务器。</p>
+<pre><code>ldap:
+    # Enables or disables the LDAP client (default: false)
+    enabled: false
+    # The URL of the LDAP server
+    url: &lt;scheme&gt;://&lt;adminDN&gt;:&lt;adminPassword&gt;@&lt;host&gt;:&lt;port&gt;/&lt;base&gt;
+    userfilter: filter
+</code></pre>
+<p>where:
+- scheme is one of ldap or ldaps;
+- adminDN is the distinquished name of the admin user;
+- pass is the password of the admin user;
+- host is the hostname or IP address of the LDAP server;
+- port is the optional port number, where default 389 for ldap and 636 for ldaps;
+- base is the optional root of the LDAP tree to use for searches;
+- filter is a filter to use when searching to convert a login user name to a distinquished name. For example, a value of (uid=%s) searches for LDAP entries with the value of a uid attribute whose value is the login user name. Similarly, (email=%s) may be used to login with an email address.</p>
+<p>其中：
+- scheme ldap或者ldaps;
+- adminDN 管理员的区别名;
+- pass 管理员的密码;
+- host LDAP服务器的域名或者IP;
+- port 可选的端口号，ldap默认为389，ldaps默认为636;
+- base 可选的LDAP树的根，用于搜索时;
+- filter 搜索时的过滤器，把登陆用户名转换为一个区别名。比如，（uid=%s）会搜索uid值等于用户登录名的LDAP实体。类似地，（email=%s）可以用于邮箱地址作为用户名的登陆。</p>
+<p>The following is a sample configuration section for the default settings for the OpenLDAP server whose docker image is at <code>https://github.com/osixia/docker-openldap</code>.</p>
+<p>下面是一个配置例子，用于OpenLDAP的默认设置，OpenLDAP的docker镜像在<code>https://github.com/osixia/docker-openldap</code>。</p>
+<pre><code>ldap:
+    enabled: true
+    url: ldap://cn=admin,dc=example,dc=org:admin@localhost:10389/dc=example,dc=org
+    userfilter: (uid=%s)
+</code></pre>
+<p>See <code>FABRIC_CA/scripts/run-ldap-tests</code> for a script which starts an OpenLDAP docker image, configures it, runs the LDAP tests in <code>FABRIC_CA/cli/server/ldap/ldap_test.go</code>, and stops the OpenLDAP server.</p>
+<p>在<code>FABRIC_CA/scripts/run-ldap-tests</code>有一个脚本，这个脚本能启动OpenLDAP的docker镜像，配置它，然后运行<code>FABRIC_CA/cli/server/ldap/ldap_test.go</code>里面的LDAP测试，最后停止OpenLDAP服务器。</p>
+<p>When LDAP is configured, enrollment works as follows:</p>
+<ul>
+<li>The Fabric CA client or client SDK sends an enrollment request with a basic authorization header.</li>
+<li>The Fabric CA server receives the enrollment request, decodes the identity name and password in the authorization header, looks up the DN (Distinquished Name) associated with the identity name using the “userfilter” from the configuration file, and then attempts an LDAP bind with the identity’s password. If the LDAP bind is successful, the enrollment processing is authorized and can proceed.</li>
+</ul>
+<p>当LDAP配置好后，登录的流程如下：</p>
+<ul>
+<li>Fabric CA客户端或者客户端SDK发送一个登录请求，带上basic方式的授权头。</li>
+<li>Fabric CA服务端收到登录请求，解码授权头里的身份名和密码，查找与身份名相关联的区别名，（关联方式为配置文件里的&rdquo;userfilter&rdquo;定义的），然后用身份密码尝试一个LDAP绑定。如果LDAP绑定成功，那么登录过程被批准了，能够继续。</li>
+</ul>
+<p>When LDAP is configured, attribute retrieval works as follows:</p>
+<ul>
+<li>A client SDK sends a request for a batch of tcerts with one or more attributes to the Fabric CA server.</li>
+<li>The Fabric CA server receives the tcert request and does as follows:</li>
+<li>extracts the enrollment ID from the token in the authorization header (after validating the token);</li>
+<li>does an LDAP search/query to the LDAP server, requesting all of the attribute names received in the tcert request;</li>
+<li>the attribute values are placed in the tcert as normal.</li>
+</ul>
+<p>当LDAP配置好了，属性返回的流程如下：</p>
+<ul>
+<li>客户端SDK用一个或多个属性发送一个请求到服务端，请求一批tcerts。</li>
+<li>服务端收到tcert请求，做如下的事:</li>
+<li>在授权头取出登录ID（在验证token后）;</li>
+<li>做一次LDAP查询，向LDAP服务器请求tcert请求中的所有的属性名;</li>
+<li>属性值放置在tcert中。</li>
+</ul>
+<h3 id="_12">构建一个集群<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p>You may use any IP sprayer to load balance to a cluster of Fabric CA servers. This section provides an example of how to set up Haproxy to route to a Fabric CA server cluster. Be sure to change hostname and port to reflect the settings of your Fabric CA servers.</p>
+<p>你可以使用任意IP代理来为Fabric CA服务端集群做负载均衡。这一节提供了一个例子来介绍如何使用Haproxy来为集群路由。别忘了修改域名和端口。</p>
+<p>haproxy.conf</p>
+<pre><code>global
+    maxconn 4096
+    daemon
+
+defaults
+    mode http
+    maxconn 2000
+    timeout connect 5000
+    timeout client 50000
+    timeout server 50000
+
+listen http-in
+    bind *:7054
+    balance roundrobin
+    server server1 hostname1:port
+    server server2 hostname2:port
+    server server3 hostname3:port
+</code></pre>
+<p>注意：如果使用TLS，需要使用<code>mode tcp</code></p>
+<h2 id="farbic-ca">Farbic CA 客户端<a class="headerlink" href="#farbic-ca" title="Permanent link">&para;</a></h2>
+<p>This section describes how to use the fabric-ca-client command.</p>
+<p>The Fabric CA client’s home directory is determined as follows:</p>
+<ul>
+<li>if the <code>FABRIC_CA_CLIENT_HOME</code> environment variable is set, use its value;</li>
+<li>otherwise, if the <code>FABRIC_CA_HOME</code> environment variable is set, use its value;</li>
+<li>otherwise, if the <code>CA_CFG_PATH</code> environment variable is set, use its value;</li>
+<li>otherwise, use <code>$HOME/.fabric-ca-client</code>.</li>
+</ul>
+<p>The instructions below assume that the client configuration file exists in the client’s home directory.</p>
+<p>这一部分讲解如何使用fabric-ca-client的命令。</p>
+<p>Fabric CA客户端的根目录定义规则如下：</p>
+<ul>
+<li>如果存在环境变量 <code>FABRIC_CA_CLIENT_HOME</code> ，则使用这个值</li>
+<li>否则，如果存在环境变量 <code>FABRIC_CA_HOME</code> ，则使用这个值</li>
+<li>否则，如果存在环境变量 <code>CA_CFG_PATH</code> ，则使用这个值</li>
+<li>否则，使用<code>$HOME/.fabric-ca-client</code></li>
+</ul>
+<p>下面的指引假设客户端的配置文件存在于客户端根目录。</p>
+<h3 id="_13">登陆启动用户<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<p>First, if needed, customize the CSR (Certificate Signing Request) section in the client configuration file. Note that <code>csr.cn</code> field must be set to the ID of the bootstrap identity. Default CSR values are shown below:</p>
+<p>首先，如果需要在配置文件自定义CSR（证书签名请求），注意<code>csr.cn</code>必须设置为引导身份的ID。默认CSR如下：</p>
+<pre><code>csr:
+    cn: &lt;&lt;enrollment ID&gt;&gt;
+    key:
+        algo: ecdsa
+        size: 256
+    names:
+        - C: US
+        ST: North Carolina
+        L:
+        O: Hyperledger Fabric
+        OU: Fabric CA
+    hosts:
+    - &lt;&lt;hostname of the fabric-ca-client&gt;&gt;
+    ca:
+        pathlen:
+        pathlenzero:
+        expiry:
+</code></pre>
+<p>See CSR fields for description of the fields.</p>
+<p>Then run <code>fabric-ca-client enroll</code> command to enroll the identity. For example, following command enrolls an identity whose ID is admin and password is adminpw by calling Fabric CA server that is running locally at 7054 port.</p>
+<p>查看字段的描述，<a href="#初始化服务端">CSR fields</a></p>
+<p>然后运行<code>fabric-ca-client enroll</code>命令来登录一个身份。比如，下面的命令向一个本地运行在7054端口的Fabric CA服务端，登录了一个ID为admin，password为adminpw的身份。</p>
+<pre><code># export FABRIC_CA_CLIENT_HOME=$HOME/fabric-ca/clients/admin
+# fabric-ca-client enroll -u http://admin:adminpw@localhost:7054
+</code></pre>
+<p>The enroll command stores an enrollment certificate (ECert), corresponding private key and CA certificate chain PEM files in the subdirectories of the Fabric CA client’s <code>msp</code> directory. You will see messages indicating where the PEM files are stored.</p>
+<p>登录命令会存储一个登录证书（ECert），相对应的私钥，还有CA证书链PEM文件。这些存储在Fabric CA客户端的msp目录的子目录下，你会看到信息提示PEM存储在哪里。</p>
+<h3 id="_14">注册一个新的身份<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p>The identity performing the register request must be currently enrolled, and must also have the proper authority to register the type of the identity that is being registered.</p>
+<p>只有已经登录了的身份才能发起注册的请求，而且必须有相应的权限来注册想要注册的身份类型。</p>
+<p>In particular, two authorization checks are made by the Fabric CA server during registration as follows:</p>
+<ol>
+<li>The invoker’s identity must have the “hf.Registrar.Roles” attribute with a comma-separated list of values where one of the value equals the type of identity being registered; for example, if the invoker’s identity has the “hf.Registrar.Roles” attribute with a value of “peer,app,user”, the invoker can register identities of type peer, app, and user, but not orderer.</li>
+<li>The affiliation of the invoker’s identity must be equal to or a prefix of the affiliation of the identity being registered. For example, an invoker with an affiliation of “a.b” may register an identity with an affiliation of “a.b.c” but may not register an identity with an affiliation of “a.c”.</li>
+</ol>
+<p>The following command uses the admin identity’s credentials to register a new identity with an enrollment id of “admin2”, a type of “user”, an affiliation of “org1.department1”, and an attribute named “hf.Revoker” with a value of “true”.</p>
+<p>特别地，注册时Fabric CA服务端做两项权限检查：</p>
+<ol>
+<li>注册发起者的“hf.Registrar.Roles”属性中必须有请求注册的类型。举个例子，如果发起者的“hf.Registrar.Roles”属性的值为“peer,app,user”，那么他能注册的类型为peer，app和user，不能注册orderer。</li>
+<li>发起者的affiliation必须与他请求注册的身份的affiliation相同，或者是所请求注affiliation的前缀。举个例子，一个affiliation为“a.b”的发起者，可以注册一个affiliation为“a.b.c”的身份，但是不能注册一个affiliation为“a.c”的身份。</li>
+</ol>
+<p>下面的命令使用admin身份的凭证来注册一个新的身份，登录ID是“admin2”，类型为“user”，affiliation为“org1.department1”，还有“hf.Revoker”属性为“true”。</p>
+<pre><code># export FABRIC_CA_CLIENT_HOME=$HOME/fabric-ca/clients/admin
+# fabric-ca-client register --id.name admin2 --id.type user --id.affiliation org1.department1 --id.attr hf.Revoker=true
+</code></pre>
+<p>The password, also known as the enrollment secret, is printed. This password is required to enroll the identity. This allows an administrator to register an identity and give the enrollment ID and the secret to someone else to enroll the identity.</p>
+<p>密码会被打印出来，登录这个新注册的身份的时候，需要用到这个密码。这允许一个管理员注册身份，然后把这个身份的ID和密码给别人来登陆。</p>
+<p>You may set default values for any of the fields used in the register command by editing the client’s configuration file. For example, suppose the configuration file contains the following:</p>
+<p>你可以通过编辑配置文件来设置注册时一些字段的默认值。举个例子，假设配置文件包含下面的内容：</p>
+<pre><code>id:
+    name:
+    type: user
+    affiliation: org1.department1
+    attributes:
+        - name: hf.Revoker
+        value: true
+        - name: anotherAttrName
+        value: anotherAttrValue
+</code></pre>
+<p>The following command would then register a new identity with an enrollment id of “admin3” which it takes from the command line, and the remainder is taken from the configuration file including the identity type: “user”, affiliation: “org1.department1”, and two attributes: “hf.Revoker” and “anotherAttrName”.</p>
+<p>下面的命令会注册一个新的身份，id为admin3，其他的内容会从配置文件中读取出来。包括：类型“user”，affiliation “org1.department1”，还有两个属性，“hf.Revoker”和“anotherAttrName”。</p>
+<pre><code># export FABRIC_CA_CLIENT_HOME=$HOME/fabric-ca/clients/admin
+# fabric-ca-client register --id.name admin3
+</code></pre>
+<p>To register an identity with multiple attributes requires specifying all attribute names and values in the configuration file as shown above.</p>
+<p>注册有多个属性的身份需要在配置文件中指明所有属性名和属性值，如上所示。</p>
+<p>Next, let’s register a peer identity which will be used to enroll the peer in the following section. The following command registers the peer1 identity. Note that we choose to specify our own password (or secret) rather than letting the server generate one for us.</p>
+<p>接下来，让我们注册一个节点身份，会在下面内容登陆节点的时候用到。下面的命令注册了一个peer1身份，在这里我们选择指明自己的密码，而不是由服务器生成。</p>
+<pre><code># export FABRIC_CA_CLIENT_HOME=$HOME/fabric-ca/clients/admin
+# fabric-ca-client register --id.name peer1 --id.type peer --id.affiliation org1.department1 --id.secret peer1pw
+</code></pre>
+<h3 id="_15">登录一个节点<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<p>Now that you have successfully registered a peer identity, you may now enroll the peer given the enrollment ID and secret (i.e. the password from the previous section). This is similar to enrolling the bootstrap identity except that we also demonstrate how to use the “-M” option to populate the Hyperledger Fabric MSP (Membership Service Provider) directory structure.</p>
+<p>现在你成功地注册了一个节点身份，你可以用ID和密码登陆。这部分与登陆一个引导身份类似。我们还会介绍如何使用“-M”选项来更换MSP的目录。</p>
+<p>The following command enrolls peer1. Be sure to replace the value of the “-M” option with the path to your peer’s MSP directory which is the ‘mspConfigPath’ setting in the peer’s core.yaml file. You may also set the FABRIC_CA_CLIENT_HOME to the home directory of your peer.</p>
+<p>下面的命令登陆peer1。记得在“-M”选项下更改你自己的MSP目录，MSP目录是由节点的core.yaml里的“mspConfigPath”指定的。你也可以设置FABRIC_CA_CLIENT_HOME环境变量为peer的根目录。</p>
+<pre><code># export FABRIC_CA_CLIENT_HOME=$HOME/fabric-ca/clients/peer1
+# fabric-ca-client enroll -u http://peer1:peer1pw@localhost:7054 -M $FABRIC_CA_CLIENT_HOME/msp
+</code></pre>
+<p>Enrolling an orderer is the same, except the path to the MSP directory is the ‘LocalMSPDir’ setting in your orderer’s orderer.yaml file.</p>
+<p>登陆一个orderer也是一样的，除了MSP目录是设置在你的orderer的orderer.yaml文件里的“LocalMSPDir”。</p>
+<h3 id="fabric-caca">从另一个Fabric CA服务器获得CA证书链<a class="headerlink" href="#fabric-caca" title="Permanent link">&para;</a></h3>
+<p>In general, the cacerts directory of the MSP directory must contain the certificate authority chains of other certificate authorities, representing all of the roots of trust for the peer.</p>
+<p>通常，MSP目录的ca证书目录必须包含证书链，代表这个节点所有信任的信任中心。</p>
+<p>The fabric-ca-client getcacerts command is used to retrieve these certificate chains from other Fabric CA server instances.</p>
+<p><code>fabric-ca-client getcacerts</code>命令用于从其他Fabric CA服务器实例获取这些证书链。</p>
+<p>For example, the following will start a second Fabric CA server on localhost listening on port 7055 with a name of “CA2”. This represents a completely separate root of trust and would be managed by a different member on the blockchain.</p>
+<p>举个例子，下面的命令会在本地启动第二个Fabric CA服务器，监听7055端口，命名为“CA2“。这代表两个由不同成员管理的分开的信任中心。</p>
+<pre><code># export FABRIC_CA_SERVER_HOME=$HOME/ca2
+# fabric-ca-server start -b admin:ca2pw -p 7055 -n CA2
+</code></pre>
+<p>The following command will install CA2’s certificate chain into peer1’s MSP directory.</p>
+<p>下面的命令会把CA2的证书链安装进peer1的MSP目录。</p>
+<pre><code># export FABRIC_CA_CLIENT_HOME=$HOME/fabric-ca/clients/peer1
+# fabric-ca-client getcacert -u http://localhost:7055 -M $FABRIC_CA_CLIENT_HOME/msp
+</code></pre>
+<h3 id="_16">重新登陆一个身份<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<p>Suppose your enrollment certificate is about to expire or has been compromised. You can issue the reenroll command to renew your enrollment certificate as follows.</p>
+<p>假设你的登陆证书快过期了，你可以重新登陆来替换你的登陆证书（ECert）。</p>
+<pre><code># export FABRIC_CA_CLIENT_HOME=$HOME/fabric-ca/clients/peer1
+# fabric-ca-client reenroll
+</code></pre>
+<h3 id="_17">撤销一个证书或身份<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<p>An identity or a certificate can be revoked. Revoking an identity will revoke all the certificates owned by the identity and will also prevent the identity from getting any new certificates. Revoking a certificate will invalidate a single certificate.</p>
+<p>身份和证书都能被撤销。撤销一个身份会撤销该身份拥有的所有证书，该身份也不能再获得新的证书。撤销一个证书会使该证书失效。</p>
+<p>In order to revoke a certificate or an identity, the calling identity must have the hf.Revoker attribute. The revoking identity can only revoke a certificate or an identity that has an affiliation that is equal to or prefixed by the revoking identity’s affiliation.</p>
+<p>为了撤销一个证书或身份，发起者必须有hf.Revoker属性。发起者只能撤销与自己的affiliation相同的证书或身份，或者发起者的affiliation是被撤销者的affiliation的前缀。</p>
+<p>For example, a revoker with affiliation orgs.org1 can revoke an identity affiliated with orgs.org1 or orgs.org1.department1 but can’t revoke an identity affiliated with orgs.org2.</p>
+<p>举个例子，一个“orgs.org1”的发起者只能撤销orgs.org1或者orgs.org1.department1的身份，而不能撤销orgs.org2的身份。</p>
+<p>The following command disables an identity and revokes all of the certificates associated with the identity. All future requests received by the Fabric CA server from this identity will be rejected.</p>
+<p>下面的命令撤销一个身份。将来所有发自该身份的请求都会被Fabric CA服务器拒收。</p>
+<pre><code>fabric-ca-client revoke -e &lt;enrollment_id&gt; -r &lt;reason&gt;
+</code></pre>
+<p>The following are the supported reasons that can be specified using -r flag:</p>
+<p>下面是<code>-r</code>选项支持的理由：</p>
+<ol>
+<li>unspecified</li>
+<li>keycompromise</li>
+<li>cacompromise</li>
+<li>affiliationchange</li>
+<li>superseded</li>
+<li>cessationofoperation</li>
+<li>certificatehold</li>
+<li>removefromcrl</li>
+<li>privilegewithdrawn</li>
+<li>aacompromise</li>
+</ol>
+<p>For example, the bootstrap admin who is associated with root of the affiliation tree can revoke peer1‘s identity as follows:</p>
+<p>举个例子，有着根affiliation的admin可以回收peer1身份：</p>
+<pre><code># export FABRIC_CA_CLIENT_HOME=$HOME/fabric-ca/clients/admin
+# fabric-ca-client revoke -e peer1
+</code></pre>
+<p>An enrollment certificate that belongs to an identity can be revoked by specifying its AKI (Authority Key Identifier) and serial number as follows:</p>
+<p>一个身份可以撤销自己的登陆证书（ECert），需要指定ECert的AKI和序列号：</p>
+<pre><code>fabric-ca-client revoke -a xxx -s yyy -r &lt;reason&gt;
+</code></pre>
+<p>For example, you can get the AKI and the serial number of a certificate using the openssl command and pass them to the revoke command to revoke the said certificate as follows:</p>
+<p>举个例子，你可以通过openssl命令来获取一个证书的AKI和序列号：</p>
+<pre><code>serial=$(openssl x509 -in userecert.pem -serial -noout | cut -d "=" -f 2)
+aki=$(openssl x509 -in userecert.pem -text | awk '/keyid/ {gsub(/ *keyid:|:/,"",$1);print tolower($0)}')
+fabric-ca-client revoke -s $serial -a $aki -r affiliationchange
+</code></pre>
+<h3 id="tls">启用TLS<a class="headerlink" href="#tls" title="Permanent link">&para;</a></h3>
+<p>This section describes in more detail how to configure TLS for a Fabric CA client.</p>
+<p>这一部分介绍如何为Fabric CA客户端配置TLS。</p>
+<p>The following sections may be configured in the <code>fabric-ca-client-config.yaml</code>.</p>
+<p>下面的可以配置在<code>fabric-ca-client-config.yaml</code>中。</p>
+<pre><code>tls:
+    # Enable TLS (default: false)
+    enabled: true
+    certfiles:
+        - root.pem
+    client:
+        certfile: tls_client-cert.pem
+        keyfile: tls_client-key.pem
+</code></pre>
+<p>The certfiles option is the set of root certificates trusted by the client. This will typically just be the root Fabric CA server’s certificate found in the server’s home directory in the ca-cert.pem file.</p>
+<p><em>certfiles</em>是该客户端信任的根证书集合。一般这都会是Fabric CA服务端根目录下的ca-cert.pem。</p>
+<p>The client option is required only if mutual TLS is configured on the server.</p>
+<p>只有在服务器配置了双向TLS的情况下，<em>client</em>选项才需要。</p>
+<h2 id="_18">附录<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
+<h3 id="postgres-ssl">Postgres SSL 配置<a class="headerlink" href="#postgres-ssl" title="Permanent link">&para;</a></h3>
+<h4 id="postgre">配置Postgre服务器的基本步骤：<a class="headerlink" href="#postgre" title="Permanent link">&para;</a></h4>
+<ol>
+<li>In postgresql.conf, uncomment SSL and set to “on” (SSL=on)</li>
+<li>Place certificate and key files in the Postgres data directory.</li>
+</ol>
+<p>Instructions for generating self-signed certificates for: https://www.postgresql.org/docs/9.5/static/ssl-tcp.html</p>
+<p>Note: Self-signed certificates are for testing purposes and should not be used in a production environment</p>
+<ol>
+<li>在postgresql.conf中打开SSL（SSL=on）</li>
+<li>把证书和密钥文件放在Postgres数据目录下。</li>
+</ol>
+<p>如何生成自签名的证书：https://www.postgresql.org/docs/9.5/static/ssl-tcp.html</p>
+<p>注意：自签名的证书用于测试目的，请勿用于生产环境。</p>
+<h4 id="postgres-">Postgres 服务器 - 需要客户端证书<a class="headerlink" href="#postgres-" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Place certificates of the certificate authorities (CAs) you trust in the file root.crt in the Postgres data directory</li>
+<li>In postgresql.conf, set “ssl_ca_file” to point to the root cert of the client (CA cert)</li>
+<li>Set the clientcert parameter to 1 on the appropriate hostssl line(s) in pg_hba.conf.</li>
+</ol>
+<p>For more details on configuring SSL on the Postgres server, please refer to the following Postgres documentation: https://www.postgresql.org/docs/9.4/static/libpq-ssl.html</p>
+<ol>
+<li>把你信任的CA证书放在Postgres数据目录里的root.crt里</li>
+<li>在postgresql.conf里，设置“ssl_ca_file”指向客户端的根证书</li>
+<li>在pg_hba.conf里，在正确的hostssl行把clientcert参数设为1</li>
+</ol>
+<p>更多信息：https://www.postgresql.org/docs/9.4/static/libpq-ssl.html</p>
+<h3 id="mysql-ssl">MySQL SSL 配置<a class="headerlink" href="#mysql-ssl" title="Permanent link">&para;</a></h3>
+<p>On MySQL 5.7.X, certain modes affect whether the server permits ‘0000-00-00’ as a valid date. It might be necessary to relax the modes that MySQL server uses. We want to allow the server to be able to accept zero date values.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../sdk_node_zh/" class="btn btn-neutral float-right" title="SDK--node">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../txflow_zh/" class="btn btn-neutral" title="交易流程"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Hyperledger国际化工作组(yls@chainnova.com)</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/hyperledgerDocs/hyperledgerDocs" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../txflow_zh/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../sdk_node_zh/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

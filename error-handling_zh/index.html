@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Hyperledger国际化工作组">
+  
+  <title>错误处理 - Hyperledger中文文档</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "错误处理";
+    var mkdocs_page_input_path = "error-handling_zh.md";
+    var mkdocs_page_url = "/error-handling_zh/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Hyperledger中文文档</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">欢迎</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../glossary/">词汇表</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../getting_started/">快速入门</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../protocol-spec_zh/">协议规范</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric教程</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../build_network_zh/">构建第一个fabric网络</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../write_first_app_zh/">编写第一个应用</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../chaincode_zh/">Chaincode</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric操作指南</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../msp_zh/">MSP</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configtx_zh/">Channel 配置(configtx)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configtxgen_zh/">Channel 配置(configtxgen)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configtxlator_zh/">Channel 重新配置(configtxlator)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../endorsement-policies_zh/">背书策略</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">错误处理</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#11">1.1. 总体概览</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#12">1.2. 使用说明</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#13">1.3. 显示错误消息</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#14-hyperledger-fabric">1.4. Hyperledger Fabric中错误处理的一般准则</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../logging-control_zh/">日志控制</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric设计</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../arch-deep-dive_zh/">架构说明</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../txflow_zh/">交易流程</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ca-setup_zh/">CA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../sdk_node_zh/">SDK--node</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../sdk_java_zh/">SDK--java</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../kafka_zh/">基于kafka的排序服务</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../channels_zh/">Channels</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ledger_zh/">账本</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../read-write-set/">Read-Write set</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../gossip_zh/">Gossip数据传输协议</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../msp_acl_zh/">MSP&ACL</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../sdk-design_zh/">Fabric SDK 设计</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../makefile_zh/">Makefile文件解析</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Hyperledger中文文档</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Fabric操作指南 &raquo;</li>
+        
+      
+    
+    <li>错误处理</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/hyperledgerDocs/hyperledgerDocs" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <table>
+<thead>
+<tr>
+<th>原文</th>
+<th>作者</th>
+<th>审核修正</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://hyperledger-fabric.readthedocs.io/en/latest/error-handling.html">原文</a></td>
+<td>Zhangjiong Xuan</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="11">1.1. 总体概览<a class="headerlink" href="#11" title="Permanent link">&para;</a></h2>
+<p>The Hyperledger Fabric error handling framework can be found in the source repository under common/errors. It defines a new type of error, CallStackError, to use in place of the standard error type provided by Go.</p>
+<p>Fabric的错误处理框架可以在Fabric代码仓库的common/errors目录下找到。它定义了一种新的错误类型，<code>CallStackError</code>,用于取代<code>Go</code>标准库中实现的错误类型。</p>
+<p>A CallStackError consists of the following:</p>
+<ul>
+<li>Component code - a name for the general area of the code that is generating the error. Component codes should consist of three uppercase letters. Numerics and special characters are not allowed. A set of component codes is defined in common/errors/codes.go</li>
+<li>Reason code - a short code to help identify the reason the error occurred. Reason codes should consist of three numeric values. Letters and special characters are not allowed. A set of reason codes is defined in common/error/codes.go</li>
+<li>Error code - the component code and reason code separated by a colon, e.g. MSP:404</li>
+<li>Error message - the text that describes the error. This is the same as the input provided to fmt.Errorf() and Errors.New(). If an error has been wrapped into the current error, its message will be appended.</li>
+<li>Callstack - the callstack at the time the error is created. If an error has been wrapped into the current error, its error message and callstack will be appended to retain the context of the wrapped error.</li>
+</ul>
+<p>一个<code>CallStackError</code>包含以下内容：</p>
+<ul>
+<li><code>Component code</code> - 一个生成错误信息的错误码的通用区域的组件名称。Component codes应该由3个大写字母组成。不允许出现数字和特殊字符。一系列component codes被定义在<code>common/errors/codes.go</code>文件中。</li>
+<li><code>Reason code</code> - 一个用于在错误出现时定位错误原因的较短的错误码。Reason codes应该由3位数字组成。不允许出现字母和特殊字符。一系列reason codes被定义在<code>common/errors/codes.go</code>文件中。</li>
+<li><code>Error code</code> - 由冒号分隔的component code和reason code组成的错误码，例如<code>MSP：404</code>。</li>
+<li><code>Error message</code> - 描述错误信息的文本。这与提供的<code>fmt.Errorf()</code>和<code>Errors.New()</code>类似。如果一个错误被包含到当前的错误中，那么它的错误消息将被附加。</li>
+<li><code>Callstack</code> - 错误出现时的调用堆栈。如果一个错误被包含在当前的错误中，那么它的错误消息和调用堆栈信息会被附加到被包含的错误的上下文中。</li>
+</ul>
+<p>The CallStackError interface exposes the following functions:</p>
+<ul>
+<li>Error() - returns the error message with callstack appended</li>
+<li>Message() - returns the error message (without callstack appended)</li>
+<li>GetComponentCode() - returns the 3-character component code</li>
+<li>GetReasonCode() - returns the 3-digit reason code</li>
+<li>GetErrorCode() - returns the error code, which is “component:reason”</li>
+<li>GetStack() - returns just the callstack</li>
+<li>WrapError(error) - wraps the provided error into the CallStackError</li>
+</ul>
+<p><code>Callstack</code>接口暴露了以下方法：</p>
+<ul>
+<li><code>Error()</code> - 返回一个带有调用堆栈的错误消息。</li>
+<li><code>Message()</code> - 返回一个错误消息。（不包含调用堆栈信息）。</li>
+<li><code>GetComponentCode()</code> - 返回由3个字母组成的组件代码。</li>
+<li><code>GetReasonCode()</code> - 返回由3个数字组成的错误原因代码。</li>
+<li><code>GetErrorCode()</code> - 返回错误代码，由&rdquo;component:reason&rdquo;组成。</li>
+<li><code>GetStack()</code> - 仅返回调用堆栈。</li>
+<li><code>WrapError(error)</code> - 将提供的错误包装进<code>CallStackError</code>。</li>
+</ul>
+<h2 id="12">1.2. 使用说明<a class="headerlink" href="#12" title="Permanent link">&para;</a></h2>
+<p>The new error handling framework should be used in place of all calls to fmt.Errorf() or Errors.new(). Using this framework will provide error codes to check against as well as the option to generate a callstack that will be appended to the error message.</p>
+<p>应该使用新的错误处理框架来替换所有调用<code>fmt.Errorf()</code>或者<code>Errors.new()</code>的地方。用新的错误处理框架将提供错误代码以及将附加到错误消息的调用堆栈信息的选项。</p>
+<p>Using the framework is simple and will only require an easy tweak to your code.</p>
+<p>使用这个错误框架简单易用，只需要简单地调整你的代码。</p>
+<p>First, you’ll need to import github.com/hyperledger/fabric/common/errors into any file that uses this framework.</p>
+<p>首先，您需要将<code>github.com/hyperleger/fabric/common/errors</code>导入到使用此框架的任何文件中。</p>
+<p>Let’s take the following as an example from core/chaincode/chaincode_support.go:</p>
+<p>以<code>core/chaincode/chaincode_support.go</code>为例：</p>
+<pre><code class="go">err = fmt.Errorf(&quot;Error starting container: %s&quot;, err)
+</code></pre>
+
+<p>For this error, we will simply call the constructor for Error and pass a component code, reason code, followed by the error message. At the end, we then call the WrapError() function, passing along the error itself.</p>
+<p>对于这个错误，我们将简单地调用Error的构造函数，并传递一个组件代码，原因代码，然后是错误消息。最后，我们调用<code>WrapError()</code>函数，传递错误本身。</p>
+<pre><code class="go">fmt.Errorf(&quot;Error starting container: %s&quot;, err)
+</code></pre>
+
+<p>变成</p>
+<pre><code class="go">errors.ErrorWithCallstack(&quot;CHA&quot;, &quot;505&quot;, &quot;Error starting container&quot;).WrapError(err)
+</code></pre>
+
+<p>You could also just leave the message as is without any problems:</p>
+<p>您也可以仅编写错误信息，也不会有任何问题：</p>
+<pre><code class="go">errors.ErrorWithCallstack(&quot;CHA&quot;, &quot;505&quot;, &quot;Error starting container: %s&quot;, err)
+</code></pre>
+
+<p>With this usage you will be able to format the error message from the previous error into the new error, but will lose the ability to print the callstack (if the wrapped error is a CallStackError).</p>
+<p>如果使用这种方法，您将能够将上一个错误消息格式化成一个新的错误，但是将失去打印调用堆栈的能力（如果包装的错误是CallStack）。</p>
+<p>A second example to highlight a scenario that involves formatting directives for parameters other than errors, while still wrapping an error, is as follows:</p>
+<p>另一个凸显的例子涉及了格式化错误以外的参数指令，同时仍然包含了错误，如下所示：</p>
+<pre><code class="go">fmt.Errorf(&quot;failed to get deployment payload %s - %s&quot;, canName, err)
+</code></pre>
+
+<p>变成</p>
+<pre><code class="go">errors.ErrorWithCallstack(&quot;CHA&quot;, &quot;506&quot;, &quot;Failed to get deployment payload %s&quot;, canName).WrapError(err)
+</code></pre>
+
+<h2 id="13">1.3. 显示错误消息<a class="headerlink" href="#13" title="Permanent link">&para;</a></h2>
+<p>Once the error has been created using the framework, displaying the error message is as simple as:</p>
+<p>一旦使用框架创建啦错误，显示错误消息将十分简单：</p>
+<pre><code class="go">logger.Errorf(err)
+</code></pre>
+
+<p>或者</p>
+<pre><code class="go">fmt.Println(err)
+</code></pre>
+
+<p>或者</p>
+<pre><code class="go">fmt.Printf(&quot;%s\n&quot;,err)
+</code></pre>
+
+<p>来自<code>peer/common/common.go</code>的一个例子：</p>
+<pre><code class="go">errors.ErrorWithCallstack(&quot;PER&quot;, &quot;404&quot;, &quot;Error trying to connect to local peer&quot;).WrapError(err)
+</code></pre>
+
+<p>将显示错误消息：</p>
+<pre><code>PER:404 - Error trying to connect to local peer
+Caused by: grpc: timed out when dialing
+</code></pre>
+
+<p>Note
+The callstacks have not been displayed for this example for the sake of brevity.</p>
+<blockquote>
+<p>注意</p>
+<blockquote>
+<p>为了简洁起见，本示例尚未展示调用堆栈信息。</p>
+</blockquote>
+</blockquote>
+<h2 id="14-hyperledger-fabric">1.4. Hyperledger Fabric中错误处理的一般准则<a class="headerlink" href="#14-hyperledger-fabric" title="Permanent link">&para;</a></h2>
+<ul>
+<li>If it is some sort of best effort thing you are doing, you should log the error and ignore it.</li>
+<li>If you are servicing a user request, you should log the error and return it.</li>
+<li>If the error comes from elsewhere, you have the choice to wrap the error or not. Typically, it’s best to not wrap the error and simply return it as is. However, for certain cases where a utility function is called, wrapping the error with a new component and reason code can help an end user understand where the error is really occurring without inspecting the callstack.</li>
+<li>
+<p>A panic should be handled within the same layer by throwing an internal error code/start a recovery process and should not be allowed to propagate to other packages.</p>
+</li>
+<li>
+<p>如果这是你正在努力做的某种事情，你应该记录错误并忽略它。</p>
+</li>
+<li>如果你正在为用户请求提供服务，则应该记录错误并返回。</li>
+<li>如果错误来自其它地方，你可以选择包装错误。通常，最好不要包装错误，让它原样返回。然而，对于工具函数调用的某些情况，使用component code和reason code来包装可以帮助用户在不检查调用堆栈的情况下了解正真发生错误的位置。</li>
+<li>一个panic 应该在同一层通过抛出内部错误代码/启动一个恢复进程来处理，而且不允许传播到其他软件包。</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../logging-control_zh/" class="btn btn-neutral float-right" title="日志控制">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../endorsement-policies_zh/" class="btn btn-neutral" title="背书策略"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Hyperledger国际化工作组(yls@chainnova.com)</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/hyperledgerDocs/hyperledgerDocs" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../endorsement-policies_zh/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../logging-control_zh/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Hyperledger国际化工作组">
+  
+  <title>快速入门 - Hyperledger中文文档</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "快速入门";
+    var mkdocs_page_input_path = "getting_started.md";
+    var mkdocs_page_url = "/getting_started/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Hyperledger中文文档</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">欢迎</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../glossary/">词汇表</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">快速入门</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#_1">前提</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#_2">执行完整脚本</a></li>
+                
+                    <li><a class="toctree-l4" href="#_3">清理</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#configtxgen">configtxgen</a></li>
+                
+                    <li><a class="toctree-l4" href="#generatecfgtrxsh">执行generateCfgTrx.sh脚本</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#_4">启动网络</a></li>
+                
+                    <li><a class="toctree-l4" href="#_5">背后发生了什么？</a></li>
+                
+                    <li><a class="toctree-l4" href="#_6">这表明了什么？</a></li>
+                
+                    <li><a class="toctree-l4" href="#_7">查看交易</a></li>
+                
+                    <li><a class="toctree-l4" href="#chaincode">查看chaincode日志</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#_8">手动执行交易</a></li>
+                
+                    <li><a class="toctree-l4" href="#docker-compose">修改docker-compose文件</a></li>
+                
+                    <li><a class="toctree-l4" href="#_9">命令语法</a></li>
+                
+                    <li><a class="toctree-l4" href="#create-channel">Create channel</a></li>
+                
+                    <li><a class="toctree-l4" href="#join-channel">Join channel</a></li>
+                
+                    <li><a class="toctree-l4" href="#install-chaincode">Install chaincode</a></li>
+                
+                    <li><a class="toctree-l4" href="#instantiate-chaincode">Instantiate chaincode</a></li>
+                
+                    <li><a class="toctree-l4" href="#invoke-chaincode">Invoke chaincode</a></li>
+                
+                    <li><a class="toctree-l4" href="#query-chaincode">Query chaincode</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#_10">手动构建镜像</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#_11">使用本地二进制文件</a></li>
+                
+                    <li><a class="toctree-l4" href="#1">终端1</a></li>
+                
+                    <li><a class="toctree-l4" href="#2">终端2</a></li>
+                
+                    <li><a class="toctree-l4" href="#1_1">终端1</a></li>
+                
+                    <li><a class="toctree-l4" href="#3">终端3</a></li>
+                
+                    <li><a class="toctree-l4" href="#create-channel_1">Create channel</a></li>
+                
+                    <li><a class="toctree-l4" href="#join-channel_1">Join channel</a></li>
+                
+                    <li><a class="toctree-l4" href="#install-chaincode_1">Install chaincode</a></li>
+                
+                    <li><a class="toctree-l4" href="#instantiate-chaincode_1">Instantiate chaincode</a></li>
+                
+                    <li><a class="toctree-l4" href="#invoke-chaincode_1">Invoke chaincode</a></li>
+                
+                    <li><a class="toctree-l4" href="#query-chaincode_1">Query chaincode</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#couchdb">使用CouchDB</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#_12">数据持久化</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#_13">故障排出</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../protocol-spec_zh/">协议规范</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric教程</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../build_network_zh/">构建第一个fabric网络</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../write_first_app_zh/">编写第一个应用</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../chaincode_zh/">Chaincode</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric操作指南</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../msp_zh/">MSP</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configtx_zh/">Channel 配置(configtx)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configtxgen_zh/">Channel 配置(configtxgen)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configtxlator_zh/">Channel 重新配置(configtxlator)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../endorsement-policies_zh/">背书策略</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../error-handling_zh/">错误处理</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../logging-control_zh/">日志控制</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric设计</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../arch-deep-dive_zh/">架构说明</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../txflow_zh/">交易流程</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ca-setup_zh/">CA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../sdk_node_zh/">SDK--node</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../sdk_java_zh/">SDK--java</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../kafka_zh/">基于kafka的排序服务</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../channels_zh/">Channels</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ledger_zh/">账本</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../read-write-set/">Read-Write set</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../gossip_zh/">Gossip数据传输协议</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../msp_acl_zh/">MSP&ACL</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../sdk-design_zh/">Fabric SDK 设计</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../makefile_zh/">Makefile文件解析</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Hyperledger中文文档</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>快速入门</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/hyperledgerDocs/hyperledgerDocs" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <table>
+<thead>
+<tr>
+<th>原文</th>
+<th>作者</th>
+<th>审核修正</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://hyperledger-fabric.readthedocs.io/en/latest/getting_started.html">原文</a></td>
+<td>Linsheng Yu</td>
+<td>Kewei Sun</td>
+</tr>
+</tbody>
+</table>
+<p>本文设定了一个简单的Fabric网络场景，包括2个organization，每个有2个peer，并使用“solo” ordering服务。网络实体所需的加密材料（x509证书）已预先生成并放到相应目录和配置文件里了，你无需修改这些配置。<code>examples/e2e_cli</code>文件夹里包含了docker-compose文件和要用来创建和测试网络的脚本文件。</p>
+<p>本文还演示了使用配置生成工具<code>configtxgen</code>生成网络配置。</p>
+<h2 id="_1">前提<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>完成以下安装Fabric源码和编译<code>configtxgen</code>工具：</p>
+<ul>
+<li>完成<a href="http://hyperledger-fabric.readthedocs.io/en/latest/dev-setup/devenv.html">环境安装</a>，并设置正确的<code>$GOPATH</code>环境变量。</li>
+<li>
+<p>拉取Fabric源码</p>
+<pre><code>git clone https://github.com/hyperledger/fabric.git
+</code></pre>
+</li>
+<li>
+<p>编译<code>configtxgen</code>工具</p>
+<ul>
+<li>
+<p>如果运行在Linux，在Fabric目录下执行以下命令：</p>
+<pre><code>cd $GOPATH/src/github.com/hyperledger/fabric
+make configtxgen
+# 如果出错：'ltdl.h' file not found
+sudo apt install libtool libltdl-dev
+# 然后再运行make
+make configtxgen
+</code></pre>
+</li>
+<li>
+<p>如果运行在OSX，先安装Xcode 8.0或以上版本，然后在Fabric目录下执行以下命令：</p>
+<pre><code># 安装 Homebrew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+# 添加 gnu-tar
+brew install gnu-tar --with-default-names
+# 添加 libtool
+brew install libtool
+# 编译 configtxgen
+make configtxgen
+</code></pre>
+<p>编译成功后输出：</p>
+<pre><code>build/bin/configtxgen
+CGO_CFLAGS=" " GOBIN=/Users/johndoe/work/src/github.com/hyperledger/fabric/build/bin go install -ldflags "-X github.com/hyperledger/fabric/common/metadata.Version=1.0.0-snapshot-8d3275f -X github.com/hyperledger/fabric/common /metadata.BaseVersion=0.3.0 -X github.com/hyperledger/fabric/common/metadata.BaseDockerLabel=org.hyperledger.fabric"       github.com/hyperledger/fabric/common/configtx/tool/configtxgen
+Binary available as build/bin/configtxgen``
+</code></pre>
+</li>
+</ul>
+<p>编译后执行文件放在Fabric目录下的的<code>build/bin/configtxgen</code></p>
+</li>
+</ul>
+<h2 id="_2">执行完整脚本<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>为了加快部署过程，我们提供了一个脚本来执行所有任务。执行该脚本会生成配置结果、本地网络、Chaincode测试。</p>
+<p>进入<code>examples/e2e_cli</code>目录，首先从Docker Hub拉取镜像：</p>
+<pre><code># 使脚本可执行
+chmod +x download-dockerimages.sh
+# 执行脚本
+./download-dockerimages.sh
+</code></pre>
+<p>这个过程会需要几分钟，脚本执行后输出：</p>
+<pre><code>===&gt; List out hyperledger docker images
+hyperledger/fabric-ca          latest               35311d8617b4        7 days ago          240 MB
+hyperledger/fabric-ca          x86_64-1.0.0-alpha   35311d8617b4        7 days ago          240 MB
+hyperledger/fabric-couchdb     latest               f3ce31e25872        7 days ago          1.51 GB
+hyperledger/fabric-couchdb     x86_64-1.0.0-alpha   f3ce31e25872        7 days ago          1.51 GB
+hyperledger/fabric-kafka       latest               589dad0b93fc        7 days ago          1.3 GB
+hyperledger/fabric-kafka       x86_64-1.0.0-alpha   589dad0b93fc        7 days ago          1.3 GB
+hyperledger/fabric-zookeeper   latest               9a51f5be29c1        7 days ago          1.31 GB
+hyperledger/fabric-zookeeper   x86_64-1.0.0-alpha   9a51f5be29c1        7 days ago          1.31 GB
+hyperledger/fabric-orderer     latest               5685fd77ab7c        7 days ago          182 MB
+hyperledger/fabric-orderer     x86_64-1.0.0-alpha   5685fd77ab7c        7 days ago          182 MB
+hyperledger/fabric-peer        latest               784c5d41ac1d        7 days ago          184 MB
+hyperledger/fabric-peer        x86_64-1.0.0-alpha   784c5d41ac1d        7 days ago          184 MB
+hyperledger/fabric-javaenv     latest               a08f85d8f0a9        7 days ago          1.42 GB
+hyperledger/fabric-javaenv     x86_64-1.0.0-alpha   a08f85d8f0a9        7 days ago          1.42 GB
+hyperledger/fabric-ccenv       latest               91792014b61f        7 days ago          1.29 GB
+hyperledger/fabric-ccenv       x86_64-1.0.0-alpha   91792014b61f        7 days ago          1.29 GB
+</code></pre>
+<p>现在运行完整脚本：</p>
+<pre><code>./network_setup.sh up &lt;channel-ID&gt;
+</code></pre>
+<p>如果没有设置<code>channel-ID</code>参数，channel名默认是<code>mychannel</code>。脚本执行成功后输出：</p>
+<pre><code>===================== Query on PEER3 on channel 'mychannel' is successful =====================
+
+===================== All GOOD, End-2-End execution completed =====================
+</code></pre>
+<p>此时，网络启动运行并测试成功。</p>
+<h3 id="_3">清理<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>停止网络：</p>
+<pre><code># 在e2e_cli目录下
+docker rm -f $(docker ps -aq)
+</code></pre>
+<p>然后执行<code>docker images</code>命令查看Chaincode镜像，类似输出如下：</p>
+<pre><code>REPOSITORY                     TAG                  IMAGE ID            CREATED             SIZE
+dev-peer3-mycc-1.0             latest               13f6c8b042c6        5 minutes ago       176 MB
+dev-peer0-mycc-1.0             latest               e27456b2bd92        5 minutes ago       176 MB
+dev-peer2-mycc-1.0             latest               111098a7c98c        5 minutes ago       176 MB
+</code></pre>
+<p>删除这些镜像：</p>
+<pre><code>docker rmi &lt;IMAGE ID&gt; &lt;IMAGE ID&gt; &lt;IMAGE ID&gt;
+</code></pre>
+<p>例如：</p>
+<pre><code>docker rmi -f 13f e27 111
+</code></pre>
+<p>最后删除配置结果，在<code>crypto/orderer</code>目录删除<code>orderer.block</code>和<code>channel.tx</code>。</p>
+<h2 id="configtxgen">configtxgen<a class="headerlink" href="#configtxgen" title="Permanent link">&para;</a></h2>
+<p>configtxgen工具生成两个内容：    Orderer的<strong>bootstrap block</strong>和Fabric的<strong>channel configuration transaction</strong>。</p>
+<p>orderer block是ordering服务的创世区块；channel transaction文件在create channel时会被广播给orderer。</p>
+<p><code>configtx.yaml</code>包含网络的定义，并给出了网络组件的拓扑结构&ndash;2个成员（Org0和Org1）分别管理维护2个peer。还指出每个网络实体的加密材料的存储位置。<code>crypto</code>目录包含每个实体的admin证书、ca证书、签名证书和私钥。</p>
+<p>为了方便使用，我们提供了一个脚本<code>generateCfgTrx.sh</code>，该脚本整合了<code>configtxgen</code>的执行过程，执行后会生成两个配置结果：<code>orderer.block</code>和<code>channel.tx</code>。如果你运行过上边的<code>network_setup.sh</code>则这两个配置结果已生成，要先到<code>crypto/orderer</code>目录将之删除。</p>
+<h3 id="generatecfgtrxsh">执行<code>generateCfgTrx.sh</code>脚本<a class="headerlink" href="#generatecfgtrxsh" title="Permanent link">&para;</a></h3>
+<p>在<code>e2e_cli</code>目录下：</p>
+<pre><code>cd $GOPATH/src/github.com/hyperledger/fabric/examples/e2e_cli
+</code></pre>
+<p><code>generateCfgTrx.sh</code>脚本有个可选参数<code>channel-ID</code>，如果不设此参数，则默认为<code>mychannel</code>。</p>
+<pre><code># 如上所述，&lt;channel-ID&gt; 参数是可选的
+./generateCfgTrx.sh &lt;channel-ID&gt;
+</code></pre>
+<p>执行成功后输出：</p>
+<pre><code>2017/02/28 17:01:52 Generating new channel configtx
+2017/02/28 17:01:52 Creating no-op MSP instance
+2017/02/28 17:01:52 Obtaining default signing identity
+2017/02/28 17:01:52 Creating no-op signing identity instance
+2017/02/28 17:01:52 Serializing identity
+2017/02/28 17:01:52 signing message
+2017/02/28 17:01:52 signing message
+2017/02/28 17:01:52 Writing new channel tx
+</code></pre>
+<p>生成的<code>orderer.block</code>和<code>channel.tx</code>两个文件存放在<code>crypto/orderer</code>目录。</p>
+<p><code>orderer.block</code>是ordering服务的创世区块，<code>channel.tx</code>包含新channel的配置信息。如前所述，这俩文件都来自<code>configtx.yaml</code>及其所包含的加密材料和网络信息的数据。</p>
+<p><strong><em>注意：</em></strong>也可手动执行脚本<code>generateCfgTrx.sh</code>里的命令。如果使用这种方式，则必须先用<code>e2e_cli</code>目录下的<code>configtx.yaml</code>替换Fabric sampleconfig目录下默认的<code>configtx.yaml</code>，然后返回fabric目录执行这些命令，前提是删除之前<code>generateCfgTrx.sh</code>生成的两个文件。</p>
+<h2 id="_4">启动网络<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>使用docker-compose启动网络，如果没有拉取Fabric镜像，则返回之前的操作去拉取镜像。</p>
+<p>脚本<code>script.sh</code>嵌入到docker-compose文件里，该脚本将peer加入到channel并向peer发送read/write请求，如此便可自动执行交易流程。如果不想使用这个脚本自动执行交易，可以跳到下面“手动执行交易”一节。</p>
+<p>在<code>e2e_cli</code>目录下使用docker-compose生成网络实体并执行嵌入的脚本：</p>
+<pre><code>CHANNEL_NAME=&lt;channel-id&gt; docker-compose up -d
+</code></pre>
+<p>如果之前创建了一个channel名，就必须将其作为参数，否则使用默认的<code>mychannel</code>。例如：</p>
+<pre><code>CHANNEL_NAME=mychannel docker-compose up -d
+</code></pre>
+<p>等待一会儿，因为背后有交易会发送到peer。执行<code>docker ps</code>查看运行状态的container，可以看到如下内容：</p>
+<pre><code>vagrant@hyperledger-devenv:v0.3.0-4eec836:/opt/gopath/src/github.com/hyperledger/fabric/examples/e2e_cli$ docker ps
+CONTAINER ID        IMAGE                        COMMAND                  CREATED              STATUS              PORTS                                              NAMES
+45e3e114f7a2        dev-peer3-mycc-1.0           "chaincode -peer.a..."   4 seconds ago        Up 4 seconds                                                           dev-peer3-mycc-1.0
+5970f740ad2b        dev-peer0-mycc-1.0           "chaincode -peer.a..."   24 seconds ago       Up 23 seconds                                                          dev-peer0-mycc-1.0
+b84808d66e99        dev-peer2-mycc-1.0           "chaincode -peer.a..."   48 seconds ago       Up 47 seconds                                                          dev-peer2-mycc-1.0
+16d7d94c8773        hyperledger/fabric-peer      "peer node start -..."   About a minute ago   Up About a minute   0.0.0.0:10051-&gt;7051/tcp, 0.0.0.0:10053-&gt;7053/tcp   peer3
+3561a99e35e6        hyperledger/fabric-peer      "peer node start -..."   About a minute ago   Up About a minute   0.0.0.0:9051-&gt;7051/tcp, 0.0.0.0:9053-&gt;7053/tcp     peer2
+0baad3047d92        hyperledger/fabric-peer      "peer node start -..."   About a minute ago   Up About a minute   0.0.0.0:8051-&gt;7051/tcp, 0.0.0.0:8053-&gt;7053/tcp     peer1
+1216896b7b4f        hyperledger/fabric-peer      "peer node start -..."   About a minute ago   Up About a minute   0.0.0.0:7051-&gt;7051/tcp, 0.0.0.0:7053-&gt;7053/tcp     peer0
+155ff8747b4d        hyperledger/fabric-orderer   "orderer"                About a minute ago   Up About a minute   0.0.0.0:7050-&gt;7050/tcp                             orderer
+</code></pre>
+<h3 id="_5">背后发生了什么？<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>在CLI容器中执行了脚本<code>script.sh</code>。该脚本用默认的<code>mychannel</code>执行<code>createChannel</code>命令，这个命令用到了之前<code>configtxgen</code>工具生成的<code>channel.tx</code>。</li>
+<li><code>createChannel</code>执行后会生成一个创世区块<code>mychannel.block</code>并保存到当前目录。</li>
+<li>对4个peer分别执行<code>joinChannel</code>命令，通过初始区块<code>mychannel.block</code>加入channel。至此，有一个channel包含4个peer和2个organization。</li>
+<li><code>PEER0</code>和<code>PEER1</code>属于Org0，<code>PEER2</code>和<code>PEER3</code>属于Org1。这些关系的定义都在<code>configtx.yaml</code>中</li>
+<li>Chaincode <code>chaincode_example02</code>被install到<code>PEER0</code>和<code>PEER2</code></li>
+<li>然后Chaincode在<code>PEER2</code>上instantiate。实例化是指启动容器和初始化与Chaincode相关的键值对，本例中的初始值是<code>[“a”,”100” “b”,”200”]</code>。实例化的结果是一个名为<code>dev-peer2-mycc-1.0</code>的容器启动，注意，这个容器仅是针对<code>PEER2</code>。<strong><em>（译注：尤其注意这里仅仅是启动了一个container）</em></strong></li>
+<li>实例化时还会带有背书策略参数，本例中背书策略为`-P &ldquo;OR (&lsquo;Org0MSP.member&rsquo;,&rsquo;Org1MSP.member&rsquo;)&rdquo;，意思是任何交易必须由绑定到Org0或者Org1的peer背书。</li>
+<li>对于“a”的query请求发送到<code>PEER0</code>。在之前Chaincode被install到<code>PEER0</code>了，所以就可以启动一个名为<code>dev-peer0-mycc-1.0</code>的新容器，然后返回查询结果。由于没有write操作发生，所以“a”的值依然是“100”。</li>
+<li>从“a“转移”10“给”b”的invoke请求发送到<code>PEER0</code></li>
+<li>Chaincode install到<code>PEER3</code></li>
+<li>对“a”的query请求发送到<code>PEER3</code>。这启动了第三个名为<code>dev-peer3-mycc-1.0</code>的容器，并返回查询结果90，正确的反映了之前的交易。</li>
+</ul>
+<h3 id="_6">这表明了什么？<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>Chaincode必须被install到一个peer上才能成功的对这个peer的ledger执行read/write操作。此外，只有当在peer上针对chaincode执行read/write操作时，这个peer上才会启动该chaincode 容器。（比如，查询“a”的值）<strong><em>交易导致容器启动</em></strong>。channel中的所有peer（包括那些没有install chaincode的peer，就像上例中的<code>PEER3</code>）都会维护一个准确的ledger，ledger包含存储了不可变的、有序的交易记录的block，还有维护current state的statedb。在peer上install chaincode之后就可以直接使用该peer上的chaincode了（就像上例中的<code>PEER3</code>），因为之前已经instantiate过了 <strong><em>（译注：即同一channel中的chaincode只需一次instantiate）</em></strong>。</p>
+<h3 id="_7">查看交易<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>查看CLI容器的log：</p>
+<pre><code>docker logs -f cli
+</code></pre>
+<p>输出：</p>
+<pre><code>2017-02-28 04:31:20.841 UTC [logging] InitFromViper -&gt; DEBU 001 Setting default logging level to DEBUG for command 'chaincode'
+2017-02-28 04:31:20.842 UTC [msp] GetLocalMSP -&gt; DEBU 002 Returning existing local MSP
+2017-02-28 04:31:20.842 UTC [msp] GetDefaultSigningIdentity -&gt; DEBU 003 Obtaining default signing identity
+2017-02-28 04:31:20.843 UTC [msp] Sign -&gt; DEBU 004 Sign: plaintext: 0A8F050A59080322096D796368616E6E...6D7963631A0A0A0571756572790A0161
+2017-02-28 04:31:20.843 UTC [msp] Sign -&gt; DEBU 005 Sign: digest: 52F1A41B7B0B08CF3FC94D9D7E916AC4C01C54399E71BC81D551B97F5619AB54
+Query Result: 90
+2017-02-28 04:31:30.425 UTC [main] main -&gt; INFO 006 Exiting.....
+===================== Query on chaincode on PEER3 on channel 'mychannel' is successful =====================
+
+===================== All GOOD, End-2-End execution completed =====================
+</code></pre>
+<p>你也可以实时查看日志，需要打开两个终端。</p>
+<p>首先，停止运行着的docker容器：</p>
+<pre><code>docker rm -f $(docker ps -aq)
+</code></pre>
+<p>在第一个终端启动docker-compose脚本：</p>
+<pre><code># add the appropriate CHANNEL_NAME parm
+CHANNEL_NAME=&lt;channel-id&gt; docker-compose up -d
+</code></pre>
+<p>在第二个终端查看log：</p>
+<pre><code>docker logs -f cli
+</code></pre>
+<p>这将实时输出通过<code>script.sh</code>执行的交易信息。</p>
+<h3 id="chaincode">查看chaincode日志<a class="headerlink" href="#chaincode" title="Permanent link">&para;</a></h3>
+<p>对每个chaincode容器单独查看log，输出：</p>
+<pre><code>$ docker logs dev-peer2-mycc-1.0
+04:30:45.947 [BCCSP_FACTORY] DEBU : Initialize BCCSP [SW]
+ex02 Init
+Aval = 100, Bval = 200
+
+$ docker logs dev-peer0-mycc-1.0
+04:31:10.569 [BCCSP_FACTORY] DEBU : Initialize BCCSP [SW]
+ex02 Invoke
+Query Response:{"Name":"a","Amount":"100"}
+ex02 Invoke
+Aval = 90, Bval = 210
+
+$ docker logs dev-peer3-mycc-1.0
+04:31:30.420 [BCCSP_FACTORY] DEBU : Initialize BCCSP [SW]
+ex02 Invoke
+Query Response:{"Name":"a","Amount":"90"}
+</code></pre>
+<h2 id="_8">手动执行交易<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>停止所有容器：</p>
+<pre><code>docker rm -f $(docker ps -aq)
+</code></pre>
+<p>然后，执行<code>docker images</code>命令查看chaincode镜像，会有类似以下内容：</p>
+<pre><code>REPOSITORY                     TAG                  IMAGE ID            CREATED             SIZE
+dev-peer3-mycc-1.0             latest               13f6c8b042c6        5 minutes ago       176 MB
+dev-peer0-mycc-1.0             latest               e27456b2bd92        5 minutes ago       176 MB
+dev-peer2-mycc-1.0             latest               111098a7c98c        5 minutes ago       176 MB
+</code></pre>
+<p>删除这些镜像：</p>
+<pre><code>docker rmi &lt;IMAGE ID&gt; &lt;IMAGE ID&gt; &lt;IMAGE ID&gt;
+</code></pre>
+<p>比如：</p>
+<pre><code>docker rmi -f 13f e27 111
+</code></pre>
+<p>确保之前生成的配置内容还在，如果删除了就再执行脚本：</p>
+<pre><code>./generateCfgTrx.sh &lt;channel-ID&gt;
+</code></pre>
+<p>或者使用脚本中的命令手动生成。</p>
+<h3 id="docker-compose">修改docker-compose文件<a class="headerlink" href="#docker-compose" title="Permanent link">&para;</a></h3>
+<p>打开docker-compose文件注释掉执行<code>script.sh</code>脚本的命令，如下：</p>
+<pre><code>working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
+# command: /bin/bash -c './scripts/script.sh ${CHANNEL_NAME}'
+</code></pre>
+<p>保存文件，重启网络：</p>
+<pre><code># 在e2e_cli目录下执行，设置正确的CHANNEL_NAME
+CHANNEL_NAME=&lt;channel-id&gt; docker-compose up -d
+</code></pre>
+<h3 id="_9">命令语法<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>参照<code>script.sh</code>脚本中的create和join命令。下面的命令只是针对<code>PEER0</code>的，当对orderer和peer执行命令时，需要修改下面给出的四个环境变量的值。</p>
+<pre><code># 对PEER0所用的环境变量
+CORE_PEER_MSPCONFIGPATH=$GOPATH/src/github.com/hyperledger/fabric/peer/crypto/peer/peer0/localMspConfig
+CORE_PEER_ADDRESS=peer0:7051
+CORE_PEER_LOCALMSPID="Org0MSP"
+CORE_PEER_TLS_ROOTCERT_FILE=$GOPATH/src/github.com/hyperledger/fabric/peer/crypto/peer/ peer0/localMspConfig/cacerts/peerOrg0.pem
+</code></pre>
+<p>每个peer的环境变量的值都在docker-compose文件中</p>
+<h3 id="create-channel">Create channel<a class="headerlink" href="#create-channel" title="Permanent link">&para;</a></h3>
+<p>进去cli容器：</p>
+<pre><code>docker exec -it cli bash
+</code></pre>
+<p>执行成功输出：</p>
+<pre><code>root@0d78bb69300d:/opt/gopath/src/github.com/hyperledger/fabric/peer#
+</code></pre>
+<p>用<code>-c</code>指定channel name，<code>-f</code>指定channel configuration transaction（此例中是<code>channel.tx</code>），当然也可以使用不同的名称安装 configuration transaction。</p>
+<pre><code># channel.tx 和 orderer.block 在 cli 容器的 crypto/orderer 目录下
+peer channel create -o orderer0:7050 -c mychannel -f crypto/orderer/channel.tx --tls $CORE_PEER_TLS_ENABLED --cafile $GOPATH/src/github.com/hyperledger/fabric/peer/crypto/orderer/localMspConfig/cacerts/ordererOrg0.pem
+</code></pre>
+<p>由于此例的<code>peer channel create</code>命令是针对orderer的，所以需要修改之前的环境变量，因此上边的命令应该是：</p>
+<pre><code>CORE_PEER_MSPCONFIGPATH=$GOPATH/src/github.com/hyperledger/fabric/peer/crypto/orderer/localMspConfig CORE_PEER_LOCALMSPID="OrdererMSP" peer channel create -o orderer0:7050 -c mychannel -f crypto/orderer/channel.tx --tls $CORE_PEER_TLS_ENABLED --cafile $GOPATH/src/github.com/hyperledger/fabric/peer/crypto/orderer/localMspConfig/cacerts/ordererOrg0.pem
+</code></pre>
+<p><strong>注意：</strong>下面的其他命令依然在CLI容器中执行，而且要记住命令里每个peer对应的环境变量</p>
+<h3 id="join-channel">Join channel<a class="headerlink" href="#join-channel" title="Permanent link">&para;</a></h3>
+<p>将指定的peer加入到channel：</p>
+<pre><code># 默认只将 PEER0 加入
+peer channel join -b mychannel.block
+</code></pre>
+<p>完整的命令应该是：</p>
+<pre><code>CORE_PEER_MSPCONFIGPATH=$GOPATH/src/github.com/hyperledger/fabric/peer/crypto/peer/peer0/localMspConfig CORE_PEER_ADDRESS=peer0:7051 CORE_PEER_LOCALMSPID="Org0MSP" CORE_PEER_TLS_ROOTCERT_FILE=$GOPATH/src/github.com/hyperledger/fabric/peer/crypto/peer/peer0/localMspConfig/cacerts/peerOrg0.pem peer channel join -b mychannel.block
+</code></pre>
+<p>修改这四个环境变量将其他的peer加入到channel中</p>
+<h3 id="install-chaincode">Install chaincode<a class="headerlink" href="#install-chaincode" title="Permanent link">&para;</a></h3>
+<p>将示例chaincode代码安装到四个对等节点中的一个：</p>
+<pre><code># 在命令前面要加上peer对应的四个环境变量
+peer chaincode install -n mycc -v 1.0 -p github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02
+</code></pre>
+<h3 id="instantiate-chaincode">Instantiate chaincode<a class="headerlink" href="#instantiate-chaincode" title="Permanent link">&para;</a></h3>
+<p>在一个peer上实例化chaincode，这将对该peer启动一个chaincode容器，并为该chaincode设置背书策略。此例中定义的策略是有<code>Org0</code>或<code>Org1</code>中的一个peer背书即可。命令如下：</p>
+<pre><code># 在命令前面要加上peer对应的四个环境变量
+# 用 -C 参数设置正确的channel名，默认是 mychannel
+peer chaincode instantiate -o orderer0:7050 --tls $CORE_PEER_TLS_ENABLED --cafile $GOPATH/src/github.com/hyperledger/fabric/peer/crypto/orderer/localMspConfig/cacerts/ordererOrg0.pem -C mychannel -n mycc -v 1.0 -p github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02 -c '{"Args":["init","a", "100", "b","200"]}' -P "OR ('Org0MSP.member','Org1MSP.member')"
+</code></pre>
+<h3 id="invoke-chaincode">Invoke chaincode<a class="headerlink" href="#invoke-chaincode" title="Permanent link">&para;</a></h3>
+<pre><code># 在命令前面要加上peer对应的四个环境变量
+peer chaincode invoke -o orderer0:7050  --tls $CORE_PEER_TLS_ENABLED --cafile $GOPATH/src/github.com/hyperledger/fabric/peer/crypto/orderer/localMspConfig/cacerts/ordererOrg0.pem  -C mychannel -n mycc -c '{"Args":["invoke","a","b","10"]}'
+</code></pre>
+<h3 id="query-chaincode">Query chaincode<a class="headerlink" href="#query-chaincode" title="Permanent link">&para;</a></h3>
+<pre><code># 在命令前面要加上peer对应的四个环境变量
+peer chaincode query -C mychannel -n mycc -c '{"Args":["query","a"]}'
+</code></pre>
+<p>执行结果：</p>
+<pre><code>Query Result: 90
+</code></pre>
+<h2 id="_10">手动构建镜像<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>构建peer和orderer镜像：</p>
+<pre><code># 在fabric目录下执行，如果不能顺利生成镜像，则使用vagrant环境
+make peer-docker orderer-docker
+</code></pre>
+<p>执行<code>docker images</code>命令输出：</p>
+<pre><code>vagrant@hyperledger-devenv:v0.3.0-4eec836:/opt/gopath/src/github.com/hyperledger/fabric$ docker images
+REPOSITORY                     TAG                             IMAGE ID            CREATED             SIZE
+hyperledger/fabric-orderer     latest                          264e45897bfb        10 minutes ago      180 MB
+hyperledger/fabric-orderer     x86_64-0.7.0-snapshot-a0d032b   264e45897bfb        10 minutes ago      180 MB
+hyperledger/fabric-peer        latest                          b3d44cff07c6        10 minutes ago      184 MB
+hyperledger/fabric-peer        x86_64-0.7.0-snapshot-a0d032b   b3d44cff07c6        10 minutes ago      184 MB
+hyperledger/fabric-javaenv     latest                          6e2a2adb998a        10 minutes ago      1.42 GB
+hyperledger/fabric-javaenv     x86_64-0.7.0-snapshot-a0d032b   6e2a2adb998a        10 minutes ago      1.42 GB
+hyperledger/fabric-ccenv       latest                          0ce0e7dc043f        12 minutes ago      1.29 GB
+hyperledger/fabric-ccenv       x86_64-0.7.0-snapshot-a0d032b   0ce0e7dc043f        12 minutes ago      1.29 GB
+hyperledger/fabric-baseimage   x86_64-0.3.0                    f4751a503f02        4 weeks ago         1.27 GB
+hyperledger/fabric-baseos      x86_64-0.3.0                    c3a4cf3b3350        4 weeks ago         161 MB
+</code></pre>
+<h2 id="_11">使用本地二进制文件<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>进去vagrant环境：</p>
+<pre><code>cd $GOPATH/src/github.com/hyperledger/fabric/devenv
+
+# 第一次启动VM用 vagrant up 
+vagrant ssh
+</code></pre>
+<p>在fabric目录下编译peer和orderer：</p>
+<pre><code>make clean
+make native
+</code></pre>
+<p>生成<code>ccenv</code>镜像：</p>
+<pre><code>make peer-docker
+</code></pre>
+<p>然后打开两个终端都进入vagrant，至此有三个终端都在vagrant里。</p>
+<p>前首先清空ledger文件夹<code>/var/hyperledger/</code>（每次运行后，为避免错误或重复，都要清空）:</p>
+<pre><code>rm -rf /var/hyperledger/*
+</code></pre>
+<h4 id="1">终端1<a class="headerlink" href="#1" title="Permanent link">&para;</a></h4>
+<p>使用<code>configtxgen</code>工具创建orderer创世区块：</p>
+<pre><code>configtxgen -profile SampleSingleMSPSolo -outputBlock orderer.block
+</code></pre>
+<h4 id="2">终端2<a class="headerlink" href="#2" title="Permanent link">&para;</a></h4>
+<p>用刚生成的创世区块启动orderer：</p>
+<pre><code>ORDERER_GENERAL_GENESISMETHOD=file ORDERER_GENERAL_GENESISFILE=./orderer.block orderer
+</code></pre>
+<h4 id="1_1">终端1<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h4>
+<p>创建 channel configuration transaction：</p>
+<pre><code>configtxgen -profile SampleSingleMSPSolo -outputCreateChannelTx channel.tx -channelID &lt;channel-ID&gt;
+</code></pre>
+<p>执行成功会在当前目录生成<code>channel.tx</code></p>
+<h4 id="3">终端3<a class="headerlink" href="#3" title="Permanent link">&para;</a></h4>
+<p>以<code>chainless</code>模式启动peer：</p>
+<pre><code>peer node start --peer-defaultchain=false
+</code></pre>
+<h3 id="create-channel_1">Create channel<a class="headerlink" href="#create-channel_1" title="Permanent link">&para;</a></h3>
+<p>以<code>channel.tx</code>为参数创建channel：</p>
+<pre><code>peer channel create -o 127.0.0.1:7050 -c mychannel -f channel.tx
+</code></pre>
+<p>执行后在当前目录生成一个channel的创世区块<code>mychannel.block</code></p>
+<h3 id="join-channel_1">Join channel<a class="headerlink" href="#join-channel_1" title="Permanent link">&para;</a></h3>
+<p>通过channel的创世区块<code>mychannel.block</code>加入channel：</p>
+<pre><code>peer channel join -b mychannel.block
+</code></pre>
+<h3 id="install-chaincode_1">Install chaincode<a class="headerlink" href="#install-chaincode_1" title="Permanent link">&para;</a></h3>
+<p>在peer上安装chaincode：</p>
+<pre><code>peer chaincode install -o 127.0.0.1:7050 -n mycc -v 1.0 -p github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02
+</code></pre>
+<p>执行成功后查看文件可以看到<code>mycc.1.0</code>:</p>
+<pre><code>ls /var/hyperledger/production/chaincodes
+</code></pre>
+<h3 id="instantiate-chaincode_1">Instantiate chaincode<a class="headerlink" href="#instantiate-chaincode_1" title="Permanent link">&para;</a></h3>
+<p>实例化chaincode：</p>
+<pre><code>peer chaincode instantiate -o 127.0.0.1:7050 -C mychannel -n mycc -v 1.0 -p github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02 -c '{"Args":["init","a", "100", "b","200"]}'
+</code></pre>
+<p><code>docker ps</code>查看运行中的容器，如果chaincode启动成功，则显示：</p>
+<pre><code>CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
+bd9c6bda7560        dev-jdoe-mycc-1.0   "chaincode -peer.a..."   5 seconds ago       Up 5 seconds                            dev-jdoe-mycc-1.0
+</code></pre>
+<h3 id="invoke-chaincode_1">Invoke chaincode<a class="headerlink" href="#invoke-chaincode_1" title="Permanent link">&para;</a></h3>
+<p>调用chaincode从“a”转移“10”给“b“：</p>
+<pre><code>peer chaincode invoke -o 127.0.0.1:7050 -C mychannel -n mycc -c '{"Args":["invoke","a","b","10"]}'
+</code></pre>
+<h3 id="query-chaincode_1">Query chaincode<a class="headerlink" href="#query-chaincode_1" title="Permanent link">&para;</a></h3>
+<p>查询”a“的值：</p>
+<pre><code># 返回值应是 90
+peer chaincode query -o 127.0.0.1:7050 -C mychannel -n mycc -c '{"Args":["query","a"]}'
+</code></pre>
+<p><strong>运行完成后不要忘记清空ledger文件夹<code>/var/hyperledger/</code>：</strong></p>
+<pre><code>rm -rf /var/hyperledger/*
+</code></pre>
+<h2 id="couchdb">使用CouchDB<a class="headerlink" href="#couchdb" title="Permanent link">&para;</a></h2>
+<p>可以将stateDB默认的goleveldb替换成CouchDB。对于CouchDB，chaincode各功能依然可用，但将chaincode数据以JSON方式存储的话就可使用CouchDB的复杂查询的功能。</p>
+<p>为了使用CouchDB，除了最前面的”前提“一节的操作外，还需要下边两步启动CouchDB容器并将之与peer容器关联：</p>
+<ul>
+<li>
+<p>构建CouchDB镜像：</p>
+<pre><code># make sure you are in the fabric directory
+make couchdb
+</code></pre>
+</li>
+<li>
+<p>编辑<code>fabric/examples/e2e_cli/docker-compose.yaml</code>和<code>docker-compose.yam</code>，将所有与CouchDB有关的内容取消注释。这样<code>chaincode_example02</code>就可以才CouchDB下运行了。</p>
+</li>
+</ul>
+<p><strong>注意：</strong>如果将CouchDB容器的端口映射的主机，请一定要注意安全。在开发环境中将端口映射出来可以通过CouchDB的web界面可视化操作数据。生产环境中一般不会做端口映射，以限制CouchDB的外部访问。</p>
+<p>可以用<code>chaincode_example02</code>在CouchDB下执行上边的chaincode操作，但是为了使用CouchDB的复杂查询功能，chaincode数据一定要以JSON格式存储（例如<code>fabric/examples/chaincode/go/marbles02</code>）。</p>
+<p>使用<code>手动执行交易</code>这一节中的步骤install、instantiate、invoke和query <code>marbles02</code>，执行完<code>Join channel</code>这步后使用下边的命令操作<code>marbles02</code>：</p>
+<ul>
+<li>
+<p>在<code>PEER0</code>上安装并实例化chaincode</p>
+<pre><code>peer chaincode install -o orderer0:7050 -n marbles -v 1.0 -p github.com/hyperledger/fabric/examples/chaincode/go/marbles02
+peer chaincode instantiate -o orderer0:7050 --tls $CORE_PEER_TLS_ENABLED --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/orderer/localMspConfig/cacerts/ordererOrg0.pem -C mychannel -n marbles -v 1.0 -p github.com/hyperledger/fabric/examples/chaincode/go/marbles02 -c '{"Args":["init"]}' -P "OR ('Org0MSP.member','Org1MSP.member')"
+</code></pre>
+</li>
+<li>
+<p>创建一些marble并移动它们</p>
+<pre><code>peer chaincode invoke -o orderer0:7050 --tls $CORE_PEER_TLS_ENABLED --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/orderer/localMspConfig/cacerts/ordererOrg0.pem -C mychannel -n marbles -c '{"Args":["initMarble","marble1","blue","35","tom"]}'
+peer chaincode invoke -o orderer0:7050 --tls $CORE_PEER_TLS_ENABLED --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/orderer/localMspConfig/cacerts/ordererOrg0.pem -C mychannel -n marbles -c '{"Args":["initMarble","marble2","red","50","tom"]}'
+peer chaincode invoke -o orderer0:7050 --tls $CORE_PEER_TLS_ENABLED --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/orderer/localMspConfig/cacerts/ordererOrg0.pem -C mychannel -n marbles -c '{"Args":["initMarble","marble3","blue","70","tom"]}'
+peer chaincode invoke -o orderer0:7050 --tls $CORE_PEER_TLS_ENABLED --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/orderer/localMspConfig/cacerts/ordererOrg0.pem -C mychannel -n marbles -c '{"Args":["transferMarble","marble2","jerry"]}'
+peer chaincode invoke -o orderer0:7050 --tls $CORE_PEER_TLS_ENABLED --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/orderer/localMspConfig/cacerts/ordererOrg0.pem -C mychannel -n marbles -c '{"Args":["transferMarblesBasedOnColor","blue","jerry"]}'
+peer chaincode invoke -o orderer0:7050 --tls $CORE_PEER_TLS_ENABLED --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/orderer/localMspConfig/cacerts/ordererOrg0.pem -C mychannel -n marbles -c '{"Args":["delete","marble1"]}'
+</code></pre>
+</li>
+<li>
+<p>如果做了CouchDB容器的端口映射，可以通过web界面查看数据，可以看到名为<code>mychannel</code>的数据库及其文档</p>
+<ul>
+<li>
+<p>如果使用的是vagrant环境</p>
+<pre><code>http://localhost:15984/_utils
+* 如果不是vagrant环境，使用CouchDB容器指定的端口
+
+http://localhost:5984/_utils
+</code></pre>
+<ul>
+<li>可有规律的查询chaincode（例如，读取<code>marble2</code>）</li>
+</ul>
+<p>peer chaincode query -C mychannel -n marbles -c &lsquo;{&ldquo;Args&rdquo;:[&ldquo;readMarble&rdquo;,&rdquo;marble2&rdquo;]}&rsquo;</p>
+</li>
+</ul>
+<p>可以看到<code>marble2</code>的详细信息：</p>
+<pre><code>Query Result: {"color":"red","docType":"marble","name":"marble2","owner":"jerry","size":50}
+</code></pre>
+<p>获取<code>marble1</code>的历史：</p>
+<pre><code>peer chaincode query -C mychannel -n marbles -c '{"Args":["getHistoryForMarble","marble1"]}'
+</code></pre>
+<p>可以看到操作过<code>marble1</code>的交易：</p>
+<pre><code>Query Result: [{"TxId":"1c3d3caf124c89f91a4c0f353723ac736c58155325f02890adebaa15e16e6464", "Value":{"docType":"marble","name":"marble1","color":"blue","size":35,"owner":"tom"}},{"TxId":"755d55c281889eaeebf405586f9e25d71d36eb3d35420af833a20a2f53a3eefd", "Value":{"docType":"marble","name":"marble1","color":"blue","size":35,"owner":"jerry"}},{"TxId":"819451032d813dde6247f85e56a89262555e04f14788ee33e28b232eef36d98f", "Value":}]
+</code></pre>
+<p>还可以执行复杂查询，比如查询<code>jerry</code>所拥有的marble：</p>
+<pre><code>peer chaincode query -C mychannel -n marbles -c '{"Args":["queryMarblesByOwner","jerry"]}'
+</code></pre>
+<p>查询结果为<code>jerry</code>所拥有的2个marble的信息：</p>
+<pre><code>Query Result: [{"Key":"marble2", "Record":{"color":"red","docType":"marble","name":"marble2","owner":"jerry","size":50}},{"Key":"marble3", "Record":{"color":"blue","docType":"marble","name":"marble3","owner":"jerry","size":70}}]
+</code></pre>
+<p>通过<code>owner</code>字段等于<code>jerry</code>查询：</p>
+<pre><code>peer chaincode query -C mychannel -n marbles -c '{"Args":["queryMarbles","{\"selector\":{\"owner\":\"jerry\"}}"]}'
+</code></pre>
+<p>查询结果如下：</p>
+<pre><code>Query Result: [{"Key":"marble2", "Record":{"color":"red","docType":"marble","name":"marble2","owner":"jerry","size":50}},{"Key":"marble3", "Record":{"color":"blue","docType":"marble","name":"marble3","owner":"jerry","size":70}}]
+</code></pre>
+</li>
+</ul>
+<h2 id="_12">数据持久化<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<p>如果需要对peer或CouchDB容器的数据持久化，一种选择是将容器的相关目录挂在到docker主机。例如，将下面两行内容放到<code>docker-compose.yaml</code>文件中的对应peer处：</p>
+<pre><code>volumes:
+ - /var/hyperledger/peer0:/var/hyperledger/production
+</code></pre>
+<p>将下面两行放到对应的CouchDB处：</p>
+<pre><code>volumes:
+- /var/hyperledger/couchdb0:/opt/couchdb/data
+</code></pre>
+<h2 id="_13">故障排出<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<ul>
+<li>每次运行后要清理文件</li>
+<li>
+<p>如果出现docker错误，则删除镜像，从头再操作一遍</p>
+<pre><code>make clean
+make peer-docker orderer-docker
+</code></pre>
+</li>
+<li>
+<p>如果出现下面的错误</p>
+<pre><code>Error: Error endorsing chaincode: rpc error: code = 2 desc = Error installing chaincode code mycc:1.0(chaincode /var/hyperledger/production/chaincodes/mycc.1.0 exits)
+</code></pre>
+<p>chaincode镜像（如<code>dev-peer0-mycc-1.0</code>或<code>dev-peer1-mycc-1.0</code>）可能是以前运行过的。删除它们然后重试。</p>
+<pre><code>docker rmi -f $(docker images | grep peer[0-9]-peer[0-9] | awk '{print $3}')
+</code></pre>
+</li>
+<li>
+<p>使用<code>down</code>选项清理网络</p>
+<pre><code>./network_setup.sh down
+Next  Previous
+</code></pre>
+</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../protocol-spec_zh/" class="btn btn-neutral float-right" title="协议规范">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../glossary/" class="btn btn-neutral" title="词汇表"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Hyperledger国际化工作组(yls@chainnova.com)</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/hyperledgerDocs/hyperledgerDocs" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../glossary/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../protocol-spec_zh/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

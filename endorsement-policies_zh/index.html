@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Hyperledger国际化工作组">
+  
+  <title>背书策略 - Hyperledger中文文档</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "背书策略";
+    var mkdocs_page_input_path = "endorsement-policies_zh.md";
+    var mkdocs_page_url = "/endorsement-policies_zh/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Hyperledger中文文档</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">欢迎</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../glossary/">词汇表</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../getting_started/">快速入门</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../protocol-spec_zh/">协议规范</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric教程</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../build_network_zh/">构建第一个fabric网络</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../write_first_app_zh/">编写第一个应用</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../chaincode_zh/">Chaincode</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric操作指南</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../msp_zh/">MSP</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configtx_zh/">Channel 配置(configtx)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configtxgen_zh/">Channel 配置(configtxgen)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configtxlator_zh/">Channel 重新配置(configtxlator)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">背书策略</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#endorsement-policy-design-">Endorsement policy design - 背书策略设计</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#endorsement-policy-syntax-in-the-cli-cli">Endorsement policy syntax in the CLI - CLI中背书策略语法</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#specifying-endorsement-policies-for-a-chaincode-chaincode">Specifying endorsement policies for a chaincode - 为chaincode指定背书策略</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#future-enhancements-">Future enhancements - 未来计划</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../error-handling_zh/">错误处理</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../logging-control_zh/">日志控制</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric设计</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../arch-deep-dive_zh/">架构说明</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../txflow_zh/">交易流程</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ca-setup_zh/">CA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../sdk_node_zh/">SDK--node</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../sdk_java_zh/">SDK--java</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../kafka_zh/">基于kafka的排序服务</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../channels_zh/">Channels</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ledger_zh/">账本</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../read-write-set/">Read-Write set</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../gossip_zh/">Gossip数据传输协议</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../msp_acl_zh/">MSP&ACL</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../sdk-design_zh/">Fabric SDK 设计</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../makefile_zh/">Makefile文件解析</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Hyperledger中文文档</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Fabric操作指南 &raquo;</li>
+        
+      
+    
+    <li>背书策略</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/hyperledgerDocs/hyperledgerDocs" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <table>
+<thead>
+<tr>
+<th>原文</th>
+<th>作者</th>
+<th>审核修正</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://hyperledger-fabric.readthedocs.io/en/latest/endorsement-policies.html">原文</a></td>
+<td>Linsheng Yu</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Endorsement policies are used to instruct a peer on how to decide whether a transaction is properly endorsed. When a peer receives a transaction, it invokes the VSCC (Validation System Chaincode) associated with the transaction’s Chaincode as part of the transaction validation flow to determine the validity of the transaction. Recall that a transaction contains one or more endorsement from as many endorsing peers. VSCC is tasked to make the following determinations: </p>
+<ul>
+<li>all endorsements are valid (i.e. they are valid signatures from valid certificates over the expected message) </li>
+<li>there is an appropriate number of endorsements </li>
+<li>endorsements come from the expected source(s)</li>
+</ul>
+<p>节点通过背书策略来确定一个交易是否被正确背书。当一个peer接收一个交易后，就会调用与该交易Chaincode相关的VSCC（Chaincode 实例化时指定的）作为交易验证流程的一部分（还有RW版本验证）来确定交易的有效性。为此，一个交易包含一个或多个来自背书节点的背书。VSCC的背书校验包括：</p>
+<ul>
+<li>所有的背书是有效的（即，有效证书做的有效签名）</li>
+<li>恰当的（满足要求的）背书数量</li>
+<li>背书来自预期的背书节点</li>
+</ul>
+<p>Endorsement policies are a way of specifying the second and third points.</p>
+<p>背书策略就是用来定义上边的第二和第三点。</p>
+<h2 id="endorsement-policy-design-">Endorsement policy design - 背书策略设计<a class="headerlink" href="#endorsement-policy-design-" title="Permanent link">&para;</a></h2>
+<p>Endorsement policies have two main components: </p>
+<ul>
+<li>a principal </li>
+<li>a threshold gate</li>
+</ul>
+<p>A principal <code>P</code> identifies the entity whose signature is expected.</p>
+<p>A threshold gate <code>T</code> takes two inputs: an integer <code>t</code> (the threshold) and a list of <code>n</code> principals or gates; this gate essentially captures the expectation that out of those <code>n</code> principals or gates, <code>t</code> are requested to be satisfied.</p>
+<p>背书策略有两个主要组成部分：</p>
+<ul>
+<li>主体（principal）：<code>P</code> 定义了期望的签名来源实体</li>
+<li>门阀阈值（threshold gate）：<code>T</code> 有两个参数：整数<code>t</code>（阈值）和<code>n</code>个主体，表示从这<code>n</code>个主体中获取<code>t</code>个签名</li>
+</ul>
+<p>For example: - <code>T(2, 'A', 'B', 'C')</code> requests a signature from any 2 principals out of <code>A</code>, <code>B</code> or <code>C</code>; - <code>T(1, 'A', T(2, 'B', 'C'))</code> requests either one signature from principal <code>A</code> or 1 signature from <code>B</code> and <code>C</code> each.</p>
+<p>例如：</p>
+<ul>
+<li><code>T(2, 'A', 'B', 'C')</code>表示需要<code>A</code>、<code>B</code>、<code>C</code>中任意2个主体的签名背书</li>
+<li><code>T(1, 'A', T(2, 'B', 'C'))</code>表示需要来自主体<code>A</code>的签名或者来自<code>B</code>和<code>C</code>两者的签名背书</li>
+</ul>
+<h2 id="endorsement-policy-syntax-in-the-cli-cli">Endorsement policy syntax in the CLI - CLI中背书策略语法<a class="headerlink" href="#endorsement-policy-syntax-in-the-cli-cli" title="Permanent link">&para;</a></h2>
+<p>In the CLI, a simple language is used to express policies in terms of boolean expressions over principals.</p>
+<p>在CLI中，用一种简单的布尔表达式来表示背书策略。</p>
+<p>A principal is described in terms of the MSP that is tasked to validate the identity of the signer and of the role that the signer has within that MSP. Currently, two roles are supported: <strong>member</strong> and <strong>admin</strong>. Principals are described as <code>MSP</code>.<code>ROLE</code>, where <code>MSP</code> is the MSP ID that is required, and <code>ROLE</code> is either one of the two strings <code>member</code> and <code>admin</code>. Examples of valid principals are <code>'Org0.admin'</code> (any administrator of the <code>Org0</code> MSP) or <code>'Org1.member'</code> (any member of the <code>Org1</code> MSP).</p>
+<p>Fabric使用MSP来描述主体，MSP用于验证签名者的身份和签名者在MSP中的角色/权限。目前支持两种角色：<strong>member</strong>和<strong>admin</strong>。主体的描述形式是<code>MSP.ROLE</code>，其中<code>MSP</code>是MSP ID，<code>ROLE</code>是<strong>member</strong>或<strong>admin</strong>。比如一个有效的主体可表示为<code>'Org0.admin'</code>（MSP<code>Org0</code>的管理员）或<code>'Org1.member'</code>（MSP<code>Org1</code>的成员）。</p>
+<p>The syntax of the language is:</p>
+<p>CLI语法是：</p>
+<p><code>EXPR(E[, E...])</code></p>
+<p>where <code>EXPR</code> is either <code>AND</code> or <code>OR</code>, representing the two boolean expressions and <code>E</code> is either a principal (with the syntax described above) or another nested call to <code>EXPR</code>.</p>
+<p>其中<code>EXPR</code>是<code>AND</code>或<code>OR</code>，表示布尔表达式；<code>E</code>是上面语法所描述的主体或者是另一个嵌套进去的<code>EXPR</code>。</p>
+<p>For example: </p>
+<ul>
+<li><code>AND('Org1.member', 'Org2.member', 'Org3.member')</code> requests 1 signature from each of the three principals </li>
+<li><code>OR('Org1.member', 'Org2.member')</code> requests 1 signature from either one of the two principals </li>
+<li><code>OR('Org1.member', AND('Org2.member', 'Org3.member'))</code> requests either one signature from a member of the <code>Org1</code> MSP or 1 signature from a member of the <code>Org2</code> MSP and 1 signature from a member of the <code>Org3</code> MSP.</li>
+</ul>
+<p>例如：</p>
+<ul>
+<li><code>AND('Org1.member', 'Org2.member', 'Org3.member')</code>表示需要三个主体共同签名背书</li>
+<li><code>OR('Org1.member', 'Org2.member')</code>表示需要两个主体之一的签名背书</li>
+<li><code>OR('Org1.member', AND('Org2.member', 'Org3.member'))</code>表示需要<code>Org1</code>的签名背书或者<code>Org2</code>和<code>Org3</code>共同的签名背书</li>
+</ul>
+<h2 id="specifying-endorsement-policies-for-a-chaincode-chaincode">Specifying endorsement policies for a chaincode - 为chaincode指定背书策略<a class="headerlink" href="#specifying-endorsement-policies-for-a-chaincode-chaincode" title="Permanent link">&para;</a></h2>
+<p>Using this language, a chaincode deployer can request that the endorsements for a chaincode be validated against the specified policy. NOTE - the default policy requires one signature from a member of the <code>DEFAULT</code> MSP). This is used if a policy is not specified in the CLI.</p>
+<p>部署Chaincode时可以指定背书策略。注意：如果没有指定背书策略就使用默认的背书策略，即需要MSP<code>DEFAULT</code>的一个成员的签名背书。</p>
+<p>The policy can be specified at deploy time using the <code>-P</code> switch, followed by the policy.For example:</p>
+<p>部署Chaincode时用<code>-P</code>指定背书策略，例如：</p>
+<pre><code>peer chaincode instantiate -C testchainid -n mycc -p github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02 -c '{"Args":["init","a","100","b","200"]}' -P "AND('Org1.member', 'Org2.member')"
+</code></pre>
+<p>This command deploys chaincode <code>mycc</code> on chain <code>testchainid</code> with the policy <code>AND('Org1.member', 'Org2.member')</code>.</p>
+<p>此命令会以背书策略<code>AND('Org1.member', 'Org2.member')</code>在链<code>testchainid</code>上部署chaincode<code>mycc</code>。</p>
+<h2 id="future-enhancements-">Future enhancements - 未来计划<a class="headerlink" href="#future-enhancements-" title="Permanent link">&para;</a></h2>
+<p>In this section we list future enhancements for endorsement policies: </p>
+<ul>
+<li>alongside the existing way of identifying principals by their relationship with an MSP, we plan to identify principals in terms of the <em>Organization Unit (OU)</em> expected in their certificates; this is useful to express policies where we request signatures from any identity displaying a valid certificate with an OU matching the one requested in the definition of the principal. </li>
+<li>instead of the syntax <code>AND(., .)</code> we plan to move to a more intuitive syntax <code>. AND .</code></li>
+<li>we plan to expose generalized threshold gates in the language as well alongside <code>AND</code> (which is the special <code>n</code>-out-of-<code>n</code> gate) and OR (which is the special <code>1</code>-out-of-<code>n</code> gate)</li>
+</ul>
+<p>本节列举了背书策略的未来计划增强功能：</p>
+<ul>
+<li>除了通过与MSP的关系确定principals身份的现有方式外，我们计划根据证书中的组织单位(OU)来标识principals；这样就可以请求与背书策略中定义的principal的OU相匹配（同一组织单位内）的任意实体的签名作为背书</li>
+<li>以更直观的语法<code>. AND .</code>取代语法<code>AND(., .)</code></li>
+<li>还计划将阈值放到<code>AND</code>（<code>n</code>-out-of-<code>n</code>）和 <code>OR</code> (<code>1</code>-out-of-<code>n</code>)的语法中</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../error-handling_zh/" class="btn btn-neutral float-right" title="错误处理">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../configtxlator_zh/" class="btn btn-neutral" title="Channel 重新配置(configtxlator)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Hyperledger国际化工作组(yls@chainnova.com)</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/hyperledgerDocs/hyperledgerDocs" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../configtxlator_zh/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../error-handling_zh/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

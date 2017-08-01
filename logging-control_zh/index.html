@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Hyperledger国际化工作组">
+  
+  <title>日志控制 - Hyperledger中文文档</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "日志控制";
+    var mkdocs_page_input_path = "logging-control_zh.md";
+    var mkdocs_page_url = "/logging-control_zh/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Hyperledger中文文档</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">欢迎</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../glossary/">词汇表</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../getting_started/">快速入门</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../protocol-spec_zh/">协议规范</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric教程</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../build_network_zh/">构建第一个fabric网络</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../write_first_app_zh/">编写第一个应用</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../chaincode_zh/">Chaincode</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric操作指南</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../msp_zh/">MSP</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configtx_zh/">Channel 配置(configtx)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configtxgen_zh/">Channel 配置(configtxgen)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configtxlator_zh/">Channel 重新配置(configtxlator)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../endorsement-policies_zh/">背书策略</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../error-handling_zh/">错误处理</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">日志控制</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#overview">Overview概述</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#peer">peer</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#go-chaincodes">Go chaincodes</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#api">API</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric设计</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../arch-deep-dive_zh/">架构说明</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../txflow_zh/">交易流程</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ca-setup_zh/">CA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../sdk_node_zh/">SDK--node</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../sdk_java_zh/">SDK--java</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../kafka_zh/">基于kafka的排序服务</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../channels_zh/">Channels</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ledger_zh/">账本</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../read-write-set/">Read-Write set</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../gossip_zh/">Gossip数据传输协议</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../msp_acl_zh/">MSP&ACL</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../sdk-design_zh/">Fabric SDK 设计</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../makefile_zh/">Makefile文件解析</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Hyperledger中文文档</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Fabric操作指南 &raquo;</li>
+        
+      
+    
+    <li>日志控制</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/hyperledgerDocs/hyperledgerDocs" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <table>
+<thead>
+<tr>
+<th>原文</th>
+<th>作者</th>
+<th>审核修正</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://hyperledger-fabric.readthedocs.io/en/latest/logging-control.html">原文</a></td>
+<td>Yi Zeng</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="overview">Overview概述<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>Logging in the peer application and in the shim interface to chaincodes is programmed using facilities provided by the github.com/op/go-logging package. This package supports</p>
+<p>日志功能在节点的应用程序和链上代码的shim接口中使用，最终在github.com/op/go-logging包实现。这个包支持：</p>
+<ul>
+<li>Logging control based on the severity of the message
+    基于消息的严重程度进行日志控制</li>
+<li>Logging control based on the software module generating the message
+    基于软件模块产生的消息进行日志控制</li>
+<li>Different pretty-printing options based on the severity of the message
+    基于消息的严重程度美观的打印到不同的格式的选项</li>
+</ul>
+<p>All logs are currently directed to stderr, and the pretty-printing is currently fixed. However global and module-level control of logging by severity is provided for both users and developers. There are currently no formalized rules for the types of information provided at each severity level, however when submitting bug reports the developers may want to see full logs down to the DEBUG level.</p>
+<p>所有日志目前都被定向到stderr，而pretty-printing目前是固定的。然而，为用户和开发人员提供了严格级别的全局和模块级别的日志记录控制。目前没有关于每个严重性级别提供的信息类型的正式规则，但是当提交错误报告时，开发人员可能希望看到完整的到DEBUG级别的日志记录。</p>
+<p>In pretty-printed logs the logging level is indicated both by color and by a 4-character code, e.g, “ERRO” for ERROR, “DEBU” for DEBUG, etc. In the logging context a module is an arbitrary name (string) given by developers to groups of related messages. In the pretty-printed example below, the logging modules “peer”, “rest” and “main” are generating logs.</p>
+<p>在pretty-printed的日志中，日志记录级别由颜色和4个字符的代码指示，例如ERROR的“ERRO”，DEBUG的“DEBU”等。在日志上下文中，模块是指由开发者指定的任意名称（字符串）的相关消息的组。在以下pretty-printed的例子中，日志模块“peer”，“rest”和“main”都产生了日志。</p>
+<pre><code>16:47:09.634 [peer] GetLocalAddress -&gt; INFO 033 Auto detected peer address: 9.3.158.178:7051
+16:47:09.635 [rest] StartOpenchainRESTServer -&gt; INFO 035 Initializing the REST service...
+16:47:09.635 [main] serve -&gt; INFO 036 Starting peer with id=name:&quot;vp1&quot; , network id=dev, address=9.3.158.178:7051, discovery.rootnode=, validator=true
+</code></pre>
+
+<p>An arbitrary number of logging modules can be created at runtime, therefore there is no “master list” of modules, and logging control constructs can not check whether logging modules actually do or will exist. Also note that the logging module system does not understand hierarchy or wildcarding: You may see module names like “foo/bar” in the code, but the logging system only sees a flat string. It doesn’t understand that “foo/bar” is related to “foo” in any way, or that “foo/*” might indicate all “submodules” of foo.</p>
+<p>可以在运行时创建任意数量的日志记录模块，因此没有模块的“主列表”一说，日志控制结构不能检查日志模块是否实际执行或将存在。另请注意，日志记录模块系统不明白层次结构或通配符：您可能会在代码中看到模块名称，如“foo/bar”，但日志记录系统只能看到一个扁平的字符串。它不明白“foo/bar”与“foo”有任何关系，或者“foo/*”可能表示foo的所有“子模块”。</p>
+<h2 id="peer">peer<a class="headerlink" href="#peer" title="Permanent link">&para;</a></h2>
+<p>The logging level of the peer command can be controlled from the command line for each invocation using the &ndash;logging-level flag, for example</p>
+<p>peer命令的日志等级可以使用命令行控制，每次调用peer时使用&ndash;logging-level，例如：</p>
+<pre><code>peer node start --logging-level=debug
+</code></pre>
+
+<p>The default logging level for each individual peer subcommand can also be set in the core.yaml file. For example the key logging.node sets the default level for the node subcommmand. Comments in the file also explain how the logging level can be overridden in various ways by using environment varaibles.</p>
+<p>每个单独的peer命令的默认日志记录级别也可以在core.yaml文件中设置。例如，键logging.node用于设置node子命令的默认级别。该文中的注释还解释了如何通过使用环境变量以各种方式覆盖日志级别。</p>
+<p>Logging severity levels are specified using case-insensitive strings chosen from</p>
+<p>使用以下选择的不区分大小写的字符串可以指定日志严重级别：</p>
+<pre><code>CRITICAL | ERROR | WARNING | NOTICE | INFO | DEBUG
+</code></pre>
+
+<p>The full logging level specification for the peer is of the form</p>
+<p>peer的完整日志级别的规格如下格式：</p>
+<pre><code>[&lt;module&gt;[,&lt;module&gt;...]=]&lt;level&gt;[:[&lt;module&gt;[,&lt;module&gt;...]=]&lt;level&gt;...]
+</code></pre>
+
+<p>A logging level by itself is taken as the overall default. Otherwise, overrides for individual or groups of modules can be specified using the</p>
+<p>本身的日志级别被视为总体默认值。另外，可以使用以下命令来指定单个或多个模块组的日志等级的覆盖:</p>
+<pre><code>&lt;module&gt;[,&lt;module&gt;...]=&lt;level&gt;
+</code></pre>
+
+<p>syntax. Examples of specifications (valid for all of &ndash;logging-level, environment variable and core.yaml settings):</p>
+<p>语法。规范示例（适用于所有的&ndash;logging-level，环境变量和core.yaml设置）：</p>
+<pre><code>info                                       - Set default to INFO
+warning:main,db=debug:chaincode=info       - Default WARNING; Override for main,db,chaincode
+chaincode=info:main=debug:db=debug:warning - Same as above
+</code></pre>
+
+<h2 id="go-chaincodes">Go chaincodes<a class="headerlink" href="#go-chaincodes" title="Permanent link">&para;</a></h2>
+<p>The standard mechanism to log within a chaincode application is to integrate with the logging transport exposed to each chaincode instance via the peer. The chaincode <code>shim</code> package provides APIs that allow a chaincode to create and manage logging objects whose logs will be formatted and interleaved consistently with the <code>shim</code> logs.</p>
+<p>链上代码应用程序中日志的标准机制是通过peer与暴露于每个链码实例的日志传输进行集成。 链上代码的<code>shim</code>包提供了API，允许链码创建和管理日志记录对象，日志对象的日志将被格式化，并与<code>shim</code>日志交织在了一起。</p>
+<p>As independently executed programs, user-provided chaincodes may technically also produce output on stdout/stderr. While naturally useful for “devmode”, these channels are normally disabled on a production network to mitigate abuse from broken or malicious code. However, it is possible to enable this output even for peer-managed containers (e.g. “netmode”) on a per-peer basis via the CORE_VM_DOCKER_ATTACHSTDOUT=true configuration option.</p>
+<p>作为独立执行的程序，用户提供的链码在技术上也可以在stdout / stderr上产生输出。虽然对“开发模式”有用，但这种方式通常在生产环境上被禁用，以减轻破坏或恶意代码的滥用。然而，甚至可以通过CORE_VM_DOCKER_ATTACHSTDOUT = true配置选项在每个peer-peer的基础上为peer管理的容器（例如“netmode”）启用此输出。</p>
+<p>Once enabled, each chaincode will receive its own logging channel keyed by its container-id. Any output written to either stdout or stderr will be integrated with the peer’s log on a per-line basis. It is not recommended to enable this for production.</p>
+<p>一旦启用，每个链码将接收其自己的日志通道，其由container-id标识。写入stdout或stderr的任何输出将与peer的日志按照每行进行集成。不建议将其用于生产。</p>
+<h2 id="api">API<a class="headerlink" href="#api" title="Permanent link">&para;</a></h2>
+<p><code>NewLogger(name string) *ChaincodeLogger</code> - Create a logging object for use by a chaincode</p>
+<p><code>(c *ChaincodeLogger) SetLevel(level LoggingLevel)</code> - Set the logging level of the logger</p>
+<p><code>(c *ChaincodeLogger) IsEnabledFor(level LoggingLevel) bool</code> - Return true if logs will be generated at the given level</p>
+<p><code>LogLevel(levelString string) (LoggingLevel, error)</code> - Convert a string to a LoggingLevel</p>
+<p>A <code>LoggingLevel</code> is a member of the enumeration</p>
+<pre><code>LogDebug, LogInfo, LogNotice, LogWarning, LogError, LogCritical
+</code></pre>
+<p>which can be used directly, or generated by passing a case-insensitive version of the strings</p>
+<pre><code>DEBUG, INFO, NOTICE, WARNING, ERROR, CRITICAL
+</code></pre>
+<p>to the <code>LogLevel</code> API.</p>
+<p>Formatted logging at various severity levels is provided by the functions</p>
+<p>以下函数提供了各种严重级别的格式化日志记录</p>
+<pre><code>(c *ChaincodeLogger) Debug(args ...interface{})
+(c *ChaincodeLogger) Info(args ...interface{})
+(c *ChaincodeLogger) Notice(args ...interface{})
+(c *ChaincodeLogger) Warning(args ...interface{})
+(c *ChaincodeLogger) Error(args ...interface{})
+(c *ChaincodeLogger) Critical(args ...interface{})
+
+(c *ChaincodeLogger) Debugf(format string, args ...interface{})
+(c *ChaincodeLogger) Infof(format string, args ...interface{})
+(c *ChaincodeLogger) Noticef(format string, args ...interface{})
+(c *ChaincodeLogger) Warningf(format string, args ...interface{})
+(c *ChaincodeLogger) Errorf(format string, args ...interface{})
+(c *ChaincodeLogger) Criticalf(format string, args ...interface{})
+</code></pre>
+
+<p>The <code>f</code> forms of the logging APIs provide for precise control over the formatting of the logs. The non-<code>f</code> forms of the APIs currently insert a space between the printed representations of the arguments, and arbitrarily choose the formats to use.</p>
+<p>日志API的<code>f</code>形式可以精确控制日志格式。 API的非<code>f</code>形式当前在参数的打印表示之间插入一个空格，并任意选择要使用的格式。</p>
+<p>In the current implementation, the logs produced by the <code>shim</code> and a <code>ChaincodeLogger</code> are timestamped, marked with the logger name and severity level, and written to <code>stderr</code>. Note that logging level control is currently based on the name provided when the <code>ChaincodeLogger</code> is created. To avoid ambiguities, all <code>ChaincodeLogger</code> should be given unique names other than “shim”. The logger name will appear in all log messages created by the logger. The <code>shim</code> logs as “shim”.</p>
+<p>在当前实现中，由<code>shim</code>和<code>ChaincodeLogger</code>生成的日志是时间戳的，标有记录器名称和严重性级别，并写入<code>stderr</code>。请注意，日志级别控制当前基于创建<code>ChaincodeLogger</code>时提供的名称。为了避免歧义，所有<code>ChaincodeLogger</code>应该被赋予除“shim”之外的唯一名称。记录器名称将显示在由记录器创建的所有日志消息中。垫片记录为“shim”。</p>
+<p>Go language chaincodes can also control the logging level of the chaincode shim interface through the <code>SetLoggingLevel</code> API.</p>
+<p>Go语言链接代码还可以通过SetLoggingLevel API来控制链式代码垫片界面的日志记录级别。</p>
+<p><code>SetLoggingLevel(LoggingLevel level)</code> - Control the logging level of the shim  控制shim的日志记录级别</p>
+<p>The default logging level for the shim is <code>LogDebug</code>.</p>
+<p>shim的默认日志级别为LogDebug。</p>
+<p>Below is a simple example of how a chaincode might create a private logging object logging at the <code>LogInfo</code> level, and also control the amount of logging provided by the <code>shim</code> based on an environment variable.</p>
+<p>下面是一个简单的示例，说明链码如何创建<code>LogInfo</code>级别的专用日志对象日志记录，并且还可以基于环境变量来控制由<code>shim</code>提供的日志量。</p>
+<pre><code>var logger = shim.NewLogger(&quot;myChaincode&quot;)
+
+func main() {
+
+    logger.SetLevel(shim.LogInfo)
+
+    logLevel, _ := shim.LogLevel(os.Getenv(&quot;SHIM_LOGGING_LEVEL&quot;))
+    shim.SetLoggingLevel(logLevel)
+    ...
+}
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../arch-deep-dive_zh/" class="btn btn-neutral float-right" title="架构说明">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../error-handling_zh/" class="btn btn-neutral" title="错误处理"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Hyperledger国际化工作组(yls@chainnova.com)</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/hyperledgerDocs/hyperledgerDocs" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../error-handling_zh/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../arch-deep-dive_zh/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

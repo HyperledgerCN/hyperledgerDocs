@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Hyperledger国际化工作组">
+  
+  <title>Channel 配置(configtxgen) - Hyperledger中文文档</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Channel 配置(configtxgen)";
+    var mkdocs_page_input_path = "configtxgen_zh.md";
+    var mkdocs_page_url = "/configtxgen_zh/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Hyperledger中文文档</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">欢迎</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../glossary/">词汇表</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../getting_started/">快速入门</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../protocol-spec_zh/">协议规范</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric教程</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../build_network_zh/">构建第一个fabric网络</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../write_first_app_zh/">编写第一个应用</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../chaincode_zh/">Chaincode</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric操作指南</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../msp_zh/">MSP</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configtx_zh/">Channel 配置(configtx)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Channel 配置(configtxgen)</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#configuration-profiles-">Configuration Profiles - 配置文件</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#bootstrapping-the-orderer-">Bootstrapping the orderer - 引导共识</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#creating-a-channel-">Creating a channel - 创建通道</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#reviewing-a-configuration-">Reviewing a configuration - 检查配置</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configtxlator_zh/">Channel 重新配置(configtxlator)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../endorsement-policies_zh/">背书策略</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../error-handling_zh/">错误处理</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../logging-control_zh/">日志控制</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric设计</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../arch-deep-dive_zh/">架构说明</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../txflow_zh/">交易流程</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ca-setup_zh/">CA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../sdk_node_zh/">SDK--node</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../sdk_java_zh/">SDK--java</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../kafka_zh/">基于kafka的排序服务</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../channels_zh/">Channels</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ledger_zh/">账本</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../read-write-set/">Read-Write set</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../gossip_zh/">Gossip数据传输协议</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../msp_acl_zh/">MSP&ACL</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../sdk-design_zh/">Fabric SDK 设计</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../makefile_zh/">Makefile文件解析</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Hyperledger中文文档</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Fabric操作指南 &raquo;</li>
+        
+      
+    
+    <li>Channel 配置(configtxgen)</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/hyperledgerDocs/hyperledgerDocs" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <table>
+<thead>
+<tr>
+<th>原文</th>
+<th>作者</th>
+<th>审核修正</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://hyperledger-fabric.readthedocs.io/en/latest/configtxgen.html">原文</a></td>
+<td>Fei Cao</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>This document describe the usage for the configtxgen utility for manipulating Hyperledger Fabric channel configuration.</p>
+<p>本文档描述了<code>configtxgen</code>工具的用法，该工具用来操作超级账本Fabric的通道配置。</p>
+<p>For now, the tool is primarily focused on generating the genesis block for bootstrapping the orderer, but it is intended to be enhanced in the future for generating new channel configurations as well as reconfiguring existing channels.</p>
+<p>目前，该工具主要侧重于生成引导共识节点的创世纪块，但是将来预计增加生成新通道的配置以及重新配置已有的通道。</p>
+<h2 id="configuration-profiles-">Configuration Profiles - 配置文件<a class="headerlink" href="#configuration-profiles-" title="Permanent link">&para;</a></h2>
+<p>The configuration parameters supplied to the configtxgen tool are primarily provided by the configtx.yaml file. This file is located at fabric/sampleconfig/configtx.yaml in the fabric.git repository.</p>
+<p>configtxgen工具的配置参数主要由<code>configtx.yaml</code>文件提供。在fabric库中，配置文件在<code>fabric/sampleconfig/configtx.yaml</code>。</p>
+<p>This configuration file is split primarily into three pieces.</p>
+<p>此配置文件主要分为三部分。</p>
+<p>1.The Profiles section. By default, this section includes some sample configurations which can be used for development or testing scenarios, and refer to crypto material present in the fabric.git tree. These profiles can make a good starting point for construction a real deployment profile. The configtxgen tool allows you to specify the profile it is operating under by passing the -profile flag. Profiles may explicitly declare all configuration, but usually inherit configuration from the defaults in (3) below.</p>
+<p>1.<code>Profiles</code>部分。默认情况下，这部分包含一些用于开发或测试场景的示例配置，这些配置涉及fabric目录中加密部分。这些配置能为构建一个真正开发配置做一个良好开始。<code>configtxgen</code>工具允许你通过<code>-profile</code>标签来指定配置文件。<code>Profiles</code>部分可以显式声明所有配置，但是通常都是从一下（3）默认配置中继承。</p>
+<p>2.The Organizations section. By default, this section includes a single reference to the sampleconfig MSP definition. For production deployments, the sample organization should be removed, and the MSP definitions of the network members should be referenced and defined instead. Each element in the Organizations section should be tagged with an anchor label such as &amp;orgName which will allow the definition to be referenced in the Profiles sections.</p>
+<p>2.<code>Organizations</code>部分。默认情况下，这部分包含实力配置MSP定义的单一引用。对于生产部署，应该删除示例配置，并应引用和定义网络成员的MSP定义。<code>Organizations</code>部分每一个元素都必须带有锚标签，如<code>&amp;orgName</code>，这些标签在<code>Profiles</code>部分引用。</p>
+<p>3.The default sections. There are default sections for Orderer and Application configuration, these include attributes like BatchTimeout and are generally used as the base inherited values for the profiles.</p>
+<p>3.默认部分。此部分包括共识和应用部分的默认配置，包括一些属性配置，如<code>BatchTimeout</code>和一般用作继承的基础值。</p>
+<p>This configuration file may be edited, or, individual properties may be overridden by setting environment variables, such as CONFIGTX_ORDERER_ORDERERTYPE=kafka. Note that the Profiles element and profile name do not need to be specified.</p>
+<p>这个配置文件可以被编辑，或者通过设置环境变量来重写属性值，如<code>CONFIGTX_ORDERER_ORDERERTYPE=kafka</code>。注意，不需要指定配置文件元素和配置文件名称。</p>
+<h2 id="bootstrapping-the-orderer-">Bootstrapping the orderer - 引导共识<a class="headerlink" href="#bootstrapping-the-orderer-" title="Permanent link">&para;</a></h2>
+<p>After creating a configuration profile as desired, simply invoke</p>
+<p>创建配置文件后，简单调用</p>
+<pre><code>configtxgen -profile &lt;profile_name&gt;
+</code></pre>
+
+<p>This will produce a genesis.block file in the current directory. You may optionally specify another filename by passing in the -path parameter, or, you may skip the writing of the file by passing the dryRun parameter if you simply wish to test parsing of the file.</p>
+<p>这会在当前文件目录下生成<code>genesis.block</code>。你也可以通过<code>-path</code>参数指定其他文件名。如果你只希望测试这个文件，可以通过<code>dryRun</code>参数来跳过创建文件。</p>
+<p>Then, to utilize this genesis block, before starting the orderer, simply specify ORDERER_GENERAL_GENESISMETHOD=file and ORDERER_GENERAL_GENESISFILE=$PWD/genesis.block or modify the orderer.yaml file to encode these values.</p>
+<p>然后为了使用生成的创世快，在启动orderer之前，简单的通过指定<code>ORDERER_GENERAL_GENESISMETHOD=file</code> 和<code>ORDERER_GENERAL_GENESISFILE=$PWD/genesis.block</code> 或者修改<code>orderer.yaml</code>文件编辑这些属性值。</p>
+<h2 id="creating-a-channel-">Creating a channel - 创建通道<a class="headerlink" href="#creating-a-channel-" title="Permanent link">&para;</a></h2>
+<p>The tool can also output a channel creation tx by executing</p>
+<p>此工具同样可以创建通道交易通过执行</p>
+<pre><code>configtxgen -profile &lt;profile_name&gt; -channelID &lt;channel_name&gt; -outputCreateChannelTx &lt;tx_filename&gt;
+</code></pre>
+
+<p>This will output a marshaled Envelope message which may be sent to broadcast to create a channel.</p>
+<p>这将输出一个<code>Envelope</code>消息，用来发送广播来创建通道。</p>
+<h2 id="reviewing-a-configuration-">Reviewing a configuration - 检查配置<a class="headerlink" href="#reviewing-a-configuration-" title="Permanent link">&para;</a></h2>
+<p>In addition to creating configuration, the configtxgen tool is also capable of inspecting configuration.</p>
+<p>除了创建配置，<code>configtxgen</code>工具同样提供检查配置的功能。</p>
+<p>It supports inspecting both configuration blocks, and configuration transactions. You may use the inspect flags -inspectBlock and -inspectChannelCreateTx respectively with the path to a file to inspect to output a human readable (JSON) representation of the configuration.</p>
+<p>它支持检查配置块和配置交易。你可以用检查标签<code>-inspectBlock</code> 和 <code>-inspectChannelCreateTx</code> 分别指定文件路径来输出可读的（JSON）配置。</p>
+<p>You may even wish to combine the inspection with generation. For example:</p>
+<p>你甚至可能希望将创建与检查相结合。例如：</p>
+<pre><code>$ build/bin/configtxgen -channelID foo -outputBlock foo.block -inspectBlock foo.block
+2017/03/01 21:24:24 Loading configuration
+2017/03/01 21:24:24 Checking for configtx.yaml at:
+2017/03/01 21:24:24 Checking for configtx.yaml at:
+2017/03/01 21:24:24 Checking for configtx.yaml at: /home/yellickj/go/src/github.com/hyperledger/fabric/common/configtx/tool
+2017/03/01 21:24:24 map[orderer:map[BatchSize:map[MaxMessageCount:10 AbsoluteMaxBytes:99 MB PreferredMaxBytes:512 KB] Kafka:map[Brokers:[127.0.0.1:9092]] Organizations:&lt;nil&gt; OrdererType:solo Addresses:[127.0.0.1:7050] BatchTimeout:10s] application:map[Organizations:&lt;nil&gt;] profiles:map[SampleInsecureSolo:map[Orderer:map[BatchTimeout:10s BatchSize:map[MaxMessageCount:10 AbsoluteMaxBytes:99 MB PreferredMaxBytes:512 KB] Kafka:map[Brokers:[127.0.0.1:9092]] Organizations:&lt;nil&gt; OrdererType:solo Addresses:[127.0.0.1:7050]] Application:map[Organizations:&lt;nil&gt;]] SampleInsecureKafka:map[Orderer:map[Addresses:[127.0.0.1:7050] BatchTimeout:10s BatchSize:map[AbsoluteMaxBytes:99 MB PreferredMaxBytes:512 KB MaxMessageCount:10] Kafka:map[Brokers:[127.0.0.1:9092]] Organizations:&lt;nil&gt; OrdererType:kafka] Application:map[Organizations:&lt;nil&gt;]] SampleSingleMSPSolo:map[Orderer:map[OrdererType:solo Addresses:[127.0.0.1:7050] BatchTimeout:10s BatchSize:map[MaxMessageCount:10 AbsoluteMaxBytes:99 MB PreferredMaxBytes:512 KB] Kafka:map[Brokers:[127.0.0.1:9092]] Organizations:[map[Name:SampleOrg ID:DEFAULT MSPDir:msp BCCSP:map[Default:SW SW:map[Hash:SHA3 Security:256 FileKeyStore:map[KeyStore:&lt;nil&gt;]]] AnchorPeers:[map[Host:127.0.0.1 Port:7051]]]]] Application:map[Organizations:[map[Name:SampleOrg ID:DEFAULT MSPDir:msp BCCSP:map[Default:SW SW:map[Hash:SHA3 Security:256 FileKeyStore:map[KeyStore:&lt;nil&gt;]]] AnchorPeers:[map[Port:7051 Host:127.0.0.1]]]]]]] organizations:[map[Name:SampleOrg ID:DEFAULT MSPDir:msp BCCSP:map[Default:SW SW:map[Hash:SHA3 Security:256 FileKeyStore:map[KeyStore:&lt;nil&gt;]]] AnchorPeers:[map[Host:127.0.0.1 Port:7051]]]]]
+2017/03/01 21:24:24 Generating genesis block
+2017/03/01 21:24:24 Writing genesis block
+2017/03/01 21:24:24 Inspecting block
+2017/03/01 21:24:24 Parsing genesis block
+Config for channel: foo
+{
+    &quot;&quot;: {
+        &quot;Values&quot;: {},
+        &quot;Groups&quot;: {
+            &quot;/Channel&quot;: {
+                &quot;Values&quot;: {
+                    &quot;HashingAlgorithm&quot;: {
+                        &quot;Version&quot;: &quot;0&quot;,
+                        &quot;ModPolicy&quot;: &quot;&quot;,
+                        &quot;Value&quot;: {
+                            &quot;name&quot;: &quot;SHA256&quot;
+                        }
+                    },
+                    &quot;BlockDataHashingStructure&quot;: {
+                        &quot;Version&quot;: &quot;0&quot;,
+                        &quot;ModPolicy&quot;: &quot;&quot;,
+                        &quot;Value&quot;: {
+                            &quot;width&quot;: 4294967295
+                        }
+                    },
+                    &quot;OrdererAddresses&quot;: {
+                        &quot;Version&quot;: &quot;0&quot;,
+                        &quot;ModPolicy&quot;: &quot;&quot;,
+                        &quot;Value&quot;: {
+                            &quot;addresses&quot;: [
+                                &quot;127.0.0.1:7050&quot;
+                            ]
+                        }
+                    }
+                },
+                &quot;Groups&quot;: {
+                    &quot;/Channel/Orderer&quot;: {
+                        &quot;Values&quot;: {
+                            &quot;ChainCreationPolicyNames&quot;: {
+                                &quot;Version&quot;: &quot;0&quot;,
+                                &quot;ModPolicy&quot;: &quot;&quot;,
+                                &quot;Value&quot;: {
+                                    &quot;names&quot;: [
+                                        &quot;AcceptAllPolicy&quot;
+                                    ]
+                                }
+                            },
+                            &quot;ConsensusType&quot;: {
+                                &quot;Version&quot;: &quot;0&quot;,
+                                &quot;ModPolicy&quot;: &quot;&quot;,
+                                &quot;Value&quot;: {
+                                    &quot;type&quot;: &quot;solo&quot;
+                                }
+                            },
+                            &quot;BatchSize&quot;: {
+                                &quot;Version&quot;: &quot;0&quot;,
+                                &quot;ModPolicy&quot;: &quot;&quot;,
+                                &quot;Value&quot;: {
+                                    &quot;maxMessageCount&quot;: 10,
+                                    &quot;absoluteMaxBytes&quot;: 103809024,
+                                    &quot;preferredMaxBytes&quot;: 524288
+                                }
+                            },
+                            &quot;BatchTimeout&quot;: {
+                                &quot;Version&quot;: &quot;0&quot;,
+                                &quot;ModPolicy&quot;: &quot;&quot;,
+                                &quot;Value&quot;: {
+                                    &quot;timeout&quot;: &quot;10s&quot;
+                                }
+                            },
+                            &quot;IngressPolicyNames&quot;: {
+                                &quot;Version&quot;: &quot;0&quot;,
+                                &quot;ModPolicy&quot;: &quot;&quot;,
+                                &quot;Value&quot;: {
+                                    &quot;names&quot;: [
+                                        &quot;AcceptAllPolicy&quot;
+                                    ]
+                                }
+                            },
+                            &quot;EgressPolicyNames&quot;: {
+                                &quot;Version&quot;: &quot;0&quot;,
+                                &quot;ModPolicy&quot;: &quot;&quot;,
+                                &quot;Value&quot;: {
+                                    &quot;names&quot;: [
+                                        &quot;AcceptAllPolicy&quot;
+                                    ]
+                                }
+                            }
+                        },
+                        &quot;Groups&quot;: {}
+                    },
+                    &quot;/Channel/Application&quot;: {
+                        &quot;Values&quot;: {},
+                        &quot;Groups&quot;: {}
+                    }
+                }
+            }
+        }
+    }
+}
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../configtxlator_zh/" class="btn btn-neutral float-right" title="Channel 重新配置(configtxlator)">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../configtx_zh/" class="btn btn-neutral" title="Channel 配置(configtx)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Hyperledger国际化工作组(yls@chainnova.com)</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/hyperledgerDocs/hyperledgerDocs" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../configtx_zh/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../configtxlator_zh/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>
