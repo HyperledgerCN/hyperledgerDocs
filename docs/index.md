@@ -11,7 +11,7 @@
 
 ## 如何贡献
 
-以前我们用[Hyperledger Wiki](https://wiki.hyperledger.org/groups/twgc/team_ie)管理文章，但Wiki读写操作有诸多不便，为此我们将文档转移到[github上](https://github.com/ChainNova/hyperledgerDocs)，以使大家更方便地阅读和编辑贡献资源。
+以前我们用[Hyperledger Wiki](https://wiki.hyperledger.org/groups/twgc/team_ie)管理文章，但Wiki读写操作有诸多不便，为此我们将文档转移到[github上](https://github.com/HyperledgerCN/hyperledgerDocs)，以使大家更方便地阅读和编辑贡献资源。
 
 ***贡献内容包括但不限于：文档翻译、知识总结、经验教训、好文链接、奇思妙想...***
 
@@ -41,7 +41,7 @@
 
 1. 下载源码
 
-        git clone https://github.com/ChainNova/hyperledgerDocs.git
+        git clone https://github.com/HyperledgerCN/hyperledgerDocs.git
 
 2. 编辑预览
 
@@ -82,7 +82,7 @@
     
     ./build.sh
 
-如无报错，浏览器打开`https://chainnova.github.io/hyperledgerDocs/`查看修改结果。
+如无报错，浏览器打开`https://hyperledgercn.github.io/hyperledgerDocs/`查看修改结果。
 
 **线上确认成功后，千万不要忘了将本地修改的源文件提交到github仓库：**
 
