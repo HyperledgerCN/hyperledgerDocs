@@ -302,18 +302,42 @@
 <p>然后浏览器打开<code>http://127.0.0.1:8000/</code>找到相应页面。</p>
 </li>
 </ul>
+<p>项目地址：https://github.com/HyperledgerCN/hyperledgerDocs.git</p>
 </li>
 </ol>
-<h4 id="_7">线上提交&amp;部署<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
-<p>本地预览无误后，即可提交到线上供大家阅读。</p>
-<p>在<code>hyperledgerDocs</code>目录下执行</p>
-<pre><code>./build.sh
+<h4 id="_7">贡献流程<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<p>述贡献流程虽然较为繁琐，但是提高了reviewer的工作效率，减少reviewer手动merge的频率，希望大家遵守下述约定，为社区营造良好的氛围。</p>
+<pre><code>1. fork 原始仓库到自己的github仓库。
+
+2. clone 自己的仓库到本地。
+
+3. 在 master 分支添加原始仓库为远程分支 git remote add upstream 远程仓库。
+
+4. 自己分支开发，如 dev 分支开发：git checkout -b dev
+本地 dev 提交。
+
+5. 切换 master 分支，同步原始仓库：git checkout master， git pull upstream master。
+
+6. 切换本地 dev 分支，合并本地 master 分支（已经和原始仓库同步），可能需要解冲突。
+
+7. 提交本地 dev 分支到自己的远程 dev 仓库。
+
+8. 原始仓库发 pull request 请求。
+
+9. 等待reviewer的review,review之后会有响应的回复（接受/拒绝）。
+
+10. 通过审核之后，相关的reviewer会提交到github pages主页上。
 </code></pre>
-<p>如无报错，浏览器打开<code>https://hyperledgercn.github.io/hyperledgerDocs/</code>查看修改结果。</p>
-<p><strong>线上确认成功后，千万不要忘了将本地修改的源文件提交到github仓库：</strong></p>
-<pre><code>git add .
-git commit -m "your message"
-git push
+
+<h5 id="commit">关于commit要求建议如下<a class="headerlink" href="#commit" title="Permanent link">&para;</a></h5>
+<p>例如：</p>
+<pre><code>Add a new Doc
+
+This doc describes xxx
+
+Author:xxx
+Date:xxxx//xx/xx
+
 </code></pre>
               
             </div>
@@ -365,5 +389,5 @@ git push
 
 <!--
 MkDocs version : 0.16.3
-Build Date UTC : 2017-08-03 06:30:20
+Build Date UTC : 2017-08-03 12:37:52
 -->
