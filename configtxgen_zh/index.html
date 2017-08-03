@@ -7,32 +7,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <meta name="author" content="Hyperledger国际化工作组">
-  
-  <title>Channel 配置(configtxgen) - Hyperledger中文文档</title>
-  
-
   <link rel="shortcut icon" href="../img/favicon.ico">
-
-  
+  <title>Channel 配置(configtxgen) - Hyperledger中文文档</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="../css/highlight.css">
-
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Channel 配置(configtxgen)";
+    var mkdocs_page_name = "Channel \u914d\u7f6e(configtxgen)";
     var mkdocs_page_input_path = "configtxgen_zh.md";
     var mkdocs_page_url = "/configtxgen_zh/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
   <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script>
-  <script src="../js/theme.js"></script> 
-
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
   
 </head>
 
@@ -52,236 +44,159 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        <ul class="current">
+	<ul class="current">
+	  
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="..">欢迎</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="..">欢迎</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../glossary/">词汇表</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../glossary/">词汇表</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../getting_started/">快速入门</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../getting_started/">快速入门</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../protocol-spec_zh/">协议规范</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../protocol-spec_zh/">协议规范</a>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Fabric教程</span>
     <ul class="subnav">
-    <li><span>Fabric教程</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../build_network_zh/">构建第一个fabric网络</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../write_first_app_zh/">编写第一个应用</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../chaincode_zh/">Chaincode</a>
-        
-    </li>
-
-        
+                <li class="">
+                    
+    <a class="" href="../build_network_zh/">构建第一个fabric网络</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../write_first_app_zh/">编写第一个应用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../chaincode_zh/">Chaincode</a>
+                </li>
     </ul>
-<li>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Fabric操作指南</span>
     <ul class="subnav">
-    <li><span>Fabric操作指南</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../msp_zh/">MSP</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../configtx_zh/">Channel 配置(configtx)</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Channel 配置(configtxgen)</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#configuration-profiles-">Configuration Profiles - 配置文件</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#bootstrapping-the-orderer-">Bootstrapping the orderer - 引导共识</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#creating-a-channel-">Creating a channel - 创建通道</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#reviewing-a-configuration-">Reviewing a configuration - 检查配置</a></li>
-                
-            
-            </ul>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../configtxlator_zh/">Channel 重新配置(configtxlator)</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../endorsement-policies_zh/">背书策略</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../error-handling_zh/">错误处理</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../logging-control_zh/">日志控制</a>
-        
-    </li>
-
-        
-    </ul>
-<li>
-          
-            <li>
+                <li class="">
+                    
+    <a class="" href="../msp_zh/">MSP</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../configtx_zh/">Channel 配置(configtx)</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Channel 配置(configtxgen)</a>
     <ul class="subnav">
-    <li><span>Fabric设计</span></li>
-
-        
             
-    <li class="toctree-l1 ">
-        <a class="" href="../arch-deep-dive_zh/">架构说明</a>
-        
-    </li>
+    <li class="toctree-l3"><a href="#configuration-profiles-">Configuration Profiles - 配置文件</a></li>
+    
 
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../txflow_zh/">交易流程</a>
-        
-    </li>
+    <li class="toctree-l3"><a href="#bootstrapping-the-orderer-">Bootstrapping the orderer - 引导共识</a></li>
+    
 
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../ca-setup_zh/">CA</a>
-        
-    </li>
+    <li class="toctree-l3"><a href="#creating-a-channel-">Creating a channel - 创建通道</a></li>
+    
 
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../sdk_node_zh/">SDK--node</a>
-        
-    </li>
+    <li class="toctree-l3"><a href="#reviewing-a-configuration-">Reviewing a configuration - 检查配置</a></li>
+    
 
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../sdk_java_zh/">SDK--java</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../kafka_zh/">基于kafka的排序服务</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../channels_zh/">Channels</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../ledger_zh/">账本</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../read-write-set/">Read-Write set</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../gossip_zh/">Gossip数据传输协议</a>
-        
-    </li>
-
-        
     </ul>
-<li>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../configtxlator_zh/">Channel 重新配置(configtxlator)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../endorsement-policies_zh/">背书策略</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../error-handling_zh/">错误处理</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../logging-control_zh/">日志控制</a>
+                </li>
+    </ul>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../msp_acl_zh/">MSP&ACL</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Fabric设计</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../arch-deep-dive_zh/">架构说明</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../txflow_zh/">交易流程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ca-setup_zh/">CA</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../sdk_node_zh/">SDK--node</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../sdk_java_zh/">SDK--java</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../kafka_zh/">基于kafka的排序服务</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../channels_zh/">Channels</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ledger_zh/">账本</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../read-write-set/">Read-Write set</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../gossip_zh/">Gossip数据传输协议</a>
+                </li>
+    </ul>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../sdk-design_zh/">Fabric SDK 设计</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../msp_acl_zh/">MSP&ACL</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../makefile_zh/">Makefile文件解析</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../sdk-design_zh/">Fabric SDK 设计</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../makefile_zh/">Makefile文件解析</a>
+	    </li>
           
         </ul>
       </div>
@@ -312,9 +227,8 @@
     <li>Channel 配置(configtxgen)</li>
     <li class="wy-breadcrumbs-aside">
       
-        
-          <a href="https://github.com/HyperledgerCN/hyperledgerDocs" class="icon icon-github"> Edit on GitHub</a>
-        
+        <a href="https://github.com/HyperledgerCN/hyperledgerDocs/edit/master/docs/configtxgen_zh.md"
+          class="icon icon-github"> Edit on GitHub</a>
       
     </li>
   </ul>
@@ -323,22 +237,9 @@
           <div role="main">
             <div class="section">
               
-                <table>
-<thead>
-<tr>
-<th>原文</th>
-<th>作者</th>
-<th>审核修正</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="http://hyperledger-fabric.readthedocs.io/en/latest/configtxgen.html">原文</a></td>
-<td>Fei Cao</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+                <p>| 原文 | 作者 | 审核修正 |
+| &mdash; | &mdash; | —&mdash; |
+| <a href="http://hyperledger-fabric.readthedocs.io/en/latest/configtxgen.html">原文</a> | Fei Cao |  |</p>
 <p>This document describe the usage for the configtxgen utility for manipulating Hyperledger Fabric channel configuration.</p>
 <p>本文档描述了<code>configtxgen</code>工具的用法，该工具用来操作超级账本Fabric的通道配置。</p>
 <p>For now, the tool is primarily focused on generating the genesis block for bootstrapping the orderer, but it is intended to be enhanced in the future for generating new channel configurations as well as reconfiguring existing channels.</p>
@@ -519,13 +420,13 @@ Config for channel: foo
       </div>
 
     </section>
-
+    
   </div>
 
-<div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/HyperledgerCN/hyperledgerDocs" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/HyperledgerCN/hyperledgerDocs" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../configtx_zh/" style="color: #fcfcfc;">&laquo; Previous</a></span>
@@ -535,6 +436,7 @@ Config for channel: foo
       
     </span>
 </div>
+    <script src="../js/theme.js"></script>
 
 </body>
 </html>
