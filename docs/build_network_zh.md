@@ -1,7 +1,7 @@
 
 | 原文 | 作者 | 审核修正 |
 | --- | --- | —--- |
-| [原文](http://hyperledger-fabric.readthedocs.io/en/latest/build_network.html) | Zhangjiong Xuan |  |
+| [原文](http://hyperledger-fabric.readthedocs.io/en/latest/build_network.html) | Zhangjiong Xuan | Zhangjiong Xuan |
 
 **Note:**These instructions have been verified to work against the version “1.0.0-rc1” tagged Docker images and the pre-compiled setup utilities within the supplied tar file. If you run these commands with images or tools from the current master branch, it is possible that you will see configuration and panic errors.
 
@@ -259,7 +259,7 @@ The configtxgen tool is used to create four configuration artifacts:
 * and two anchor peer transactions - one for each Peer Org.
 
 `configtxgen tool`用于创建4个配置工作：
-* 订阅者的`genesis block`,
+* order的`genesis block`,
 * channel的`channel configuration transaction`,
 * 以及两个`anchor peer transactions`一个对应一个Peer组织。
 
@@ -269,7 +269,7 @@ Please see Channel Configuration (configtxgen) for a complete description of the
 
 The orderer block is the Genesis Block for the ordering service, and the channel transaction file is broadcast to the orderer at Channel creation time. The anchor peer transactions, as the name might suggest, specify each Org’s Anchor Peer on this channel.
 
-`order block`是一个ordering service的[创世区块](http://hyperledger-fabric.readthedocs.io/en/latest/glossary.html#genesis-block)，`channel transaction`文件在`Channel`创建的时侯广播给订阅者。`anchor peer transactions`，正如名称所示，指定了每个组织在此channel上的[`Anchor peer`](http://hyperledger-fabric.readthedocs.io/en/latest/glossary.html#anchor-peer)。
+`order block`是一个ordering service的[创世区块](http://hyperledger-fabric.readthedocs.io/en/latest/glossary.html#genesis-block)，`channel transaction`文件在`Channel`创建的时侯广播给order。`anchor peer transactions`，正如名称所示，指定了每个组织在此channel上的[`Anchor peer`](http://hyperledger-fabric.readthedocs.io/en/latest/glossary.html#anchor-peer)。
 
 ### 1.7.1. 它是如何工作的？
 
@@ -425,7 +425,7 @@ root@0d78bb69300d:/opt/gopath/src/github.com/hyperledger/fabric/peer#
 
 Recall that we used the configtxgen tool to generate a channel configuration artifact - channel.tx. We are going to pass in this artifact to the orderer as part of the create channel request.
 
-回想以下，我们使用configtxgen工具生成信道配置-`channel.tx`。我们将这个配置作为请求的一部分传递给订阅者。
+回想以下，我们使用configtxgen工具生成信道配置-`channel.tx`。我们将这个配置作为请求的一部分传递给order。
 
 >Note
 >>Notice the -- cafile that we pass as part of this command. It is the local path to the orderer’s root cert, allowing us to verify the TLS handshake.
