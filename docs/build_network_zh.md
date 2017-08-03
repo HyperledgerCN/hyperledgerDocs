@@ -1,6 +1,6 @@
 
 | 原文 | 作者 | 审核修正 |
-| --- | --- | —--- |
+| --- | --- | --- |
 | [原文](http://hyperledger-fabric.readthedocs.io/en/latest/build_network.html) | Zhangjiong Xuan | Zhangjiong Xuan |
 
 **Note:**These instructions have been verified to work against the version “1.0.0-rc1” tagged Docker images and the pre-compiled setup utilities within the supplied tar file. If you run these commands with images or tools from the current master branch, it is possible that you will see configuration and panic errors.
