@@ -1,7 +1,9 @@
 
+
 | 原文 | 作者 | 审核修正 |
-| --- | --- | —--- |
-| [原文](http://hyperledger-fabric.readthedocs.io/en/latest/readwrite.html) | Linsheng Yu |  |
+|---|---|---|
+| [原文](http://hyperledger-fabric.readthedocs.io/en/latest/readwrite.html) | Linsheng Yu | Dijun Liu |
+
 
 
 ## 交易模拟和read-write set
@@ -106,4 +108,16 @@
 4. `T4`验证失败，因为它读取的`k2`在之前的交易`T1`中被修改了
 5. `T5`验证成功，因为它读取的`k5`没有在之前的任何交易中修改
 
-**注意：**交易不支持多read-write set
+**译注：**
+
+原文示例交易需要进一步阐述
+
+  1. 交易中，示例里面忽略了在读取key的时候，是需要带有这个key的版本信息的。
+
+  2. 值得注意的是，T1...T5在同一个区块和不同区块的处理方式不同。
+    - 如果读取的key在此区块前面的交易中已经有update，则直接置此交易为失效
+    - 如果读取的key在本区块前面的交易没有做update，则需要判断state中的版本和commit的版本是否一致，如果不一致，则置为失效交易
+
+    为了尽量避免失效交易，application和chaincode需要进行精心设计，避免同一个资产交易信息尝试在一个区块上进行update操作。如果避免不到，可以适度重试交易。
+
+**注意：** 交易不支持多read-write set
