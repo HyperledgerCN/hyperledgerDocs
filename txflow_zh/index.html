@@ -7,24 +7,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <meta name="author" content="Hyperledger国际化工作组">
-  <link rel="shortcut icon" href="../img/favicon.ico">
+  
   <title>交易流程 - Hyperledger中文文档</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="../css/highlight.css">
+
   
   <script>
     // Current page data
-    var mkdocs_page_name = "\u4ea4\u6613\u6d41\u7a0b";
+    var mkdocs_page_name = "交易流程";
     var mkdocs_page_input_path = "txflow_zh.md";
     var mkdocs_page_url = "/txflow_zh/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
   <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
   
 </head>
 
@@ -44,168 +52,252 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
+        <ul class="current">
           
-            <li class="toctree-l1">
-		
-    <a class="" href="..">欢迎</a>
-	    </li>
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">欢迎</a>
+        
+    </li>
+<li>
           
-            <li class="toctree-l1">
-		
-    <a class="" href="../glossary/">词汇表</a>
-	    </li>
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../glossary/">词汇表</a>
+        
+    </li>
+<li>
           
-            <li class="toctree-l1">
-		
-    <a class="" href="../getting_started/">快速入门</a>
-	    </li>
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../getting_started/">快速入门</a>
+        
+    </li>
+<li>
           
-            <li class="toctree-l1">
-		
-    <a class="" href="../protocol-spec_zh/">协议规范</a>
-	    </li>
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../protocol-spec_zh/">协议规范</a>
+        
+    </li>
+<li>
           
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Fabric教程</span>
+            <li>
     <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../build_network_zh/">构建第一个fabric网络</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../write_first_app_zh/">编写第一个应用</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../chaincode_zh/">Chaincode</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Fabric操作指南</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../msp_zh/">MSP</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../configtx_zh/">Channel 配置(configtx)</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../configtxgen_zh/">Channel 配置(configtxgen)</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../configtxlator_zh/">Channel 重新配置(configtxlator)</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../endorsement-policies_zh/">背书策略</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../error-handling_zh/">错误处理</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../logging-control_zh/">日志控制</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Fabric设计</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../arch-deep-dive_zh/">架构说明</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">交易流程</a>
-    <ul class="subnav">
+    <li><span>Fabric教程</span></li>
+
+        
             
-    <li class="toctree-l3"><a href="#_1">假设</a></li>
-    
+    <li class="toctree-l1 ">
+        <a class="" href="../build_network_zh/">构建第一个fabric网络</a>
+        
+    </li>
 
-    <li class="toctree-l3"><a href="#1-a">1. 客户A发起交易</a></li>
-    
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../write_first_app_zh/">编写第一个应用</a>
+        
+    </li>
 
-    <li class="toctree-l3"><a href="#2">2. 背书节点验证签名&amp;执行交易</a></li>
-    
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../chaincode_zh/">Chaincode</a>
+        
+    </li>
 
-    <li class="toctree-l3"><a href="#3">3. 审查提案反馈</a></li>
-    
-
-    <li class="toctree-l3"><a href="#4">4. 客户组合交易背书</a></li>
-    
-
-    <li class="toctree-l3"><a href="#5">5. 交易验证和提交</a></li>
-    
-
-    <li class="toctree-l3"><a href="#6">6. 账本更新</a></li>
-    
-
+        
     </ul>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../ca-setup_zh/">CA</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../sdk_node_zh/">SDK--node</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../sdk_java_zh/">SDK--java</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../kafka_zh/">基于kafka的排序服务</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../channels_zh/">Channels</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../ledger_zh/">账本</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../read-write-set/">Read-Write set</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../gossip_zh/">Gossip数据传输协议</a>
-                </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric操作指南</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../msp_zh/">MSP</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configtx_zh/">Channel 配置(configtx)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configtxgen_zh/">Channel 配置(configtxgen)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configtxlator_zh/">Channel 重新配置(configtxlator)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../endorsement-policies_zh/">背书策略</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../error-handling_zh/">错误处理</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../logging-control_zh/">日志控制</a>
+        
+    </li>
+
+        
     </ul>
-	    </li>
+<li>
           
-            <li class="toctree-l1">
-		
-    <a class="" href="../msp_acl_zh/">MSP&ACL</a>
-	    </li>
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric设计</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../arch-deep-dive_zh/">架构说明</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">交易流程</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#_1">假设</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#1-a">1. 客户A发起交易</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#2">2. 背书节点验证签名&amp;执行交易</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#3">3. 审查提案反馈</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#4">4. 客户组合交易背书</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#5">5. 交易验证和提交</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#6">6. 账本更新</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ca-setup_zh/">CA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../sdk_node_zh/">SDK--node</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../sdk_java_zh/">SDK--java</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../kafka_zh/">基于kafka的排序服务</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../channels_zh/">Channels</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ledger_zh/">账本</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../read-write-set/">Read-Write set</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../gossip_zh/">Gossip数据传输协议</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
           
-            <li class="toctree-l1">
-		
-    <a class="" href="../sdk-design_zh/">Fabric SDK 设计</a>
-	    </li>
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../msp_acl_zh/">MSP&ACL</a>
+        
+    </li>
+<li>
           
-            <li class="toctree-l1">
-		
-    <a class="" href="../makefile_zh/">Makefile文件解析</a>
-	    </li>
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../sdk-design_zh/">Fabric SDK 设计</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../makefile_zh/">Makefile文件解析</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../blockchain-crypto-service-provider_zh/">BCCSP密码算法套件解析</a>
+        
+    </li>
+<li>
           
         </ul>
       </div>
@@ -236,8 +328,9 @@
     <li>交易流程</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/HyperledgerCN/hyperledgerDocs/edit/master/docs/txflow_zh.md"
-          class="icon icon-github"> Edit on GitHub</a>
+        
+          <a href="https://github.com/HyperledgerCN/hyperledgerDocs" class="icon icon-github"> Edit on GitHub</a>
+        
       
     </li>
   </ul>
@@ -246,9 +339,22 @@
           <div role="main">
             <div class="section">
               
-                <p>| 原文 | 作者 | 审核修正 |
-| &mdash; | &mdash; | —&mdash; |
-| <a href="http://hyperledger-fabric.readthedocs.io/en/latest/txflow.html">原文</a> | Yueling Liang |  |</p>
+                <table>
+<thead>
+<tr>
+<th>原文</th>
+<th>作者</th>
+<th>审核修正</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://hyperledger-fabric.readthedocs.io/en/latest/txflow.html">原文</a></td>
+<td>Yueling Liang</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <p>This document outlines the transactional mechanics that take place during a standard asset exchange. The scenario includes two clients, A and B, who are buying and selling radishes. They each have a peer on the network through which they send their transactions and interact with the ledger.</p>
 <p>本文概述了资产交易过程中的事务机制。该场景包含客户A和B，在进行萝卜买卖。他们各自有一个网络节点，通过节点他们发送交易并和账本进行交互。</p>
 <p><img alt="" src="../img/step0.png" /></p>
@@ -268,9 +374,8 @@
 <p><img alt="" src="../img/step2.png" /></p>
 <h2 id="2">2. 背书节点验证签名&amp;执行交易<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
 <p>(Endorsing peers verify signature &amp; execute the transaction)</p>
-<p>The endorsing peers verify the signature (using MSP) and determine if the submitter is properly authorized to perform the proposed operation (using the channel’s ACL). The endorsing peers take the transaction proposal arguments as inputs and execute them against the current state database to produce transaction results including a response value, read set, and write set. No updates are made to the ledger at this point. The set of these values, along with the endorsing peer’s signature and a YES/NO endorsement statement is passed back as a “proposal response” to the SDK which parses the payload for the application to consume.
-{The MSP is a local process running on the peers which allows them to verify transaction 
-requests arriving from clients and to sign transaction results(endorsements). The ACL (Access Control List) is defined at channel creation time, and determines which peers and end users are permitted to perform certain actions.}</p>
+<p ACL="ACL" Control="Control" List_="List)" MSP="MSP" The="The" _Access="(Access" _requests="
+requests" a="a" actions.="actions." allows="allows" and="and" are="are" arriving="arriving" at="at" certain="certain" channel="channel" clients="clients" creation="creation" defined="defined" determines="determines" end="end" from="from" is="is" local="local" on="on" peers="peers" perform="perform" permitted="permitted" process="process" results_endorsements_.="results(endorsements)." running="running" sign="sign" the="the" them="them" time_="time," to="to" transaction="transaction" users="users" verify="verify" which="which">The endorsing peers verify the signature (using MSP) and determine if the submitter is properly authorized to perform the proposed operation (using the channel’s ACL). The endorsing peers take the transaction proposal arguments as inputs and execute them against the current state database to produce transaction results including a response value, read set, and write set. No updates are made to the ledger at this point. The set of these values, along with the endorsing peer’s signature and a YES/NO endorsement statement is passed back as a “proposal response” to the SDK which parses the payload for the application to consume.</p>
 <p MSP是在节点上运行的一个本地流程，该流程允许节点验证客户的交易请求和签订交易结果（背书）。ACL（权限控制清单）在通道创建时定义，决定哪些节点和用户被授权进行指定操作。="MSP是在节点上运行的一个本地流程，该流程允许节点验证客户的交易请求和签订交易结果（背书）。ACL（权限控制清单）在通道创建时定义，决定哪些节点和用户被授权进行指定操作。">背书节点使用MSP验证签名并确定请求者是否被合理授权进行提案的操作（使用通道ACL）。背书节点以交易提案凭证为输入，基于当前状态的数据库执行来生成交易结果，输出包括反馈值、读取集合和写入集合。截止现在账本还未进行更新。这些值的集合，背书节点的签名以及是/否的背书声明一同作为“提案反馈”被传输回到SDK，SDK对应用消耗的载荷进行解析。</p>
 <p><img alt="" src="../img/step3.png" /></p>
 <h2 id="3">3. 审查提案反馈<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
@@ -325,13 +430,13 @@ requests arriving from clients and to sign transaction results(endorsements). Th
       </div>
 
     </section>
-    
+
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+<div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/HyperledgerCN/hyperledgerDocs" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/HyperledgerCN/hyperledgerDocs" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../arch-deep-dive_zh/" style="color: #fcfcfc;">&laquo; Previous</a></span>
@@ -341,7 +446,6 @@ requests arriving from clients and to sign transaction results(endorsements). Th
       
     </span>
 </div>
-    <script src="../js/theme.js"></script>
 
 </body>
 </html>

@@ -7,24 +7,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <meta name="author" content="Hyperledger国际化工作组">
-  <link rel="shortcut icon" href="../img/favicon.ico">
+  
   <title>Fabric SDK 设计 - Hyperledger中文文档</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="../css/highlight.css">
+
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Fabric SDK \u8bbe\u8ba1";
+    var mkdocs_page_name = "Fabric SDK 设计";
     var mkdocs_page_input_path = "sdk-design_zh.md";
     var mkdocs_page_url = "/sdk-design_zh/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
   <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
   
 </head>
 
@@ -44,220 +52,288 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
+        <ul class="current">
           
-            <li class="toctree-l1">
-		
-    <a class="" href="..">欢迎</a>
-	    </li>
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">欢迎</a>
+        
+    </li>
+<li>
           
-            <li class="toctree-l1">
-		
-    <a class="" href="../glossary/">词汇表</a>
-	    </li>
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../glossary/">词汇表</a>
+        
+    </li>
+<li>
           
-            <li class="toctree-l1">
-		
-    <a class="" href="../getting_started/">快速入门</a>
-	    </li>
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../getting_started/">快速入门</a>
+        
+    </li>
+<li>
           
-            <li class="toctree-l1">
-		
-    <a class="" href="../protocol-spec_zh/">协议规范</a>
-	    </li>
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../protocol-spec_zh/">协议规范</a>
+        
+    </li>
+<li>
           
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Fabric教程</span>
+            <li>
     <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../build_network_zh/">构建第一个fabric网络</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../write_first_app_zh/">编写第一个应用</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../chaincode_zh/">Chaincode</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Fabric操作指南</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../msp_zh/">MSP</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../configtx_zh/">Channel 配置(configtx)</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../configtxgen_zh/">Channel 配置(configtxgen)</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../configtxlator_zh/">Channel 重新配置(configtxlator)</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../endorsement-policies_zh/">背书策略</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../error-handling_zh/">错误处理</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../logging-control_zh/">日志控制</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Fabric设计</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../arch-deep-dive_zh/">架构说明</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../txflow_zh/">交易流程</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../ca-setup_zh/">CA</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../sdk_node_zh/">SDK--node</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../sdk_java_zh/">SDK--java</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../kafka_zh/">基于kafka的排序服务</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../channels_zh/">Channels</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../ledger_zh/">账本</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../read-write-set/">Read-Write set</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../gossip_zh/">Gossip数据传输协议</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../msp_acl_zh/">MSP&ACL</a>
-	    </li>
-          
-            <li class="toctree-l1 current">
-		
-    <a class="current" href="./">Fabric SDK 设计</a>
-    <ul class="subnav">
+    <li><span>Fabric教程</span></li>
+
+        
             
-    <li class="toctree-l2"><a href="#1">1 概要</a></li>
-    
+    <li class="toctree-l1 ">
+        <a class="" href="../build_network_zh/">构建第一个fabric网络</a>
+        
+    </li>
 
-    <li class="toctree-l2"><a href="#2">2 目标</a></li>
-    
-        <ul>
         
-            <li><a class="toctree-l3" href="#21">2.1 应用开发</a></li>
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../write_first_app_zh/">编写第一个应用</a>
         
-            <li><a class="toctree-l3" href="#22-chaincode">2.2 chaincode开发</a></li>
-        
-        </ul>
-    
+    </li>
 
-    <li class="toctree-l2"><a href="#3">3 原则</a></li>
-    
-        <ul>
         
-            <li><a class="toctree-l3" href="#31-api">3.1 良好的API文档，数据模型，示例代码</a></li>
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../chaincode_zh/">Chaincode</a>
         
-            <li><a class="toctree-l3" href="#32">3.2 便于使用</a></li>
-        
-            <li><a class="toctree-l3" href="#33">3.3 性能</a></li>
-        
-            <li><a class="toctree-l3" href="#34">3.4 版本控制</a></li>
-        
-            <li><a class="toctree-l3" href="#35">3.5 可服务性</a></li>
-        
-        </ul>
-    
+    </li>
 
-    <li class="toctree-l2"><a href="#4">4 场景</a></li>
-    
-        <ul>
         
-            <li><a class="toctree-l3" href="#41">4.1 成员的注册和登记</a></li>
-        
-            <li><a class="toctree-l3" href="#42">4.2 链的创建</a></li>
-        
-            <li><a class="toctree-l3" href="#43">4.3 交易支持</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l2"><a href="#5-api">5 客户端服务器API参考</a></li>
-    
-
-    <li class="toctree-l2"><a href="#6">6 详细说明</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#61">6.1 客户端</a></li>
-        
-            <li><a class="toctree-l3" href="#62">6.2 链</a></li>
-        
-            <li><a class="toctree-l3" href="#63">6.3 用户</a></li>
-        
-            <li><a class="toctree-l3" href="#64">6.4 节点</a></li>
-        
-            <li><a class="toctree-l3" href="#65">6.5 键值存储（接口）</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l2"><a href="#66">6.6 加密模块（接口）</a></li>
-    
-
-    <li class="toctree-l2"><a href="#7">7 处理网络错误</a></li>
-    
-
-    <li class="toctree-l2"><a href="#8">8 参考</a></li>
-    
-
     </ul>
-	    </li>
+<li>
           
-            <li class="toctree-l1">
-		
-    <a class="" href="../makefile_zh/">Makefile文件解析</a>
-	    </li>
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric操作指南</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../msp_zh/">MSP</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configtx_zh/">Channel 配置(configtx)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configtxgen_zh/">Channel 配置(configtxgen)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configtxlator_zh/">Channel 重新配置(configtxlator)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../endorsement-policies_zh/">背书策略</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../error-handling_zh/">错误处理</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../logging-control_zh/">日志控制</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric设计</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../arch-deep-dive_zh/">架构说明</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../txflow_zh/">交易流程</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ca-setup_zh/">CA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../sdk_node_zh/">SDK--node</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../sdk_java_zh/">SDK--java</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../kafka_zh/">基于kafka的排序服务</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../channels_zh/">Channels</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ledger_zh/">账本</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../read-write-set/">Read-Write set</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../gossip_zh/">Gossip数据传输协议</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../msp_acl_zh/">MSP&ACL</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Fabric SDK 设计</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#1">1 概要</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#2">2 目标</a></li>
+                
+                    <li><a class="toctree-l4" href="#21">2.1 应用开发</a></li>
+                
+                    <li><a class="toctree-l4" href="#22-chaincode">2.2 chaincode开发</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#3">3 原则</a></li>
+                
+                    <li><a class="toctree-l4" href="#31-api">3.1 良好的API文档，数据模型，示例代码</a></li>
+                
+                    <li><a class="toctree-l4" href="#32">3.2 便于使用</a></li>
+                
+                    <li><a class="toctree-l4" href="#33">3.3 性能</a></li>
+                
+                    <li><a class="toctree-l4" href="#34">3.4 版本控制</a></li>
+                
+                    <li><a class="toctree-l4" href="#35">3.5 可服务性</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#4">4 场景</a></li>
+                
+                    <li><a class="toctree-l4" href="#41">4.1 成员的注册和登记</a></li>
+                
+                    <li><a class="toctree-l4" href="#42">4.2 链的创建</a></li>
+                
+                    <li><a class="toctree-l4" href="#43">4.3 交易支持</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#5-api">5 客户端服务器API参考</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#6">6 详细说明</a></li>
+                
+                    <li><a class="toctree-l4" href="#61">6.1 客户端</a></li>
+                
+                    <li><a class="toctree-l4" href="#62">6.2 链</a></li>
+                
+                    <li><a class="toctree-l4" href="#63">6.3 用户</a></li>
+                
+                    <li><a class="toctree-l4" href="#64">6.4 节点</a></li>
+                
+                    <li><a class="toctree-l4" href="#65">6.5 键值存储（接口）</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#66">6.6 加密模块（接口）</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#7">7 处理网络错误</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#8">8 参考</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../makefile_zh/">Makefile文件解析</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../blockchain-crypto-service-provider_zh/">BCCSP密码算法套件解析</a>
+        
+    </li>
+<li>
           
         </ul>
       </div>
@@ -284,8 +360,9 @@
     <li>Fabric SDK 设计</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/HyperledgerCN/hyperledgerDocs/edit/master/docs/sdk-design_zh.md"
-          class="icon icon-github"> Edit on GitHub</a>
+        
+          <a href="https://github.com/HyperledgerCN/hyperledgerDocs" class="icon icon-github"> Edit on GitHub</a>
+        
       
     </li>
   </ul>
@@ -294,9 +371,22 @@
           <div role="main">
             <div class="section">
               
-                <p>| 原文 | 作者 | 审核修正 |
-| &mdash; | &mdash; | —&mdash; |
-| <a href="https://docs.google.com/document/d/1R5RtIBMW9fZpli37E5Li5_Q9ve3BnQ4q3gWmGZj6Sv4/edit">原文</a> | Lidong Guo |  |</p>
+                <table>
+<thead>
+<tr>
+<th>原文</th>
+<th>作者</th>
+<th>审核修正</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://docs.google.com/document/d/1R5RtIBMW9fZpli37E5Li5_Q9ve3BnQ4q3gWmGZj6Sv4/edit">原文</a></td>
+<td>Lidong Guo</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h2 id="1">1 概要<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p>Hyperledger Fabric v1.0提供了基本的Protocol Buffers 格式的API通过gRPC协议作用于区块链网络。这些API包含了交易处理、安全的成员关系服务、区块链遍历和事件处理。有很多编程语言支持Protocol Buffers，包括Go, C#, Java, Javascript, Python, and C++。所以有必要给应用开发工程师提供一个本地SDK。</p>
 <p>本文档详述了一个SDK应该提供的API最小集合的实现。一个SDK的目标即要解决客户在区块链网络中直接面对的一些原始需求；又要做一些顶层的合理抽象以图方便开发人员开发，并且在本地应用代码中使用这些API后方便开发工作的进行。然而，使用SDK并不会妨碍应用直接调用gRPC的操作。</p>
@@ -1138,13 +1228,13 @@ osW4Gk</p>
       </div>
 
     </section>
-    
+
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+<div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/HyperledgerCN/hyperledgerDocs" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/HyperledgerCN/hyperledgerDocs" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../msp_acl_zh/" style="color: #fcfcfc;">&laquo; Previous</a></span>
@@ -1154,7 +1244,6 @@ osW4Gk</p>
       
     </span>
 </div>
-    <script src="../js/theme.js"></script>
 
 </body>
 </html>

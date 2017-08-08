@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Hyperledger国际化工作组">
+  
+  <title>BCCSP密码算法套件解析 - Hyperledger中文文档</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "BCCSP密码算法套件解析";
+    var mkdocs_page_input_path = "blockchain-crypto-service-provider_zh.md";
+    var mkdocs_page_url = "/blockchain-crypto-service-provider_zh/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Hyperledger中文文档</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">欢迎</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../glossary/">词汇表</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../getting_started/">快速入门</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../protocol-spec_zh/">协议规范</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric教程</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../build_network_zh/">构建第一个fabric网络</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../write_first_app_zh/">编写第一个应用</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../chaincode_zh/">Chaincode</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric操作指南</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../msp_zh/">MSP</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configtx_zh/">Channel 配置(configtx)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configtxgen_zh/">Channel 配置(configtxgen)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configtxlator_zh/">Channel 重新配置(configtxlator)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../endorsement-policies_zh/">背书策略</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../error-handling_zh/">错误处理</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../logging-control_zh/">日志控制</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric设计</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../arch-deep-dive_zh/">架构说明</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../txflow_zh/">交易流程</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ca-setup_zh/">CA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../sdk_node_zh/">SDK--node</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../sdk_java_zh/">SDK--java</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../kafka_zh/">基于kafka的排序服务</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../channels_zh/">Channels</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ledger_zh/">账本</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../read-write-set/">Read-Write set</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../gossip_zh/">Gossip数据传输协议</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../msp_acl_zh/">MSP&ACL</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../sdk-design_zh/">Fabric SDK 设计</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../makefile_zh/">Makefile文件解析</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">BCCSP密码算法套件解析</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#bccsp">什么是BCCSP</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#hyperledger-fabricbccsp">Hyperledger Fabric中BCCSP的整合方式</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#bccsp_1">BCCSP设计目标</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#bccsp_2">BCCSP秘钥</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#_1">秘钥生命周期</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#_2">签名验签能力</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#_3">加解密能力</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#_4">摘要能力 译者增加表述</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Hyperledger中文文档</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>BCCSP密码算法套件解析</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/HyperledgerCN/hyperledgerDocs" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <table>
+<thead>
+<tr>
+<th>原文</th>
+<th>作者</th>
+<th>审核修正</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://jira.hyperledger.org/secure/attachment/10124/BCCSP.pdf">原文</a></td>
+<td>Dijun Liu</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="bccsp">什么是BCCSP<a class="headerlink" href="#bccsp" title="Permanent link">&para;</a></h2>
+<p>BCCSP全称是<strong>区块链密码服务提供者</strong>，用来提供区块链相关的算法标准和他们的实现。</p>
+<p><strong>bccsp.go</strong></p>
+<pre><code>// BCCSP is the blockchain cryptographic service provider that offers
+// the implementation of cryptographic standards and algorithms.
+type BCCSP interface {
+
+    // KeyGen generates a key using opts.
+    KeyGen(opts KeyGenOpts) (k Key, err error)
+
+    // KeyDeriv derives a key from k using opts.
+    // The opts argument should be appropriate for the primitive used.
+    KeyDeriv(k Key, opts KeyDerivOpts) (dk Key, err error)
+
+    // KeyImport imports a key from its raw representation using opts.
+    // The opts argument should be appropriate for the primitive used.
+    KeyImport(raw interface{}, opts KeyImportOpts) (k Key, err error)
+
+    // GetKey returns the key this CSP associates to
+    // the Subject Key Identifier ski.
+    GetKey(ski []byte) (k Key, err error)
+
+    // Hash hashes messages msg using options opts.
+    // If opts is nil, the default hash function will be used.
+    Hash(msg []byte, opts HashOpts) (hash []byte, err error)
+
+    // GetHash returns and instance of hash.Hash using options opts.
+    // If opts is nil, the default hash function will be returned.
+    GetHash(opts HashOpts) (h hash.Hash, err error)
+
+    // Sign signs digest using key k.
+    // The opts argument should be appropriate for the algorithm used.
+    //
+    // Note that when a signature of a hash of a larger message is needed,
+    // the caller is responsible for hashing the larger message and passing
+    // the hash (as digest).
+    Sign(k Key, digest []byte, opts SignerOpts) (signature []byte, err error)
+
+    // Verify verifies signature against key k and digest
+    // The opts argument should be appropriate for the algorithm used.
+    Verify(k Key, signature, digest []byte, opts SignerOpts) (valid bool, err error)
+
+    // Encrypt encrypts plaintext using key k.
+    // The opts argument should be appropriate for the algorithm used.
+    Encrypt(k Key, plaintext []byte, opts EncrypterOpts) (ciphertext []byte, err error)
+
+    // Decrypt decrypts ciphertext using key k.
+    // The opts argument should be appropriate for the algorithm used.
+    Decrypt(k Key, ciphertext []byte, opts DecrypterOpts) (plaintext []byte, err error)
+}
+</code></pre>
+<p><strong>代码译注</strong></p>
+<p><strong>秘钥生命周期管理</strong>
+1. GenKey - 产生秘钥
+2. DeriveKey -派生秘钥
+3. GetKey - 获取秘钥
+4. ImportKey - 导入秘钥</p>
+<p><strong>签名验签操作</strong></p>
+<ol>
+<li>Sign -签名</li>
+<li>Verify -验签</li>
+</ol>
+<p><strong>加解密操作</strong></p>
+<ol>
+<li>Encrypt - 加密操作</li>
+<li>Decrypt - 解密操作</li>
+</ol>
+<h2 id="hyperledger-fabricbccsp">Hyperledger Fabric中BCCSP的整合方式<a class="headerlink" href="#hyperledger-fabricbccsp" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="../img/bccsp.jpeg" /></p>
+<p><strong>框图译注</strong></p>
+<p>BCCSP Factory 主要提供3种BCCSP实现。</p>
+<ul>
+<li>软件实现 Software BCCSP</li>
+<li>基于PKCS11的硬件实现 HSM BCCSP (PKCS11）</li>
+<li>测试用的空实现 Null BCCSP (testing)</li>
+</ul>
+<p>BCCSP通过Membership Service（成员服务提供者）给相关核心功能和客户端SDK提供加密算法相关的服务。
+相关核心功能集中在core中，包括共识模块，背书模块等。</p>
+<h2 id="bccsp_1">BCCSP设计目标<a class="headerlink" href="#bccsp_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>可插拔<ul>
+<li>在不改变核心代码的情况下，可以使用多种加密实现方式</li>
+</ul>
+</li>
+<li>提供多种CSP<ul>
+<li>可以添加多种CSP，比如不同的硬件实现</li>
+<li>允许在不同的模块上面使用不同的CSP</li>
+</ul>
+</li>
+<li>支持国际标准<ul>
+<li>通过新的CSP来做支持</li>
+<li>不需要对不同标准之间的互通做保证</li>
+</ul>
+</li>
+</ul>
+<h2 id="bccsp_2">BCCSP秘钥<a class="headerlink" href="#bccsp_2" title="Permanent link">&para;</a></h2>
+<p><strong>bccsp.go</strong></p>
+<pre><code>// Key represents a cryptographic key
+type Key interface {
+
+    // Bytes converts this key to its byte representation,
+    // if this operation is allowed.
+    Bytes() ([]byte, error)
+
+    // SKI returns the subject key identifier of this key.
+    SKI() []byte
+
+    // Symmetric returns true if this key is a symmetric key,
+    // false is this key is asymmetric
+    Symmetric() bool
+
+    // Private returns true if this key is a private key,
+    // false otherwise.
+    Private() bool
+
+    // PublicKey returns the corresponding public key part of an asymmetric public/private key pair.
+    // This method returns an error in symmetric key schemes.
+    PublicKey() (Key, error)
+}
+</code></pre>
+<p>KEY描述了密码相关的秘钥，秘钥可以是<strong>对称</strong>的或者<strong>非对称</strong>的。</p>
+<p>如果是非对称的，那么秘钥还分为<strong>公钥</strong>和<strong>私钥</strong>两种</p>
+<p>如果是私钥的话，它还可以通过<code>PublicKey()</code>来获取对应的公钥</p>
+<p>秘钥可以通过Subject Key Identifier (GetSKI)来索引。</p>
+<h2 id="_1">秘钥生命周期<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>为了进行密码相关的操作，需要产生相应的秘钥（<strong>译注</strong>：并且维护相应的秘钥状态，比如存储，索引）</p>
+<p><strong>bccsp.go</strong></p>
+<pre><code> GenKey(opts GenKeyOpts) (k Key, err error)
+</code></pre>
+<p><strong>bccsp.go</strong></p>
+<pre><code>// KeyGenOpts contains options for key-generation with a CSP.
+type KeyGenOpts interface {
+
+    // Algorithm returns the key generation algorithm identifier (to be used).
+    Algorithm() string
+
+    // Ephemeral returns true if the key to generate has to be ephemeral,
+    // false otherwise.
+    Ephemeral() bool
+}
+</code></pre>
+<p><code>GenKey</code>可以通过不同的opts来控制，产生不同种类的秘钥</p>
+<p>对于开发者来说，至少需要为指定生成秘钥的算法和是否是短期秘钥。如果是长期秘钥的话，则需要通过SKI来完成存储和索引</p>
+<p>短期秘钥的话，如果没有地方再引用了，会自动被销毁。</p>
+<p>值得注意的是，除了这两个方法，其他任何的参数，你都可以在实现此接口<code>GenKeyOpts</code>的时候加上。</p>
+<hr />
+<p>有时需要通过已有的秘钥派生新的秘钥</p>
+<p><strong>bccsp.go</strong></p>
+<pre><code>DeriveKey(k Key, opts DeriveKeyOpts) (dk Key, err error)
+</code></pre>
+<p><strong>bccsp.go</strong></p>
+<pre><code>// KeyDerivOpts contains options for key-derivation with a CSP.
+type KeyDerivOpts interface {
+
+    // Algorithm returns the key derivation algorithm identifier (to be used).
+    Algorithm() string
+
+    // Ephemeral returns true if the key to derived has to be ephemeral,
+    // false otherwise.
+    Ephemeral() bool
+}
+</code></pre>
+<p><code>DeriveKey</code>允许从已有秘钥派生一组新的秘钥（比如通过HMAC或者重新随机生成）。通过适当的opts可以选择不同的派生方法。</p>
+<p>同<code>GenKey</code>，对于开发者来说，至少需要为指定生成秘钥的算法和是否是短期秘钥。如果是长期秘钥的话，则需要通过SKI来完成存储和索引。</p>
+<p>同<code>GenKey</code>，值得注意的是，除了这两个方法，其他任何的参数，你都可以在实现此接口<code>DeriveKeyOpts</code>的时候加上。</p>
+<h2 id="_2">签名验签能力<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p><strong>bccsp.go</strong></p>
+<pre><code>// Sign signs digest using key k.
+// The opts argument should be appropriate for the algorithm used.
+//
+// Note that when a signature of a hash of a larger message is needed,
+// the caller is responsible for hashing the larger message and passing
+// the hash (as digest).
+Sign(k Key, digest []byte, opts SignerOpts) (signature []byte, err error)
+
+// Verify verifies signature against key k and digest
+// The opts argument should be appropriate for the algorithm used.
+Verify(k Key, signature, digest []byte, opts SignerOpts) (valid bool, err error)
+</code></pre>
+<p><strong>bccsp.go</strong></p>
+<pre><code>// SignerOpts contains options for signing with a CSP.
+type SignerOpts interface{}
+</code></pre>
+<p>BCCSP通过<code>Sign</code>，<code>Verify</code>提供签名验签。</p>
+<p>通过秘钥的种类来决定签名验签的算法，比如传入ECDSA的秘钥就使用ECDSA的签名算法。</p>
+<p>其他任何的参数，你都可以在实现此接口<code>SignerOpts</code>的时候加上。</p>
+<h2 id="_3">加解密能力<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p><strong>bccsp.go</strong></p>
+<pre><code>// Encrypt encrypts plaintext using key k.
+// The opts argument should be appropriate for the algorithm used.
+Encrypt(k Key, plaintext []byte, opts EncrypterOpts) (ciphertext []byte, err error)
+
+// Decrypt decrypts ciphertext using key k.
+// The opts argument should be appropriate for the algorithm used.
+Decrypt(k Key, ciphertext []byte, opts DecrypterOpts) (plaintext []byte, err error)
+</code></pre>
+<p><strong>bccsp.go</strong></p>
+<pre><code>// EncrypterOpts contains options for encrypting with a CSP.
+type EncrypterOpts interface{}
+
+// DecrypterOpts contains options for decrypting with a CSP.
+type DecrypterOpts interface{}
+</code></pre>
+<p>BCCSP通过<code>Encrypt</code>，<code>Decrypt</code>提供加密/解密。</p>
+<p>通过不同种类的秘钥类型和opts来决定使用的加密算法（<strong>译注</strong>：这和签名验签不同，这里会使用opts来决定使用的模式）。
+举个栗子，如果秘钥是AES的，那么opts就会用来决定操作的模式。</p>
+<p>可以在实现<code>EncrypterOpts</code>/ <code>DecrypterOpts</code>的时候添加任何你想要定制的参数。(<strong>译注</strong>： 这里原文注释有错误，写成了SignerOpts)</p>
+<h2 id="_4">摘要能力 译者增加表述<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>(原文由于版本原因，没有列出hash)</p>
+<p><strong>bccsp.go</strong></p>
+<pre><code>// Hash hashes messages msg using options opts.
+// If opts is nil, the default hash function will be used.
+Hash(msg []byte, opts HashOpts) (hash []byte, err error)
+
+// GetHash returns and instance of hash.Hash using options opts.
+// If opts is nil, the default hash function will be returned.
+GetHash(opts HashOpts) (h hash.Hash, err error)
+</code></pre>
+<p><strong>bccsp.go</strong></p>
+<pre><code>// HashOpts contains options for hashing with a CSP.
+type HashOpts interface {
+
+    // Algorithm returns the hash algorithm identifier (to be used).
+    Algorithm() string
+}
+</code></pre>
+<p>BCCSP通过<code>Hash</code>来提供摘要能力</p>
+<p>不同种类的hash算法可以通过不同的opts来获取（比如md5或者SHA256）</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../makefile_zh/" class="btn btn-neutral" title="Makefile文件解析"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Hyperledger国际化工作组(yls@chainnova.com)</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/HyperledgerCN/hyperledgerDocs" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../makefile_zh/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+
+</body>
+</html>

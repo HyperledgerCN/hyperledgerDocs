@@ -7,24 +7,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <meta name="author" content="Hyperledger国际化工作组">
-  <link rel="shortcut icon" href="../img/favicon.ico">
+  
   <title>Gossip数据传输协议 - Hyperledger中文文档</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="../css/highlight.css">
+
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Gossip\u6570\u636e\u4f20\u8f93\u534f\u8bae";
+    var mkdocs_page_name = "Gossip数据传输协议";
     var mkdocs_page_input_path = "gossip_zh.md";
     var mkdocs_page_url = "/gossip_zh/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
   <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
   
 </head>
 
@@ -44,153 +52,237 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
+        <ul class="current">
           
-            <li class="toctree-l1">
-		
-    <a class="" href="..">欢迎</a>
-	    </li>
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">欢迎</a>
+        
+    </li>
+<li>
           
-            <li class="toctree-l1">
-		
-    <a class="" href="../glossary/">词汇表</a>
-	    </li>
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../glossary/">词汇表</a>
+        
+    </li>
+<li>
           
-            <li class="toctree-l1">
-		
-    <a class="" href="../getting_started/">快速入门</a>
-	    </li>
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../getting_started/">快速入门</a>
+        
+    </li>
+<li>
           
-            <li class="toctree-l1">
-		
-    <a class="" href="../protocol-spec_zh/">协议规范</a>
-	    </li>
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../protocol-spec_zh/">协议规范</a>
+        
+    </li>
+<li>
           
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Fabric教程</span>
+            <li>
     <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../build_network_zh/">构建第一个fabric网络</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../write_first_app_zh/">编写第一个应用</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../chaincode_zh/">Chaincode</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Fabric操作指南</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../msp_zh/">MSP</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../configtx_zh/">Channel 配置(configtx)</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../configtxgen_zh/">Channel 配置(configtxgen)</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../configtxlator_zh/">Channel 重新配置(configtxlator)</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../endorsement-policies_zh/">背书策略</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../error-handling_zh/">错误处理</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../logging-control_zh/">日志控制</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Fabric设计</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../arch-deep-dive_zh/">架构说明</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../txflow_zh/">交易流程</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../ca-setup_zh/">CA</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../sdk_node_zh/">SDK--node</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../sdk_java_zh/">SDK--java</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../kafka_zh/">基于kafka的排序服务</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../channels_zh/">Channels</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../ledger_zh/">账本</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../read-write-set/">Read-Write set</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">Gossip数据传输协议</a>
-    <ul class="subnav">
+    <li><span>Fabric教程</span></li>
+
+        
             
-    <li class="toctree-l3"><a href="#gossipgossip-protocol">Gossip协议(Gossip protocol)</a></li>
-    
+    <li class="toctree-l1 ">
+        <a class="" href="../build_network_zh/">构建第一个fabric网络</a>
+        
+    </li>
 
-    <li class="toctree-l3"><a href="#gossipgossip-messaging">Gossip消息传输(Gossip messaging)</a></li>
-    
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../write_first_app_zh/">编写第一个应用</a>
+        
+    </li>
 
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../chaincode_zh/">Chaincode</a>
+        
+    </li>
+
+        
     </ul>
-                </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric操作指南</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../msp_zh/">MSP</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configtx_zh/">Channel 配置(configtx)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configtxgen_zh/">Channel 配置(configtxgen)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configtxlator_zh/">Channel 重新配置(configtxlator)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../endorsement-policies_zh/">背书策略</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../error-handling_zh/">错误处理</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../logging-control_zh/">日志控制</a>
+        
+    </li>
+
+        
     </ul>
-	    </li>
+<li>
           
-            <li class="toctree-l1">
-		
-    <a class="" href="../msp_acl_zh/">MSP&ACL</a>
-	    </li>
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric设计</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../arch-deep-dive_zh/">架构说明</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../txflow_zh/">交易流程</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ca-setup_zh/">CA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../sdk_node_zh/">SDK--node</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../sdk_java_zh/">SDK--java</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../kafka_zh/">基于kafka的排序服务</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../channels_zh/">Channels</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ledger_zh/">账本</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../read-write-set/">Read-Write set</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Gossip数据传输协议</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#gossipgossip-protocol">Gossip协议(Gossip protocol)</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#gossipgossip-messaging">Gossip消息传输(Gossip messaging)</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+    </ul>
+<li>
           
-            <li class="toctree-l1">
-		
-    <a class="" href="../sdk-design_zh/">Fabric SDK 设计</a>
-	    </li>
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../msp_acl_zh/">MSP&ACL</a>
+        
+    </li>
+<li>
           
-            <li class="toctree-l1">
-		
-    <a class="" href="../makefile_zh/">Makefile文件解析</a>
-	    </li>
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../sdk-design_zh/">Fabric SDK 设计</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../makefile_zh/">Makefile文件解析</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../blockchain-crypto-service-provider_zh/">BCCSP密码算法套件解析</a>
+        
+    </li>
+<li>
           
         </ul>
       </div>
@@ -221,8 +313,9 @@
     <li>Gossip数据传输协议</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/HyperledgerCN/hyperledgerDocs/edit/master/docs/gossip_zh.md"
-          class="icon icon-github"> Edit on GitHub</a>
+        
+          <a href="https://github.com/HyperledgerCN/hyperledgerDocs" class="icon icon-github"> Edit on GitHub</a>
+        
       
     </li>
   </ul>
@@ -231,9 +324,22 @@
           <div role="main">
             <div class="section">
               
-                <p>| 原文 | 作者 | 审核修正 |
-| &mdash; | &mdash; | —&mdash; |
-| <a href="http://hyperledger-fabric.readthedocs.io/en/latest/gossip.html">原文</a> | Xiao Zhang |  |</p>
+                <table>
+<thead>
+<tr>
+<th>原文</th>
+<th>作者</th>
+<th>审核修正</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://hyperledger-fabric.readthedocs.io/en/latest/gossip.html">原文</a></td>
+<td>Xiao Zhang</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <p>Hyperledger Fabric optimizes blockchain network performance, security and scalability by dividing workload across transaction execution (endorsing and committing) peers and transaction ordering nodes. This decoupling of network operations requires a secure, reliable and scalable data dissemination protocol to ensure data integrity and consistency. To meet these requirements, the fabric implements a <strong>gossip data dissemination protocol</strong>.</p>
 <p>HyperLedger Fabric通过把工作节点分解为执行交易（背书和提交）节点和交易排序节点来优化区块链网络性能，安全性和可扩展性。这种解耦网络操作的方式需要一个安全、可靠、可扩展的数据分发协议来保证数据的完整性和一致性。为了满足这些要求，Fabric应用了<strong>Gossip数据分发协议</strong>。</p>
 <h2 id="gossipgossip-protocol">Gossip协议(Gossip protocol)<a class="headerlink" href="#gossipgossip-protocol" title="Permanent link">&para;</a></h2>
@@ -292,13 +398,13 @@
       </div>
 
     </section>
-    
+
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+<div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/HyperledgerCN/hyperledgerDocs" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/HyperledgerCN/hyperledgerDocs" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../read-write-set/" style="color: #fcfcfc;">&laquo; Previous</a></span>
@@ -308,7 +414,6 @@
       
     </span>
 </div>
-    <script src="../js/theme.js"></script>
 
 </body>
 </html>
