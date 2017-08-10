@@ -7,32 +7,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <meta name="author" content="Hyperledger国际化工作组">
-  
-  <title>快速入门 - Hyperledger中文文档</title>
-  
-
   <link rel="shortcut icon" href="../img/favicon.ico">
-
-  
+  <title>快速入门 - Hyperledger中文文档</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="../css/highlight.css">
-
   
   <script>
     // Current page data
-    var mkdocs_page_name = "快速入门";
+    var mkdocs_page_name = "\u5feb\u901f\u5165\u95e8";
     var mkdocs_page_input_path = "getting_started.md";
     var mkdocs_page_url = "/getting_started/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
   <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script>
-  <script src="../js/theme.js"></script> 
-
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
   
 </head>
 
@@ -52,309 +44,250 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        <ul class="current">
+	<ul class="current">
+	  
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="..">欢迎</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="..">欢迎</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../glossary/">词汇表</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../glossary/">词汇表</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 current">
-        <a class="current" href="./">快速入门</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#_1">前提</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#_2">执行完整脚本</a></li>
-                
-                    <li><a class="toctree-l4" href="#_3">清理</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#configtxgen">configtxgen</a></li>
-                
-                    <li><a class="toctree-l4" href="#generatecfgtrxsh">执行generateCfgTrx.sh脚本</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#_4">启动网络</a></li>
-                
-                    <li><a class="toctree-l4" href="#_5">背后发生了什么？</a></li>
-                
-                    <li><a class="toctree-l4" href="#_6">这表明了什么？</a></li>
-                
-                    <li><a class="toctree-l4" href="#_7">查看交易</a></li>
-                
-                    <li><a class="toctree-l4" href="#chaincode">查看chaincode日志</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#_8">手动执行交易</a></li>
-                
-                    <li><a class="toctree-l4" href="#docker-compose">修改docker-compose文件</a></li>
-                
-                    <li><a class="toctree-l4" href="#_9">命令语法</a></li>
-                
-                    <li><a class="toctree-l4" href="#create-channel">Create channel</a></li>
-                
-                    <li><a class="toctree-l4" href="#join-channel">Join channel</a></li>
-                
-                    <li><a class="toctree-l4" href="#install-chaincode">Install chaincode</a></li>
-                
-                    <li><a class="toctree-l4" href="#instantiate-chaincode">Instantiate chaincode</a></li>
-                
-                    <li><a class="toctree-l4" href="#invoke-chaincode">Invoke chaincode</a></li>
-                
-                    <li><a class="toctree-l4" href="#query-chaincode">Query chaincode</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#_10">手动构建镜像</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#_11">使用本地二进制文件</a></li>
-                
-                    <li><a class="toctree-l4" href="#1">终端1</a></li>
-                
-                    <li><a class="toctree-l4" href="#2">终端2</a></li>
-                
-                    <li><a class="toctree-l4" href="#1_1">终端1</a></li>
-                
-                    <li><a class="toctree-l4" href="#3">终端3</a></li>
-                
-                    <li><a class="toctree-l4" href="#create-channel_1">Create channel</a></li>
-                
-                    <li><a class="toctree-l4" href="#join-channel_1">Join channel</a></li>
-                
-                    <li><a class="toctree-l4" href="#install-chaincode_1">Install chaincode</a></li>
-                
-                    <li><a class="toctree-l4" href="#instantiate-chaincode_1">Instantiate chaincode</a></li>
-                
-                    <li><a class="toctree-l4" href="#invoke-chaincode_1">Invoke chaincode</a></li>
-                
-                    <li><a class="toctree-l4" href="#query-chaincode_1">Query chaincode</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#couchdb">使用CouchDB</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#_12">数据持久化</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#_13">故障排出</a></li>
-                
-            
-            </ul>
-        
-    </li>
-<li>
-          
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../protocol-spec_zh/">协议规范</a>
-        
-    </li>
-<li>
-          
-            <li>
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">快速入门</a>
     <ul class="subnav">
-    <li><span>Fabric教程</span></li>
-
-        
             
-    <li class="toctree-l1 ">
-        <a class="" href="../build_network_zh/">构建第一个fabric网络</a>
-        
-    </li>
+    <li class="toctree-l2"><a href="#_1">前提</a></li>
+    
 
+    <li class="toctree-l2"><a href="#_2">执行完整脚本</a></li>
+    
+        <ul>
         
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../write_first_app_zh/">编写第一个应用</a>
+            <li><a class="toctree-l3" href="#_3">清理</a></li>
         
-    </li>
+        </ul>
+    
 
+    <li class="toctree-l2"><a href="#configtxgen">configtxgen</a></li>
+    
+        <ul>
         
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../chaincode_zh/">Chaincode</a>
+            <li><a class="toctree-l3" href="#generatecfgtrxsh">执行generateCfgTrx.sh脚本</a></li>
         
-    </li>
+        </ul>
+    
 
+    <li class="toctree-l2"><a href="#_4">启动网络</a></li>
+    
+        <ul>
         
+            <li><a class="toctree-l3" href="#_5">背后发生了什么？</a></li>
+        
+            <li><a class="toctree-l3" href="#_6">这表明了什么？</a></li>
+        
+            <li><a class="toctree-l3" href="#_7">查看交易</a></li>
+        
+            <li><a class="toctree-l3" href="#chaincode">查看chaincode日志</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#_8">手动执行交易</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#docker-compose">修改docker-compose文件</a></li>
+        
+            <li><a class="toctree-l3" href="#_9">命令语法</a></li>
+        
+            <li><a class="toctree-l3" href="#create-channel">Create channel</a></li>
+        
+            <li><a class="toctree-l3" href="#join-channel">Join channel</a></li>
+        
+            <li><a class="toctree-l3" href="#install-chaincode">Install chaincode</a></li>
+        
+            <li><a class="toctree-l3" href="#instantiate-chaincode">Instantiate chaincode</a></li>
+        
+            <li><a class="toctree-l3" href="#invoke-chaincode">Invoke chaincode</a></li>
+        
+            <li><a class="toctree-l3" href="#query-chaincode">Query chaincode</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#_10">手动构建镜像</a></li>
+    
+
+    <li class="toctree-l2"><a href="#_11">使用本地二进制文件</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#1">终端1</a></li>
+        
+            <li><a class="toctree-l3" href="#2">终端2</a></li>
+        
+            <li><a class="toctree-l3" href="#1_1">终端1</a></li>
+        
+            <li><a class="toctree-l3" href="#3">终端3</a></li>
+        
+            <li><a class="toctree-l3" href="#create-channel_1">Create channel</a></li>
+        
+            <li><a class="toctree-l3" href="#join-channel_1">Join channel</a></li>
+        
+            <li><a class="toctree-l3" href="#install-chaincode_1">Install chaincode</a></li>
+        
+            <li><a class="toctree-l3" href="#instantiate-chaincode_1">Instantiate chaincode</a></li>
+        
+            <li><a class="toctree-l3" href="#invoke-chaincode_1">Invoke chaincode</a></li>
+        
+            <li><a class="toctree-l3" href="#query-chaincode_1">Query chaincode</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#couchdb">使用CouchDB</a></li>
+    
+
+    <li class="toctree-l2"><a href="#_12">数据持久化</a></li>
+    
+
+    <li class="toctree-l2"><a href="#_13">故障排出</a></li>
+    
+
     </ul>
-<li>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../protocol-spec_zh/">协议规范</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Fabric教程</span>
     <ul class="subnav">
-    <li><span>Fabric操作指南</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../msp_zh/">MSP</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../configtx_zh/">Channel 配置(configtx)</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../configtxgen_zh/">Channel 配置(configtxgen)</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../configtxlator_zh/">Channel 重新配置(configtxlator)</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../endorsement-policies_zh/">背书策略</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../error-handling_zh/">错误处理</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../logging-control_zh/">日志控制</a>
-        
-    </li>
-
-        
+                <li class="">
+                    
+    <a class="" href="../build_network_zh/">构建第一个fabric网络</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../write_first_app_zh/">编写第一个应用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../chaincode_zh/">Chaincode</a>
+                </li>
     </ul>
-<li>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Fabric操作指南</span>
     <ul class="subnav">
-    <li><span>Fabric设计</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../arch-deep-dive_zh/">架构说明</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../txflow_zh/">交易流程</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../ca-setup_zh/">CA</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../sdk_node_zh/">SDK--node</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../sdk_java_zh/">SDK--java</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../kafka_zh/">基于kafka的排序服务</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../channels_zh/">Channels</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../ledger_zh/">账本</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../read-write-set/">Read-Write set</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../gossip_zh/">Gossip数据传输协议</a>
-        
-    </li>
-
-        
+                <li class="">
+                    
+    <a class="" href="../msp_zh/">MSP</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../configtx_zh/">Channel 配置(configtx)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../configtxgen_zh/">Channel 配置(configtxgen)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../configtxlator_zh/">Channel 重新配置(configtxlator)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../endorsement-policies_zh/">背书策略</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../error-handling_zh/">错误处理</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../logging-control_zh/">日志控制</a>
+                </li>
     </ul>
-<li>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../msp_acl_zh/">MSP&ACL</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Fabric设计</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../arch-deep-dive_zh/">架构说明</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../txflow_zh/">交易流程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ca-setup_zh/">CA</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../sdk_node_zh/">SDK--node</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../sdk_java_zh/">SDK--java</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../kafka_zh/">基于kafka的排序服务</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../channels_zh/">Channels</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ledger_zh/">账本</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../read-write-set/">Read-Write set</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../gossip_zh/">Gossip数据传输协议</a>
+                </li>
+    </ul>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../sdk-design_zh/">Fabric SDK 设计</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../msp_acl_zh/">MSP&ACL</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../makefile_zh/">Makefile文件解析</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../sdk-design_zh/">Fabric SDK 设计</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../blockchain-crypto-service-provider_zh/">BCCSP密码算法套件解析</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../makefile_zh/">Makefile文件解析</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../blockchain-crypto-service-provider_zh/">BCCSP密码算法套件解析</a>
+	    </li>
           
         </ul>
       </div>
@@ -381,9 +314,8 @@
     <li>快速入门</li>
     <li class="wy-breadcrumbs-aside">
       
-        
-          <a href="https://github.com/HyperledgerCN/hyperledgerDocs" class="icon icon-github"> Edit on GitHub</a>
-        
+        <a href="https://github.com/HyperledgerCN/hyperledgerDocs/edit/master/docs/getting_started.md"
+          class="icon icon-github"> Edit on GitHub</a>
       
     </li>
   </ul>
@@ -392,22 +324,9 @@
           <div role="main">
             <div class="section">
               
-                <table>
-<thead>
-<tr>
-<th>原文</th>
-<th>作者</th>
-<th>审核修正</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="http://hyperledger-fabric.readthedocs.io/en/latest/getting_started.html">原文</a></td>
-<td>Linsheng Yu</td>
-<td>Kewei Sun</td>
-</tr>
-</tbody>
-</table>
+                <p>| 原文 | 作者 | 审核修正 |
+| &mdash; | &mdash; | —&mdash; |
+| <a href="http://hyperledger-fabric.readthedocs.io/en/latest/getting_started.html">原文</a> | Linsheng Yu | Kewei Sun |</p>
 <p>本文设定了一个简单的Fabric网络场景，包括2个organization，每个有2个peer，并使用“solo” ordering服务。网络实体所需的加密材料（x509证书）已预先生成并放到相应目录和配置文件里了，你无需修改这些配置。<code>examples/e2e_cli</code>文件夹里包含了docker-compose文件和要用来创建和测试网络的脚本文件。</p>
 <p>本文还演示了使用配置生成工具<code>configtxgen</code>生成网络配置。</p>
 <h2 id="_1">前提<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
@@ -928,13 +847,13 @@ Next  Previous
       </div>
 
     </section>
-
+    
   </div>
 
-<div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/HyperledgerCN/hyperledgerDocs" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/HyperledgerCN/hyperledgerDocs" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../glossary/" style="color: #fcfcfc;">&laquo; Previous</a></span>
@@ -944,6 +863,7 @@ Next  Previous
       
     </span>
 </div>
+    <script src="../js/theme.js"></script>
 
 </body>
 </html>
