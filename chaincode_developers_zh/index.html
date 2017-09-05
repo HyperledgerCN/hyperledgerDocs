@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Hyperledger国际化工作组">
+  
+  <title>Chaincode 开发手册 - Hyperledger中文文档</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Chaincode 开发手册";
+    var mkdocs_page_input_path = "chaincode_developers_zh.md";
+    var mkdocs_page_url = "/chaincode_developers_zh/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Hyperledger中文文档</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">欢迎</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../glossary/">词汇表</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../getting_started/">快速入门</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../protocol-spec_zh/">协议规范</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric教程</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../build_network_zh/">构建第一个fabric网络</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../write_first_app_zh/">编写第一个应用</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../chaincode_zh/">Chaincode 指南</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Chaincode 开发手册</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#chaincode">Chaincode 开发手册</a></li>
+                
+                    <li><a class="toctree-l4" href="#chaincode_1">什么是Chaincode？</a></li>
+                
+                    <li><a class="toctree-l4" href="#chaincode-api">Chaincode API</a></li>
+                
+                    <li><a class="toctree-l4" href="#chaincode_2">简单的资产管理Chaincode</a></li>
+                
+                    <li><a class="toctree-l4" href="#hyperledger-fabric">安装Hyperledger Fabric样例</a></li>
+                
+                    <li><a class="toctree-l4" href="#docker">下载Docker镜像</a></li>
+                
+                    <li><a class="toctree-l4" href="#1">1号终端</a></li>
+                
+                    <li><a class="toctree-l4" href="#2">2号终端</a></li>
+                
+                    <li><a class="toctree-l4" href="#3">3号终端</a></li>
+                
+                    <li><a class="toctree-l4" href="#chaincode_7">测试新的chaincode</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../chaincode_operators_zh/">Chaincode 操作手册</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric操作指南</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../msp_zh/">MSP</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configtx_zh/">Channel 配置(configtx)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configtxgen_zh/">Channel 配置(configtxgen)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configtxlator_zh/">Channel 重新配置(configtxlator)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../endorsement-policies_zh/">背书策略</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../error-handling_zh/">错误处理</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../logging-control_zh/">日志控制</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric设计</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../arch-deep-dive_zh/">架构说明</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../txflow_zh/">交易流程</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ca-setup_zh/">CA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../sdk_node_zh/">SDK--node</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../sdk_java_zh/">SDK--java</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../kafka_zh/">基于kafka的排序服务</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../channels_zh/">Channels</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ledger_zh/">账本</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../read-write-set/">Read-Write set</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../gossip_zh/">Gossip数据传输协议</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../msp_acl_zh/">MSP&ACL</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../sdk-design_zh/">Fabric SDK 设计</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../makefile_zh/">Makefile文件解析</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../blockchain-crypto-service-provider_zh/">BCCSP密码算法套件解析</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Hyperledger中文文档</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Fabric教程 &raquo;</li>
+        
+      
+    
+    <li>Chaincode 开发手册</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/HyperledgerCN/hyperledgerDocs" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <table>
+<thead>
+<tr>
+<th>原文</th>
+<th>作者</th>
+<th>审核修正</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://hyperledger-fabric.readthedocs.io/en/latest/chaincode4ade.html">原文</a></td>
+<td>Dinghao Liu</td>
+<td>Bei Wang</td>
+</tr>
+</tbody>
+</table>
+<h1 id="chaincode">Chaincode 开发手册<a class="headerlink" href="#chaincode" title="Permanent link">&para;</a></h1>
+<h2 id="chaincode_1">什么是Chaincode？<a class="headerlink" href="#chaincode_1" title="Permanent link">&para;</a></h2>
+<p>Chaincode is a program, written in Go that implements a prescribed interface. Eventually, other programming languages such as Java, will be supported. Chaincode runs in a secured Docker container isolated from the endorsing peer process. Chaincode initializes and manages the ledger state through transactions submitted by applications.</p>
+<p>Chaincode是一段由Go语言编写（支持其他编程语言，如Java），并能实现预定义接口的程序。Chaincode运行在一个受保护的Docker容器当中，与背书节点的运行互相隔离。Chaincode可通过应用提交的交易对账本状态初始化并进行管理。</p>
+<p>A chaincode typically handles business logic agreed to by members of the network, so it similar to a “smart contract”. Ledger state created by a chaincode is scoped exclusively to that chaincode and can’t be accessed directly by another chaincode. Given the appropriate permission, a chaincode may invoke another chaincode to access its state within the same network.</p>
+<p>一段chaincode通常处理由网络中的成员一致认可的业务逻辑，故我们很可能用“智能合约”来代指chaincode。一段chiancode创建的（账本）状态是与其他chaincode互相隔离的，故而不能被其他chaincode直接访问。不过，如果是在相同的网络中，一段chiancode在获取相应许可后则可以调用其他chiancode来访问它的账本。</p>
+<p>In the following sections, we will explore chaincode through the eyes of an application developer. We’ll present a simple chaincode sample application and walk through the purpose of each method in the Chaincode Shim API.</p>
+<p>在接下来的章节中，我们会以一个应用开发者的视角了解学习chaincode。我们将展示一个chaincode的应用范例，并步步为营搞清每一个Chaincode Shim API的来龙去脉。</p>
+<h2 id="chaincode-api">Chaincode API<a class="headerlink" href="#chaincode-api" title="Permanent link">&para;</a></h2>
+<p>Every chaincode program must implement the <strong><em>Chaincode interface</em></strong> whose methods are called in response to received transactions. In particular the <code>Init</code> method is called when a chaincode receives an <code>instantiate</code> or <code>upgrade</code> transaction so that the chaincode may perform any necessary initialization, including initialization of application state. The <code>Invoke</code> method is called in response to receiving an <code>invoke</code> transaction to process transaction proposals.</p>
+<p>每个chaincode程序都必须实现 <strong><em>chiancode接口</em></strong> ，接口中的方法会在响应传来的交易时被调用。特别地，<code>Init</code>（初始化）方法会在chaincode接收到<code>instantiate</code>（实例化）或者<code>upgrade</code>(升级)交易时被调用，进而使得chaincode顺利执行必要的初始化操作，包括初始化应用的状态；<code>Invoke</code>（调用）方法会在响应<code>invoke</code>（调用）交易时被调用以执行交易。</p>
+<p>The other interface in the chaincode “shim” APIs is the <strong><em>ChaincodeStubInterface</em></strong> which is used to access and modify the ledger, and to make invocations between chaincodes.</p>
+<p>其他chaincode shim APIs中的接口被称为<strong><em>chaincode存根接口</em></strong>，用于访问及修改账本，并实现chaincode之间的互相调用。</p>
+<p>In this tutorial, we will demonstrate the use of these APIs by implementing a simple chaincode application that manages simple “assets”.</p>
+<p>在本篇指南中，我们会通过实现一个能管理简单“资产”的chaincode应用范例来演示这些接口的使用方法。</p>
+<h2 id="chaincode_2">简单的资产管理Chaincode<a class="headerlink" href="#chaincode_2" title="Permanent link">&para;</a></h2>
+<p>Our application is a basic sample chaincode to create assets (key-value pairs) on the ledger.</p>
+<p>我们的应用是一个在账本上创建资产（键值对）的基本范例。</p>
+<h3 id="_1">选择一个代码存放位置<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>If you haven’t been doing programming in Go, you may want to make sure that you have <strong><em>Go Programming Language</em></strong> installed and your system properly configured.</p>
+<p>如果您之前还未编写过Go程序，那么您也许需要先确保 <strong><em>Go程序设计语言</em></strong> 在您的系统中已经被正确配置。</p>
+<p>Now, you will want to create a directory for your chaincode application as a child directory of <code>$GOPATH/src/</code>.</p>
+<p>现在，您需要为chaincode应用创建一个位于<code>$GOPATH/src/</code>目录下的子目录。</p>
+<p>To keep things simple, let’s use the following command:</p>
+<p>简单起见，我们使用如下指令：</p>
+<pre><code class="bash">mkdir -p $GOPATH/src/sacc &amp;&amp; cd $GOPATH/src/sacc
+</code></pre>
+
+<p>Now, let’s create the source file that we’ll fill in with code:</p>
+<p>现在，输入以下指令来创建程序的源文件吧！</p>
+<pre><code class="bash">touch sacc.go
+</code></pre>
+
+<h3 id="_2">内务处理<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>First, let’s start with some housekeeping. As with every chaincode, it implements the <strong><em>Chaincode interface</em></strong> in particular, <code>Init</code> and <code>Invoke</code> functions. So, let’s add the go import statements for the necessary dependencies for our chaincode. We’ll import the chaincode shim package and the <strong><em>peer protobuf package</em></strong>.</p>
+<p>首先， 我们先进行内务处理。对于每一个chaincode，它都会实现预定义的<strong><em>chaincode接口</em></strong>，特别是<code>Init</code>和<code>Invoke</code>函数接口。所以我们首先为我们的chaincode引入必要的依赖。我们将在此引入chaincode shim package和<strong><em>peer protobuf package</em></strong>。</p>
+<pre><code class="bash">package main
+
+import (
+    &quot;fmt&quot;
+
+    &quot;github.com/hyperledger/fabric/core/chaincode/shim&quot;
+    &quot;github.com/hyperledger/fabric/protos/peer&quot;
+)
+</code></pre>
+
+<h3 id="chaincode_3">初始化Chaincode<a class="headerlink" href="#chaincode_3" title="Permanent link">&para;</a></h3>
+<p>接下来，我们将实现<code>Init</code>函数。</p>
+<pre><code class="bash">// Init is called during chaincode instantiation to initialize any data.
+func (t *SimpleAsset) Init(stub shim.ChaincodeStubInterface) peer.Response {
+
+}
+)
+</code></pre>
+
+<p><strong><em>*注意:</em></strong></p>
+<p><em>Note that chaincode upgrade also calls this function. When         writing a chaincode that will upgrade an existing one, make     sure to modify the Init function appropriately. In particular, provide an empty “Init” method if there’s no “migration” or nothing to be initialized as part of the upgrade.</em></p>
+<p><em>值得留意的是chaincode升级同样会调用该函数。当我们编写的chaincode会升级现有chaincode时，需要确保适当修正Init函数。特别地，如果没有“迁移”操作或其他需要在升级中初始化的东西，那么就提供一个空的“Init”方法。</em></p>
+<p>Next, we’ll retrieve the arguments to the <code>Init</code> call using the <em>ChaincodeStubInterface.GetStringArgs</em> function and check for validity. In our case, we are expecting a key-value pair.</p>
+<p>下面，我们将调用<em>ChaincodeStubInterface.GetStringArgs</em>函数来获取<code>Init</code>所需的参数，并进行有效性检查。在我们的例子中，我们希望传入参数是一组键值对。</p>
+<pre><code class="bash">// Init is called during chaincode instantiation to initialize any
+// data. Note that chaincode upgrade also calls this function to reset
+// or to migrate data, so be careful to avoid a scenario where you
+// inadvertently clobber your ledger’s data!
+func (t *SimpleAsset) Init(stub shim.ChaincodeStubInterface) peer.Response {
+  // Get the args from the transaction proposal
+  args := stub.GetStringArgs()
+  if len(args) != 2 {
+    return shim.Error(&quot;Incorrect arguments. Expecting a key and a value&quot;)
+  }
+}
+</code></pre>
+
+<p>Next, now that we have established that the call is valid, we’ll store the initial state in the ledger. To do this, we will call <em>ChaincodeStubInterface</em>.PutState with the key and value passed in as the arguments. Assuming all went well, return a peer.Response object that indicates the initialization was a success.</p>
+<p>接下来，既然我们已经确定调用有效，那么我们就将初始状态放心地存入账本。为了实现该目标，我们将调用<em>ChaincodeStubInterface</em>并以键值为参数传入。如果一切正常，那么我们会收到表明初始化成功的peer.Response返回对象。</p>
+<pre><code class="bash">// Init is called during chaincode instantiation to initialize any
+// data. Note that chaincode upgrade also calls this function to reset
+// or to migrate data, so be careful to avoid a scenario where you
+// inadvertently clobber your ledger’s data!
+func (t *SimpleAsset) Init(stub shim.ChaincodeStubInterface) peer.Response {
+  // Get the args from the transaction proposal
+  args := stub.GetStringArgs()
+  if len(args) != 2 {
+    return shim.Error(&quot;Incorrect arguments. Expecting a key and a value&quot;)
+  }
+
+  // Set up any variables or assets here by calling stub.PutState()
+
+  // We store the key and the value on the ledger
+  err := stub.PutState(args[0], []byte(args[1]))
+  if err != nil {
+    return shim.Error(fmt.Sprintf(&quot;Failed to create asset: %s&quot;, args[0]))
+  }
+  return shim.Success(nil)
+}
+</code></pre>
+
+<h3 id="chaincode_4">调用Chaincode<a class="headerlink" href="#chaincode_4" title="Permanent link">&para;</a></h3>
+<p>First, let’s add the <code>Invoke</code> function’s signature.</p>
+<p>首先，添加<code>Invoke</code>函数签名。</p>
+<pre><code class="bash">// Invoke is called per transaction on the chaincode. Each transaction is
+// either a 'get' or a 'set' on the asset created by Init function. The 'set'
+// method may create a new asset by specifying a new key-value pair.
+func (t *SimpleAsset) Invoke(stub shim.ChaincodeStubInterface) peer.Response {
+
+}
+</code></pre>
+
+<p>As with the <code>Init</code> function above, we need to extract the arguments from the <code>ChaincodeStubInterface</code>. The <code>Invoke</code> function’s arguments will be the name of the chaincode application function to invoke. In our case, our application will simply have two functions: <code>set</code> and <code>get</code>, that allow the value of an asset to be set or its current state to be retrieved. We first call <em>ChaincodeStubInterface.GetFunctionAndParameters</em> to extract the function name and the parameters to that chaincode application function.</p>
+<p>就如上述<code>Init</code>函数一样，我们需要调用<code>ChaincodeStubInterface</code>来获取参数。<code>Invoke</code>函数所需的传入参数正是应用想要调用的chaincode的名称。在我们的例子中，我们的应用只有两个简单的功能函数：<code>set</code>和<code>get</code>;前者允许对资产的数值进行设定;后者允许获取当前资产的状态。我们先调用<em>ChaincodeStubInterface.GetFunctionAndParameters</em>来获取chaincode应用所需的函数名与参数。</p>
+<pre><code class="bash">// Invoke is called per transaction on the chaincode. Each transaction is
+// either a 'get' or a 'set' on the asset created by Init function. The Set
+// method may create a new asset by specifying a new key-value pair.
+func (t *SimpleAsset) Invoke(stub shim.ChaincodeStubInterface) peer.Response {
+    // Extract the function and args from the transaction proposal
+    fn, args := stub.GetFunctionAndParameters()
+
+}
+</code></pre>
+
+<p>Next, we’ll validate the function name as being either <code>set</code> or <code>get</code>, and invoke those chaincode application functions, returning an appropriate response via the <code>shim.Success</code> or <code>shim.Error</code> functions that will serialize the response into a gRPC protobuf message.</p>
+<p>下面，我们将使<code>set</code>与<code>get</code>这两个函数名正式生效，并调用这些chaincode应用函数，经由<code>shim.Success</code>或<code>shim.Error</code>函数返回一个合理的响应。这两个<code>shim</code>成员函数可以将响应序列化为gRPC protobuf消息。</p>
+<pre><code class="bash">// Invoke is called per transaction on the chaincode. Each transaction is
+// either a 'get' or a 'set' on the asset created by Init function. The Set
+// method may create a new asset by specifying a new key-value pair.
+func (t *SimpleAsset) Invoke(stub shim.ChaincodeStubInterface) peer.Response {
+    // Extract the function and args from the transaction proposal
+    fn, args := stub.GetFunctionAndParameters()
+
+    var result string
+    var err error
+    if fn == &quot;set&quot; {
+            result, err = set(stub, args)
+    } else {
+            result, err = get(stub, args)
+    }
+    if err != nil {
+            return shim.Error(err.Error())
+    }
+
+    // Return the result as success payload
+    return shim.Success([]byte(result))
+}
+</code></pre>
+
+<h3 id="chaincode_5">实现Chaincode应用<a class="headerlink" href="#chaincode_5" title="Permanent link">&para;</a></h3>
+<p>As noted, our chaincode application implements two functions that can be invoked via the <code>Invoke</code> function. Let’s implement those functions now. Note that as we mentioned above, to access the ledger’s state, we will leverage the <em>ChaincodeStubInterface.PutState</em> and <em>ChaincodeStubInterface.GetState</em> functions of the chaincode shim API.</p>
+<p>如上文所述，我们的chaincode应用实现了两个函数，并可以被<code>Invoke</code>函数调用。下面我们就来真正实现这些函数。注意，就像上文一样，我们调用chaincode shim API中的<em>ChaincodeStubInterface.PutState</em>和<em>ChaincodeStubInterface.GetState</em>函数来访问账本。</p>
+<pre><code class="bash">// Set stores the asset (both key and value) on the ledger. If the key exists,
+// it will override the value with the new one
+func set(stub shim.ChaincodeStubInterface, args []string) (string, error) {
+    if len(args) != 2 {
+            return &quot;&quot;, fmt.Errorf(&quot;Incorrect arguments. Expecting a key and a value&quot;)
+    }
+
+    err := stub.PutState(args[0], []byte(args[1]))
+    if err != nil {
+            return &quot;&quot;, fmt.Errorf(&quot;Failed to set asset: %s&quot;, args[0])
+    }
+    return args[1], nil
+}
+
+// Get returns the value of the specified asset key
+func get(stub shim.ChaincodeStubInterface, args []string) (string, error) {
+    if len(args) != 1 {
+            return &quot;&quot;, fmt.Errorf(&quot;Incorrect arguments. Expecting a key&quot;)
+    }
+
+    value, err := stub.GetState(args[0])
+    if err != nil {
+            return &quot;&quot;, fmt.Errorf(&quot;Failed to get asset: %s with error: %s&quot;, args[0], err)
+    }
+    if value == nil {
+            return &quot;&quot;, fmt.Errorf(&quot;Asset not found: %s&quot;, args[0])
+    }
+    return string(value), nil
+}
+</code></pre>
+
+<h3 id="_3">整合全部代码<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>Finally, we need to add the <code>main</code> function, which will call the <em>shim.Start</em> function. Here’s the whole chaincode program source.</p>
+<p>终于到了写<code>main</code>函数的最后关头，它将调用<em>shim.Start</em>函数。下面是包含整个chaincode程序的代码：</p>
+<pre><code class="bash">package main
+
+import (
+    &quot;fmt&quot;
+
+    &quot;github.com/hyperledger/fabric/core/chaincode/shim&quot;
+    &quot;github.com/hyperledger/fabric/protos/peer&quot;
+)
+
+// SimpleAsset implements a simple chaincode to manage an asset
+type SimpleAsset struct {
+}
+
+// Init is called during chaincode instantiation to initialize any
+// data. Note that chaincode upgrade also calls this function to reset
+// or to migrate data.
+func (t *SimpleAsset) Init(stub shim.ChaincodeStubInterface) peer.Response {
+    // Get the args from the transaction proposal
+    args := stub.GetStringArgs()
+    if len(args) != 2 {
+            return shim.Error(&quot;Incorrect arguments. Expecting a key and a value&quot;)
+    }
+
+    // Set up any variables or assets here by calling stub.PutState()
+
+    // We store the key and the value on the ledger
+    err := stub.PutState(args[0], []byte(args[1]))
+    if err != nil {
+            return shim.Error(fmt.Sprintf(&quot;Failed to create asset: %s&quot;, args[0]))
+    }
+    return shim.Success(nil)
+}
+
+// Invoke is called per transaction on the chaincode. Each transaction is
+// either a 'get' or a 'set' on the asset created by Init function. The Set
+// method may create a new asset by specifying a new key-value pair.
+func (t *SimpleAsset) Invoke(stub shim.ChaincodeStubInterface) peer.Response {
+    // Extract the function and args from the transaction proposal
+    fn, args := stub.GetFunctionAndParameters()
+
+    var result string
+    var err error
+    if fn == &quot;set&quot; {
+            result, err = set(stub, args)
+    } else { // assume 'get' even if fn is nil
+            result, err = get(stub, args)
+    }
+    if err != nil {
+            return shim.Error(err.Error())
+    }
+
+    // Return the result as success payload
+    return shim.Success([]byte(result))
+}
+
+// Set stores the asset (both key and value) on the ledger. If the key exists,
+// it will override the value with the new one
+func set(stub shim.ChaincodeStubInterface, args []string) (string, error) {
+    if len(args) != 2 {
+            return &quot;&quot;, fmt.Errorf(&quot;Incorrect arguments. Expecting a key and a value&quot;)
+    }
+
+    err := stub.PutState(args[0], []byte(args[1]))
+    if err != nil {
+            return &quot;&quot;, fmt.Errorf(&quot;Failed to set asset: %s&quot;, args[0])
+    }
+    return args[1], nil
+}
+
+// Get returns the value of the specified asset key
+func get(stub shim.ChaincodeStubInterface, args []string) (string, error) {
+    if len(args) != 1 {
+            return &quot;&quot;, fmt.Errorf(&quot;Incorrect arguments. Expecting a key&quot;)
+    }
+
+    value, err := stub.GetState(args[0])
+    if err != nil {
+            return &quot;&quot;, fmt.Errorf(&quot;Failed to get asset: %s with error: %s&quot;, args[0], err)
+    }
+    if value == nil {
+            return &quot;&quot;, fmt.Errorf(&quot;Asset not found: %s&quot;, args[0])
+    }
+    return string(value), nil
+}
+
+// main function starts up the chaincode in the container during instantiate
+func main() {
+    if err := shim.Start(new(SimpleAsset)); err != nil {
+            fmt.Printf(&quot;Error starting SimpleAsset chaincode: %s&quot;, err)
+    }
+}
+</code></pre>
+
+<h3 id="chaincode_6">编译Chaincode<a class="headerlink" href="#chaincode_6" title="Permanent link">&para;</a></h3>
+<p>现在来编译你的chaincode吧！</p>
+<pre><code class="bash">go get -u --tags nopkcs11 github.com/hyperledger/fabric/core/chaincode/shim
+go build --tags nopkcs11
+</code></pre>
+
+<p>Assuming there are no errors, now we can proceed to the next step, testing your chaincode.</p>
+<p>如果没有报错，那么我们就可以进行下一步：测试chaincode。</p>
+<h3 id="_4">在开发模者式下测试<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>Normally chaincodes are started and maintained by peer. However in “dev mode”, chaincode is built and started by the user. This mode is useful during chaincode development phase for rapid code/build/run/debug cycle turnaround.</p>
+<p>通常，chaincode由peer节点启动并维护。不过，在“开发者模式”下，chaincode可以由用户创建并启动。当用户处于以快速编码/构建/运行/调试的循环周期为主的chaincode开发阶段时，该模式十分有用。</p>
+<p>We start “dev mode” by leveraging pre-generated orderer and channel artifacts for a sample dev network. As such, the user can immediately jump into the process of compiling chaincode and driving calls.</p>
+<p>我们借助构建自带区块链样例网络时已经预先生成好的order和channel来启动“开发者模式”。这样，用户可以立即编译chaincode并调用函数。</p>
+<h2 id="hyperledger-fabric">安装Hyperledger Fabric样例<a class="headerlink" href="#hyperledger-fabric" title="Permanent link">&para;</a></h2>
+<p>If you haven’t already done so, please install the <strong>Hyperledger Fabric Samples</strong>.</p>
+<p>如果您之前还没有进行过这一步，请先安装 <strong>Hyperledger Fabric Sample</strong></p>
+<p>Navigate to the <code>chaincode-docker-devmode</code> directory of the <code>fabric-samples</code> clone:</p>
+<p>下面进入到安装好的<code>fabric-samples</code>下的<code>chaincode-docker-devmode</code>目录。</p>
+<pre><code class="bash">cd chaincode-docker-devmode
+</code></pre>
+
+<h2 id="docker">下载Docker镜像<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h2>
+<p>We need four Docker images in order for “dev mode” to run against the supplied docker compose script. If you installed the <code>fabric-samples</code> repo clone and followed the instructions to download-platform-specific-binaries, then you should have the necessary Docker images installed locally.</p>
+<p>跟据下载样例中自带的docker构建脚本，我们需要四个Docker镜像来确保“开发者模式”成功运行。如果您已经安装了<code>fabric-samples</code>克隆仓库，并按照指示下载了platform-specific-binaries，那么你的本地理应早已安装好了所需的Docker镜像。</p>
+<p><strong><em>*注意:</em></strong></p>
+<p><em>If you choose to manually pull the images then you must retag them as <code>latest</code>.</em></p>
+<p><em>如果您选择手动拉取镜像，那么您务必将其重新标记为<code>latest</code>。</em></p>
+<p>Issue a <code>docker images</code> command to reveal your local Docker Registry. You should see something similar to following:</p>
+<p>输入<code>docker images</code>指令可以方便地查询本地的Docker镜像列表。您应该会看到类似下面的内容：</p>
+<pre><code class="bash">docker images
+REPOSITORY                     TAG                                  IMAGE ID            CREATED             SIZE
+hyperledger/fabric-tools       latest                               e09f38f8928d        4 hours ago         1.32 GB
+hyperledger/fabric-tools       x86_64-1.0.0                         e09f38f8928d        4 hours ago         1.32 GB
+hyperledger/fabric-orderer     latest                               0df93ba35a25        4 hours ago         179 MB
+hyperledger/fabric-orderer     x86_64-1.0.0                         0df93ba35a25        4 hours ago         179 MB
+hyperledger/fabric-peer        latest                               533aec3f5a01        4 hours ago         182 MB
+hyperledger/fabric-peer        x86_64-1.0.0                         533aec3f5a01        4 hours ago         182 MB
+hyperledger/fabric-ccenv       latest                               4b70698a71d3        4 hours ago         1.29 GB
+hyperledger/fabric-ccenv       x86_64-1.0.0                         4b70698a71d3        4 hours ago         1.29 GB
+</code></pre>
+
+<p><strong><em>*注意:</em></strong></p>
+<p><em>If you retrieved the images through the download-platform-specific-binaries, then you will see additional images listed. However, we are only concerned with these four.</em></p>
+<p><em>如果您通过download-platform-specific-binaries来获取镜像，那么您将会看到更多的镜像资源列表。不过这里我们只关心以上四个。</em></p>
+<p>Now open three terminals and navigate to your <code>chaincode-docker-devmode</code> directory in each.</p>
+<p>现在请在<code>chaincode-docker-devmode</code>目录下面打开三个独立的终端。</p>
+<h2 id="1">1号终端<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<pre><code class="bash">docker-compose -f docker-compose-simple.yaml up
+</code></pre>
+
+<p>The above starts the network with the <code>SingleSampleMSPSolo</code> orderer profile and launches the peer in “dev mode”. It also launches two additional containers - one for the chaincode environment and a CLI to interact with the chaincode. The commands for create and join channel are embedded in the CLI container, so we can jump immediately to the chaincode calls.</p>
+<p>上述指令启动了一个带有<code>SingleSampleMSPSolo</code>orderer profile的网络，并将节点在“开发者模式”下启动。它还启动了另外两个容器：一个包含chaincode运行环境;另一个是CLI命令行，可与chaincode进行交互。创建并加入channel（管道）的指令内嵌于CLI容器中，所以我们下面马上跳转到chaincode调用部分。</p>
+<h2 id="2">2号终端<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<pre><code class="bash">docker exec -it chaincode bash
+</code></pre>
+
+<p>执行完上述指令后，您应该会看到如下内容：</p>
+<pre><code class="bash">root@d2629980e76b:/opt/gopath/src/chaincode#
+</code></pre>
+
+<p>（此时您已经进入chaincode容器）下面编译您的chaincode:</p>
+<pre><code class="bash">cd sacc
+go build
+</code></pre>
+
+<p>现在运行chaincode：</p>
+<pre><code class="bash">CORE_PEER_ADDRESS=peer:7051 CORE_CHAINCODE_ID_NAME=mycc:0 ./sacc
+</code></pre>
+
+<p>The chaincode is started with peer and chaincode logs indicating successful registration with the peer. Note that at this stage the chaincode is not associated with any channel. This is done in subsequent steps using the <code>instantiate</code> command.</p>
+<p>chaincode被peer节点启动，chaincode日志表明peer节点成功注册。注意：现阶段chaincode还没有与任何channel关联。这会在接下来使用<code>instantiate</code>指令后实现。</p>
+<h2 id="3">3号终端<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<p>Even though you are in <code>--peer-chaincodedev</code> mode, you still have to install the chaincode so the life-cycle system chaincode can go through its checks normally. This requirement may be removed in future when in <code>--peer-chaincodedev</code> mode.</p>
+<p>即便您处于<code>--peer-chaincodedev</code>模式，安装chaincode这一步仍必不可少，这样生命周期系统chaincode才能正常进行检查。也许这一步会在日后的<code>--peer-chaincodedev</code>模式中省去。</p>
+<p>We’ll leverage the CLI container to drive these calls.</p>
+<p>下面我们将进入CLI容器进行chaincode调用。</p>
+<pre><code class="bash">docker exec -it cli bash
+</code></pre>
+
+<pre><code class="bash">peer chaincode install -p chaincodedev/chaincode/sacc -n mycc -v 0
+peer chaincode instantiate -n mycc -v 0 -c '{&quot;Args&quot;:[&quot;a&quot;,&quot;10&quot;]}' -C myc
+</code></pre>
+
+<p>现在我们执行一次将a的值设为20的调用：</p>
+<pre><code class="bash">peer chaincode invoke -n mycc -c '{&quot;Args&quot;:[&quot;set&quot;, &quot;a&quot;, &quot;20&quot;]}' -C myc
+</code></pre>
+
+<p>最后查询a的值，我们会看到20。</p>
+<pre><code class="bash">peer chaincode query -n mycc -c '{&quot;Args&quot;:[&quot;query&quot;,&quot;a&quot;]}' -C myc
+</code></pre>
+
+<h2 id="chaincode_7">测试新的chaincode<a class="headerlink" href="#chaincode_7" title="Permanent link">&para;</a></h2>
+<p>By default, we mount only <code>sacc</code>. However, you can easily test different chaincodes by adding them to the <code>chaincode</code> subdirectory and relaunching your network. At this point they will be accessible in your <code>chaincode</code> container.</p>
+<p>虽然我们只实现了<code>sacc</code>，不过您可以通过将不同的chaincode添加到<code>chaincode</code>子目录下重启网络来轻松地测试它们。重启它们将可在<code>chaincode</code>容器中被访问。</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../chaincode_operators_zh/" class="btn btn-neutral float-right" title="Chaincode 操作手册">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../chaincode_zh/" class="btn btn-neutral" title="Chaincode 指南"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Hyperledger国际化工作组(yls@chainnova.com)</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/HyperledgerCN/hyperledgerDocs" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../chaincode_zh/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../chaincode_operators_zh/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>
