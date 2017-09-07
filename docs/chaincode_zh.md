@@ -19,6 +19,6 @@ A chaincode typically handles business logic agreed to by members of the network
 ##两类角色
 We offer two different perspectives on chaincode. One, from the perspective of an application developer developing a blockchain application/solution entitled Chaincode for Developers, and the other, Chaincode for Operators oriented to the blockchain network operator who is responsible for managing a blockchain network, and who would leverage the Hyperledger Fabric API to install, instantiate, and upgrade chaincode, but would likely not be involved in the development of a chaincode application.
 
-关于chaincode，我们可以从两个不同的视角来审视它们：第一个是区块链应用/解决方案的开发者的角度，详见《Chaincode——开发者》部分；另一个是区块链网络的操作者，他们也许并不想涉足chaincode应用的开发，不过却需要肩负管理区块链网络的责任，并运用Hyperledger Fabric API来安装、实例化与升级chaincode。该部分详见《Chaincode——操作员》。
+关于chaincode，我们可以从两个不同的视角来审视它们：第一个是区块链应用/解决方案的开发者的角度，详见《Chaincode 开发手册》部分；另一个是区块链网络的操作者，他们也许并不想涉足chaincode应用的开发，不过却需要肩负管理区块链网络的责任，并运用Hyperledger Fabric API来安装、实例化与升级chaincode。该部分详见《Chaincode 操作手册》。
 
 
