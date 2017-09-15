@@ -359,167 +359,93 @@
 </table>
 <h1 id="chaincode">Chaincode 操作手册<a class="headerlink" href="#chaincode" title="Permanent link">&para;</a></h1>
 <h2 id="chaincode_1">什么是Chaincode？<a class="headerlink" href="#chaincode_1" title="Permanent link">&para;</a></h2>
-<p>Chaincode is a program, written in Go that implements a prescribed interface. Eventually, other programming languages such as Java, will be supported. Chaincode runs in a secured Docker container isolated from the endorsing peer process. Chaincode initializes and manages the ledger state through transactions submitted by applications.</p>
 <p>Chaincode是一段由Go语言编写（支持其他编程语言，如Java），并能实现预定义接口的程序。Chaincode运行在一个受保护的Docker容器当中，与背书节点的运行互相隔离。Chaincode可通过应用提交的交易对账本状态初始化并进行管理。</p>
-<p>A chaincode typically handles business logic agreed to by members of the network, so it similar to a “smart contract”. Ledger state created by a chaincode is scoped exclusively to that chaincode and can’t be accessed directly by another chaincode. Given the appropriate permission, a chaincode may invoke another chaincode to access its state within the same network.</p>
 <p>一段chaincode通常处理由网络中的成员一致认可的业务逻辑，故我们很可能用“智能合约”来代指chaincode。一段chiancode创建的（账本）状态是与其他chaincode互相隔离的，故而不能被其他chaincode直接访问。不过，如果是在相同的网络中，一段chiancode在获取相应许可后则可以调用其他chiancode来访问它的账本。</p>
-<p>In the following sections, we will explore chaincode through the eyes of a blockchain network operator, Noah. For Noah’s interests, we will focus on chaincode lifecycle operations; the process of packaging, installing, instantiating and upgrading the chaincode as a function of the chaincode’s operational lifecycle within a blockchain network.</p>
 <p>在接下来的章节中，我们会以一个区块链网络操作者：诺亚，的视角了解学习chaincode。考虑到诺亚的关注点，我们将聚焦chaincode生命周期相关的操作。具体而言，就是在一个区块链网络中，将打包、安装、实例化和升级chaincode的过程作为一种可操作的chaincode生命周期函数进行调用。</p>
 <h2 id="chaincode_2">Chaincode生命周期<a class="headerlink" href="#chaincode_2" title="Permanent link">&para;</a></h2>
-<p>The Hyperledger Fabric API enables interaction with the various nodes in a blockchain network - the peers, orderers and MSPs - and it also allows one to package, install, instantiate and upgrade chaincode on the endorsing peer nodes. The Hyperledger Fabric language-specific SDKs abstract the specifics of the Hyperledger Fabric API to facilitate application development, though it can be used to manage a chaincode’s lifecycle. Additionally, the Hyperledger Fabric API can be accessed directly via the CLI, which we will use in this document.</p>
 <p>Hyperledger Fabric API让我们可以与区块链网络中的各种节点（peer节点、orderer节点、MSP节点）进行交互，同时我们还能在背书节点上安装、实例化及升级chaincode。Hyperledger Fabric特定语言的SDK工具将Hyperledger Fabric API的细节抽象了出来，便利了应用的开发过程;当然它也能用于管理chaincode生命周期。除此之外，Hyperledger Fabric API可以直接由CLI（命令行）访问，这正是本文接下来要做的。</p>
-<p>We provide four commands to manage a chaincode’s lifecycle: <code>package</code>, <code>install</code>, <code>instantiate</code>, and <code>upgrade</code>. In a future release, we are considering adding <code>stop</code> and <code>start</code> transactions to disable and re-enable a chaincode without having to actually uninstall it. After a chaincode has been successfully installed and instantiated, the chaincode is active (running) and can process transactions via the <code>invoke</code> transaction. A chaincode may be upgraded any time after it has been installed.</p>
 <p>我们提供了四个管理chaincode生命周期的命令：<code>package</code>, <code>install</code>, <code>instantiate</code>,<code>upgrade</code>。在未来的版本中，我们正考虑添加<code>stop</code>和<code>start</code>交易的指令，以便能方便地停止与重启chaincode，而不用非要真正卸载它才行。在成功安装与实例化chaincode后，chaincode就处于运行状态，接着就可以用<code>invoke</code>交易指令来处理交易了。一段chaincode可以在安装后的任何时间被更新。</p>
 <h2 id="packaging">打包（Packaging）<a class="headerlink" href="#packaging" title="Permanent link">&para;</a></h2>
 <p>chaincode包具体包含以下三个部分：</p>
 <ul>
-<li>
-<p>the chaincode, as defined by <code>ChaincodeDeploymentSpec</code> or CDS. The CDS defines the chaincode package in terms of the code and other properties such as name and version</p>
-<ul>
 <li>chaincode本身，其由<code>ChaincodeDeploymentSpec</code>或CDS定义。CDS根据代码及一些其他属性（名称，版本等）来定义chaincode。</li>
-</ul>
-</li>
-<li>
-<p>an optional instantiation policy which can be syntactically described by the same policy used for endorsement and described in <strong><em>Endorsement policies</em></strong>, and</p>
-<ul>
-<li>一个可选的实例化策略，该策略可被<strong><em>背书策略</em></strong>描述。</li>
-</ul>
-</li>
-<li>
-<p>a set of signatures by the entities that “own” the chaincode.</p>
-<ul>
+<li>一个可选的实例化策略，该策略可被 <strong><em>背书策略</em></strong> 描述。</li>
 <li>一组表示chaincode所有权的签名。</li>
 </ul>
-</li>
-</ul>
-<p>The creator of the instantiation transaction of the chaincode on a channel is validated against the instantiation policy of the chaincode.</p>
 <p>channel上chaincode实例化交易的创建者可被chaincode的实例化策略验证。</p>
 <h3 id="_1">创建包<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<p>There are two approaches to packaging chaincode. One for when you want to have multiple owners of a chaincode, and hence need to have the chaincode package signed by multiple identities. This workflow requires that we initially create a signed chaincode package (a <code>SignedCDS</code>) which is subsequently passed serially to each of the other owners for signing.</p>
 <p>打包chaincode有两种方式。第一种是当你想要让chaincode有多个所有者的时候，此时就需要让chaincode包被多个所有者签名。这种情况下需要我们创建一个被签名的chaincode包（<code>SignedCDS</code>），这个包依次被每个所有者签名。</p>
-<p>The simpler workflow is for when you are deploying a SignedCDS that has only the signature of the identity of the node that is issuing the <code>install</code> transaction.</p>
 <p>另一种就比较简单了，这是当你要建立只有一个节点的签名的时候（该节点执行<code>install</code>交易）。</p>
-<p>We will address the more complex case first. However, you may skip ahead to the Installing chaincode section below if you do not need to worry about multiple owners just yet.</p>
 <p>我们先来看看更复杂的情况。当然，如果您对多用户的情况不感兴趣，您可以直接跳到后面的安装chaincode部分。</p>
-<p>To create a signed chaincode package, use the following command:</p>
 <p>要创建一个签名过的chaincode包，请用下面的指令：</p>
-<pre><code class="bash">peer chaincode package -n mycc -p github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02 -v 0 -s -S -i &quot;AND('OrgA.admin')&quot; ccpack.out
+<pre><code>peer chaincode package -n mycc -p github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02 -v 0 -s -S -i &quot;AND('OrgA.admin')&quot; ccpack.out
 </code></pre>
 
-<p>The <code>-s</code> option creates a package that can be signed by multiple owners as opposed to simply creating a raw CDS. When <code>-s</code> is specified, the <code>-S</code> option must also be specified if other owners are going to need to sign. Otherwise, the process will create a SignedCDS that includes only the instantiation policy in addition to the CDS.</p>
 <p><code>-s</code>选项创建了一个可被多个所有者签名的包，而非简单地创建一个CDS。如果使用<code>-s</code>，那么当其他所有者要签名的时候，<code>-S</code>也必须同时使用。否则，该过程将创建一个仅包含实例化策略的签名chaincode包（SignedCDS）。</p>
-<p>The <code>-S</code> option directs the process to sign the package using the MSP identified by the value of the <code>localMspid</code> property in <code>core.yaml</code>.</p>
 <p><code>-S</code>选项可以使在<code>core.yaml</code>文件中被<code>localMspid</code>相关属性值定义好的MSP对包进行签名。</p>
-<p>The <code>-S</code> option is optional. However if a package is created without a signature, it cannot be signed by any other owner using the <code>signpackage</code> command.</p>
 <p><code>-S</code>选项是可选的。不过，如果我们创建了一个没有签名的包，那么它就不能被任何其他所有者用<code>signpackage</code>指令进行签名。</p>
-<p>The optional <code>-i</code> option allows one to specify an instantiation policy for the chaincode. The instantiation policy has the same format as an endorsement policy and specifies which identities can instantiate the chaincode. In the example above, only the admin of OrgA is allowed to instantiate the chaincode. If no policy is provided, the default policy is used, which only allows the admin identity of the peer’s MSP to instantiate chaincode.</p>
 <p><code>-i</code>选项也是可选的，它允许我们为chaincode指定实例化策略。实例化策略与背书策略格式相同，它指明谁可以实例化chaincode。在上面的例子中，只有OrgA的管理员才有资格实例化chaincode。如果没有提供任何策略，那么系统会采用默认策略，该策略只允许peer节点MSP的管理员去实例化chaincode。</p>
 <h3 id="_2">包的签名<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p>A chaincode package that was signed at creation can be handed over to other owners for inspection and signing. The workflow supports out-of-band signing of chaincode package.</p>
 <p>一个在创建时就被签名的chaincode包可以交给其他所有者进行检查与签名。具体的工作流程支持带外对chaincode包签名。</p>
-<p>The <strong><em>ChaincodeDeploymentSpec</em></strong> may be optionally be signed by the collective owners to create a <strong><em>SignedChaincodeDeploymentSpec</em></strong> (or SignedCDS). The SignedCDS contains 3 elements:</p>
-<p><strong><em>ChaincodeDeploymentSpec</em></strong>可以选择被全部所有者签名并创建一个<strong><em>SignedChaincodeDeploymentSpec</em></strong>（SignedCDS），SignedCDS包含三个部分：</p>
-<ul>
-<li>
-<p>The CDS contains the source code, the name, and version of the chaincode.</p>
+<p><strong><em>ChaincodeDeploymentSpec</em></strong> 可以选择被全部所有者签名并创建一个 <strong><em>SignedChaincodeDeploymentSpec</em></strong>（SignedCDS），SignedCDS包含三个部分：</p>
 <ul>
 <li>CDS包含chaincode的源码、名称与版本</li>
-</ul>
-</li>
-<li>
-<p>An instantiation policy of the chaincode, expressed as endorsement policies.</p>
-<ul>
 <li>一个chaincode实例化策略，其表示为背书策略</li>
-</ul>
-</li>
-<li>
-<p>The list of chaincode owners, defined by means of Endorsement.</p>
-<ul>
 <li>chaincode所有者的列表，由Endorsement定义</li>
 </ul>
-</li>
-</ul>
-<p><strong><em>*注意:</em></strong></p>
-<p><em>Note that this endorsement policy is determined out-of-band to provide proper MSP principals when the chaincode is instantiated on some channels. If the instantiation policy is not specified, the default policy is any MSP administrator of the channel.</em></p>
+<p><strong><em>注意:</em></strong></p>
 <p><em>注意，当chaincode在某些channel上实例化时，背书策略在带外定义，并提供合适的MSP。如果没有明确实例化策略，那么默认的策略是channel的任意管理员（执行实例化）</em></p>
-<p>Each owner endorses the ChaincodeDeploymentSpec by combining it with that owner’s identity (e.g. certificate) and signing the combined result.</p>
 <p>每个（chaincode的）所有者通过将ChaincodeDeploymentSpec与其本人的身份信息（证书）结合并对组合结果签名来认证ChaincodeDeploymentSpec。</p>
-<p>A chaincode owner can sign a previously created signed package using the following command:</p>
 <p>一个chaincode所有者可以对一个之前创建好的带签名的包进行签名，具体使用如下指令：</p>
 <pre><code class="bash">peer chaincode signpackage ccpack.out signedccpack.out
 </code></pre>
 
-<p>Where <code>ccpack.out</code> and <code>signedccpack.out</code> are the input and output packages, respectively. <code>signedccpack.out</code> contains an additional signature over the package signed using the Local MSP.</p>
 <p>指令中的<code>ccpack.out</code>和<code>signedccpack.out</code>分别是输入与输出包。<code>signedccpack.out</code>则包含一个用本地MSP对包进行的附加签名。</p>
 <h3 id="chaincode_3">安装chaincode<a class="headerlink" href="#chaincode_3" title="Permanent link">&para;</a></h3>
-<p>The <code>install</code> transaction packages a chaincode’s source code into a prescribed format called a <code>ChaincodeDeploymentSpec</code> (or CDS) and installs it on a peer node that will run that chaincode.</p>
 <p><code>install</code>交易的过程会将chaincode的源码以一种被称为<code>ChaincodeDeploymentSpec</code>（CDS）的规定格式打包，并把它安装在一个将要运行该chaincode的peer节点上。</p>
-<p><strong><em>*注意:</em></strong></p>
-<p><em>You must install the chaincode on each endorsing peer node of a channel that will run your chaincode.</em></p>
+<p><strong><em>注意:</em></strong></p>
 <p><em>请务必在一条channel上每一个要运行你chaincode的背书节点上安装你的chaincode</em></p>
-<p>When the <code>install</code> API is given simply a <code>ChaincodeDeploymentSpec</code>, it will default the instantiation policy and include an empty owner list.</p>
 <p>如果只是简单地给<code>install</code> API一个<code>ChaincodeDeploymentSpec</code>，它将使用默认实例化策略并添加一个空的所有者列表。</p>
-<p><strong><em>*注意:</em></strong></p>
-<p><em>Chaincode should only be installed on endorsing peer nodes of the owning members of the chaincode to protect the confidentiality of the chaincode logic from other members on the network. Those members without the chaincode, can’t be the endorsers of the chaincode’s transactions; that is, they can’t execute the chaincode. However, they can still validate and commit the transactions to the ledger.</em></p>
+<p><strong><em>注意:</em></strong></p>
 <p><em>Chaincode应该仅仅被安装于chaincode所有者的背书节点上，以使该chaincode逻辑对整个网络的其他成员保密。其他没有chaincode的成员将无权成为chaincode影响下的交易的认证节点（endorser）。也就是说，他们不能执行chaincode。不过，他们仍可以验证交易并提交到账本上。</em></p>
-<p>To install a chaincode, send a <strong><em>SignedProposal</em></strong> to the <code>lifecycle system chaincode</code> (LSCC) described in the <strong><em>System Chaincode</em></strong> section. For example, to install the sacc sample chaincode described in section <strong><em>Simple Asset Chaincode</em></strong> using the CLI, the command would look like the following:</p>
 <p>下面安装chaincode。此时会发送一条 <strong><em>SignedProposal</em></strong> 到<code>生命周期系统chaincode</code> (LSCC)，该chaincode在<strong><em>系统chaincode</em></strong>部分会仔细描述。举个例子，使用CLI安装<strong><em>简单的账本管理chaincode</em></strong>章节的sacc chaincode样例时，命令如下：</p>
 <pre><code class="bash">peer chaincode install -n asset_mgmt -v 1.0 -p sacc
 </code></pre>
 
-<p>The CLI internally creates the SignedChaincodeDeploymentSpec for sacc and sends it to the local peer, which calls the <code>Install</code> method on the LSCC. The argument to the <code>-p</code> option specifies the path to the chaincode, which must be located within the source tree of the user’s <code>GOPATH</code>, e.g. <code>$GOPATH/src/sacc</code>. See the <strong><em>CLI</em></strong> section for a complete description of the command options.</p>
 <p>在CLI内部会为sacc创建SignedChaincodeDeploymentSpec，并将其发送到本地peer节点。这些节点会调用LSCC上的<code>Install</code>方法。上述的<code>-p</code>选项指明chaincode的路径，其必须在用户的<code>GOPATH</code>目录下（比如<code>$GOPATH/src/sacc</code>）。完整的命令选项详见<strong><em>CLI</em></strong>部分。</p>
-<p>Note that in order to install on a peer, the signature of the SignedProposal must be from 1 of the peer’s local MSP administrators.</p>
 <p>注意：为了在peer节点上安装（chaincode），SignedProposal的签名必须来自peer节点本地MSP的管理员中的一位。</p>
-<h3 id="_3">实例化<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>The <code>instantiate</code> transaction invokes the <code>lifecycle System Chaincode</code> (LSCC) to create and initialize a chaincode on a channel. This is a chaincode-channel binding process: a chaincode may be bound to any number of channels and operate on each channel individually and independently. In other words, regardless of how many other channels on which a chaincode might be installed and instantiated, state is kept isolated to the channel to which a transaction is submitted.</p>
+<h3 id="chaincode_4">实例化chaincode<a class="headerlink" href="#chaincode_4" title="Permanent link">&para;</a></h3>
 <p>实例化交易会调用<code>生命周期系统chaincode</code> (LSCC)来在一个channel上创建并初始化一段chaincode。下面是一个chaincode-channel绑定的具体过程：一段chaincode可能会与任意数量的channel绑定并在每个channel上独立运行。换句话说，chaincode在多少个channel上安装并实例化并没有什么影响，对于每个提交交易的channel，其状态都是独立而互不影响的。</p>
-<p>The creator of an <code>instantiate</code> transaction must satisfy the instantiation policy of the chaincode included in SignedCDS and must also be a writer on the channel, which is configured as part of the channel creation. This is important for the security of the channel to prevent rogue entities from deploying chaincodes or tricking members to execute chaincodes on an unbound channel.</p>
 <p>一个<code>实例化</code>交易的创建者必须符合在SignedCDS中chaincode的实例化策略，且必须充当channel的写入器（这会成为channel创建配置的一部分）。这对于channel的安全至关重要，因为这样可以防止恶意实体在未绑定的channel上部署chaincode，也能防止间谍成员在未绑定的channel上执行chaincode。</p>
-<p>For example, recall that the default instantiation policy is any channel MSP administrator, so the creator of a chaincode instantiate transaction must be a member of the channel administrators. When the transaction proposal arrives at the endorser, it verifies the creator’s signature against the instantiation policy. This is done again during the transaction validation before committing it to the ledger.</p>
 <p>举个例子，我们提到过默认的实例化策略是任何channel MSP的管理员（可以执行），所以chaincode创建者要实例化交易，其本人必须是channel管理员的一员。当交易提议到达背书成员时，它会验证创建者的签名是否符合实例化策略。在交易被提交到账本之前的交易验证阶段，以上操作还会再来一遍。</p>
-<p>The instantiate transaction also sets up the endorsement policy for that chaincode on the channel. The endorsement policy describes the attestation requirements for the transaction result to be accepted by members of the channel.</p>
 <p>实例化交易的过程还会为channel上的chaincode建立背书策略。背书策略描述了交易的相关认证要求，以使得交易能被channel中的成员认可。</p>
-<p>For example, using the CLI to instantiate the sacc chaincode and initialize the state with <code>john</code> and <code>0</code>, the command would look like the following:</p>
 <p>例如，使用CLI去实例化上一章的sacc chaincode并初始化<code>john</code>的状态为<code>0</code>，指令具体如下：</p>
 <pre><code class="bash">peer chaincode instantiate -n sacc -v 1.0 -c '{&quot;Args&quot;:[&quot;john&quot;,&quot;0&quot;]}' -P &quot;OR ('Org1.member','Org2.member')&quot;
 </code></pre>
 
-<p><strong><em>*注意:</em></strong></p>
-<p><em>Note the endorsement policy (CLI uses polish notation), which requires an endorsement from either member of Org1 or Org2 for all transactions to <strong>sacc</strong>. That is, either Org1 or Org2 must sign the result of executing the Invoke on <strong>sacc</strong> for the transactions to be valid.</em></p>
+<p><strong><em>注意:</em></strong></p>
 <p><em>注意，上述背书策略（CLI使用波兰表示法）向Org1或Org2的成员询问所有sacc处理的交易。也就是说，为确保交易有效，Org1或Org2必须为调用<strong>sacc</strong>的结果签名。</em></p>
-<p>After being successfully instantiated, the chaincode enters the active state on the channel and is ready to process any transaction proposals of type <strong><em>ENDORSER_TRANSACTION</em></strong>. The transactions are processed concurrently as they arrive at the endorsing peer.</p>
 <p>在成功实例化后，channel上的chaincode就进入激活状态，并时刻准备执行任何<strong><em>ENDORSER_TRANSACTION</em></strong>类型的交易提议。交易会在到达背书节点的同时被处理。</p>
-<h3 id="_4">升级<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<p>A chaincode may be upgraded any time by changing its version, which is part of the SignedCDS. Other parts, such as owners and instantiation policy are optional. However, the chaincode name must be the same; otherwise it would be considered as a totally different chaincode.</p>
+<h3 id="chaincode_5">升级chaincode<a class="headerlink" href="#chaincode_5" title="Permanent link">&para;</a></h3>
 <p>一段chaincode可以通过更改它的版本（SignedCDS的一部分）来随时进行更新。至于SignedCDS的其他部分，比如所有者及实例化策略，都是可选的。不过，chaincode的名称必须一致，否则它会被当做完全不同的另一段chaincode。</p>
-<p>Prior to upgrade, the new version of the chaincode must be installed on the required endorsers. Upgrade is a transaction similar to the instantiate transaction, which binds the new version of the chaincode to the channel. Other channels bound to the old version of the chaincode still run with the old version. In other words, the <code>upgrade</code> transaction only affects one channel at a time, the channel to which the transaction is submitted.</p>
 <p>在升级之前，chaincode的新版本必须安装在需要它的背书节点上。升级是一个类似于实例化交易的交易，它会将新版本的chaincode与channel绑定。其他与旧版本绑定的channel则仍旧运行旧版本的chaincode。换句话说，<code>升级</code>交易只会一次影响一个提交它的channel。</p>
-<p><strong><em>*注意:</em></strong></p>
-<p><em>Note that since multiple versions of a chaincode may be active simultaneously, the upgrade process doesn’t automatically remove the old versions, so user must manage this for the time being.</em></p>
+<p><strong><em>注意:</em></strong></p>
 <p><em>注意：由于多个版本的chaincode可能同时运行，所以升级过程不会自动移除旧版本，用户必须亲自处理。</em></p>
-<p>There’s one subtle difference with the <code>instantiate</code> transaction: the <code>upgrade</code> transaction is checked against the current chaincode instantiation policy, not the new policy (if specified). This is to ensure that only existing members specified in the current instantiation policy may upgrade the chaincode.</p>
 <p><code>升级</code>交易与<code>实例化</code>交易有一处微妙的区别：<code>升级</code>交易采用当前的chaincode实例化策略进行检查，而非比对新的策略（如果指定了的话）。这是为了确保只有当前实例化策略指定的已有成员才能升级chaincode。</p>
-<p><strong><em>*注意:</em></strong></p>
-<p><em>Note that during upgrade, the chaincode <code>Init</code> function is called to perform any data related updates or re-initialize it, so care must be taken to avoid resetting states when upgrading chaincode.</em></p>
+<p><strong><em>注意:</em></strong></p>
 <p><em>注意：在升级过程中，chaincode的<code>Init</code>函数会被调用以执行数据相关的操作，或者重新初始化数据；所以要多加小心避免在升级chaincode时重设状态信息。</em></p>
-<h3 id="_5">停止与启动<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<p>Note that <code>stop</code> and <code>start</code> lifecycle transactions have not yet been implemented. However, you may stop a chaincode manually by removing the chaincode container and the SignedCDS package from each of the endorsers. This is done by deleting the chaincode’s container on each of the hosts or virtual machines on which the endorsing peer nodes are running, and then deleting the SignedCDS from each of the endorsing peer nodes:</p>
+<h3 id="_3">停止与启动<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>注意，<code>停止</code>与<code>启动</code>生命周期交易的功能还没实现。不过，你可以通过移除chaincode容器以及从每个背书节点删除SignedCDS包来停止chaincode。具体而言，就是删除所有主机或虚拟机上peer节点运行于其中的chaincode的容器，随后从每个背书节点删除SignedCDS。</p>
-<p><strong><em>*注意:</em></strong></p>
-<p><em>TODO - in order to delete the CDS from the peer node, you would need to enter the peer node’s container, first. We really need to provide a utility script that can do this.</em></p>
-<p><em>为了从peer节点删除CDS，你应该需要先进入peer节点的容器内。我们的确需要提供一个可以执行此功能的脚本</em></p>
+<p><strong><em>注意:</em></strong></p>
+<p><em>TODO -为了从peer节点删除CDS，你应该需要先进入peer节点的容器内。我们的确需要提供一个可以执行此功能的脚本</em></p>
 <pre><code class="bash">docker rm -f &lt;container id&gt;
 rm /var/hyperledger/production/chaincodes/&lt;ccname&gt;:&lt;ccversion&gt;
 </code></pre>
 
-<p>Stop would be useful in the workflow for doing upgrade in controlled manner, where a chaincode can be stopped on a channel on all peers before issuing an upgrade.</p>
 <p>停止功能在以受控的方式进行升级的流程中将非常有用，特别是在进行升级前，一段channel上所有节点的chaincode都可被停止。</p>
 <h3 id="cli">CLI<a class="headerlink" href="#cli" title="Permanent link">&para;</a></h3>
-<p><strong><em>*注意:</em></strong></p>
-<p><em>We are assessing the need to distribute platform-specific binaries for the Hyperledger Fabric <code>peer</code> binary. For the time being, you can simply invoke the commands from within a running docker container.</em></p>
+<p><strong><em>注意:</em></strong></p>
 <p><em>我们正在评估为 Hyperledger Fabric <code>peer</code>的二进制文件拆分特定平台二进制文件的需求。不过目前，您可以在一个正在运行的docker容器中方便地调用指令。</em></p>
-<p>To view the currently available CLI commands, execute the following command from within a running <code>fabric-peer</code> Docker container:</p>
 <p>下面我们将一览现在可用的CLI指令，请在一个运行<code>fabric-peer</code>的Docker容器中执行以下指令：</p>
 <pre><code class="bash">docker run -it hyperledger/fabric-peer bash
 # peer chaincode --help
@@ -561,7 +487,6 @@ Global Flags:
 Use &quot;peer chaincode [command] --help&quot; for more information about a command.
 </code></pre>
 
-<p>To facilitate its use in scripted applications, the <code>peer</code> command always produces a non-zero return code in the event of command failure.</p>
 <p>为方便在脚本应用程序里使用，<code>peer</code>指令失败时总会返回一个非0值。</p>
 <p>chaincode的指令示例如下：</p>
 <pre><code class="bash">peer chaincode install -n mycc -v 0 -p path/to/my/chaincode/v0
@@ -572,48 +497,18 @@ peer chaincode query -C mychannel -n mycc -c '{&quot;Args&quot;:[&quot;query&quo
 peer chaincode invoke -o orderer.example.com:7050  --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA -C mychannel -n mycc -c '{&quot;Args&quot;:[&quot;invoke&quot;,&quot;a&quot;,&quot;b&quot;,&quot;10&quot;]}'
 </code></pre>
 
-<h3 id="chaincode_4">系统chaincode<a class="headerlink" href="#chaincode_4" title="Permanent link">&para;</a></h3>
-<p>System chaincode has the same programming model except that it runs within the peer process rather than in an isolated container like normal chaincode. Therefore, system chaincode is built into the peer executable and doesn’t follow the same lifecycle described above. In particular, <strong><em>install</em></strong>, <strong><em>instantiate</em></strong> and <strong><em>upgrade</em></strong> do not apply to system chaincodes.</p>
+<h3 id="chaincode_6">系统chaincode<a class="headerlink" href="#chaincode_6" title="Permanent link">&para;</a></h3>
 <p>系统chaincode与普通chaincode的编程模型相同，只不过它运行于peer节点内而非一个隔离的容器中。因此，系统chaincode在节点内构建且不遵循上文描述的chaincode生命周期。特别地，<strong><em>安装</em></strong>，<strong><em>实例化</em></strong>，<strong><em>升级</em></strong>这三项操作不适用于系统chaincode。</p>
-<p>The purpose of system chaincode is to shortcut gRPC communication cost between peer and chaincode, and tradeoff the flexibility in management. For example, a system chaincode can only be upgraded with the peer binary. It must also register with a fixed set of parameters compiled in and doesn’t have endorsement policies or endorsement policy functionality.</p>
 <p>系统chaincode的目的是削减peer节点和chaincode之间的gRPC通讯成本，并兼顾管理的灵活性。例如：一个系统chaincode只能通过peer节点的二进制文件升级。同时，系统chaincode只能以一组编译好的特定的参数进行注册，且不具有背书策略相关功能。</p>
-<p>System chaincode is used in Hyperledger Fabric to implement a number of system behaviors so that they can be replaced or modified as appropriate by a system integrator.</p>
 <p>系统chaincode在Hyperledger Fabric中用于实现一些系统行为，故它们可以被系统开发者适当替换或更改。</p>
-<p>The current list of system chaincodes:</p>
 <p>以下是系统chaincode的列表：</p>
 <ul>
-<li>
-<p>LSCC Lifecycle system chaincode handles lifecycle requests described above.</p>
-<ul>
 <li>LSCC：生命周期系统chaincode处理上述生命周期相关的功能</li>
-</ul>
-</li>
-<li>
-<p>CSCC Configuration system chaincode handles channel configuration on the peer side.</p>
-<ul>
 <li>CSCC：配置系统chaincode处理peer侧channel的配置</li>
-</ul>
-</li>
-<li>
-<p>QSCC Query system chaincode provides ledger query APIs such as getting blocks and transactions.</p>
-<ul>
 <li>QSCC：查询系统chaincode提供账本查询API，比如获取区块及交易等</li>
-</ul>
-</li>
-<li>
-<p>ESCC Endorsement system chaincode handles endorsement by signing the transaction proposal response.</p>
-<ul>
 <li>ESCC：背书系统chaincode通过对交易响应进行签名来处理背书过程</li>
-</ul>
-</li>
-<li>
-<p>VSCC Validation system chaincode handles the transaction validation, including checking endorsement policy and multiversioning concurrency control.</p>
-<ul>
 <li>VSCC：验证系统chaincode处理交易的验证，包括检查背书策略以及多版本并发控制</li>
 </ul>
-</li>
-</ul>
-<p>Care must be taken when modifying or replacing these system chaincodes, especially LSCC, ESCC and VSCC since they are in the main transaction execution path. It is worth noting that as VSCC validates a block before committing it to the ledger, it is important that all peers in the channel compute the same validation to avoid ledger divergence (non-determinism). So special care is needed if VSCC is modified or replaced.</p>
 <p>替换或更改这些系统chaincode一定要万分小心，尤其是LSCC, ESCC 和 VSCC，因为它们处于主交易执行路径中。值得注意的是，VSCC在一个区块被提交到账本之前进行验证，故所有channel中的peer节点得出相同的验证结果以避免账本分叉（不确定因素）就很重要了。所以当VSCC被更改或替换时就要特别小心了。</p>
               
             </div>
