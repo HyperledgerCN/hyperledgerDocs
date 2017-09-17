@@ -12,7 +12,7 @@ The v1 architecture delivers the following advantages:
 
     该架构分离了链码（区块链应用）的信任假设和排序的信任假设。换句话说，排序服务可以由一组节点（排序者）提供，可以容忍一些失败节点或恶意节点，以及每个链码的背书者可以不同。 
 
-- **Scalability.可扩展性** As the endorser nodes responsible for particular chaincode are orthogonal to the orderers, the system may scale better than if these functions were done by the same nodes. In particular, this results when different chaincodes specify disjoint endorsers, which introduces a partitioning of chaincodes between endorsers and allows parallel chaincode execution (endorsement). Besides, chaincode execution, which can potentially be costly, is rem	oved from the critical path of the ordering service.
+- **Scalability.可扩展性** As the endorser nodes responsible for particular chaincode are orthogonal to the orderers, the system may scale better than if these functions were done by the same nodes. In particular, this results when different chaincodes specify disjoint endorsers, which introduces a partitioning of chaincodes between endorsers and allows parallel chaincode execution (endorsement). Besides, chaincode execution, which can potentially be costly, is removed from the critical path of the ordering service.
 
     作为特定链码的背书节点和排序者是垂直交叉关系，这可以使系统在规模上比这些功能都在同一节点实现要好。特别是，当不同的链码指定不同的背书者时更是如此，为此在背书者之间引入了链码分区技术，允许链码并行执行（和背书）。此外，链码的执行，可能比较耗费计算资源，所以把它从排序服务的关键路径移除。
 
