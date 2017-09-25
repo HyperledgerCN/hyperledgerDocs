@@ -1,6 +1,6 @@
 
 | 原文 | 作者 | 审核修正 |
-| --- | --- | —--- |
+| --- | --- | --- |
 | [原文](http://hyperledger-fabric.readthedocs.io/en/latest/msp.html) | Dinghao Liu | Yunxiao Wang, Bei Wang |
 
 # 成员服务提供者 （MSP）

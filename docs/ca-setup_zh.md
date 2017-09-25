@@ -1,6 +1,6 @@
 
 | 原文 | 作者 | 审核修正 |
-| --- | --- | —--- |
+| --- | --- | --- |
 | [原文](http://hyperledger-fabric-ca.readthedocs.io/en/latest/users-guide.html) | Yaocheng Ye | Ruijun Ou、Zhangjiong Xuan |
 
 

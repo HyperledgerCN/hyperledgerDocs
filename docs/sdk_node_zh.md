@@ -1,6 +1,6 @@
 
 | 原文 | 作者 | 审核修正 |
-| --- | --- | —--- |
+| --- | --- | --- |
 | [原文](https://fabric-sdk-node.github.io) | Qingpeng Cai | Dinghao Liu, Bei Wang |
 
 The Hyperledger Fabric SDK for Node.js prvides a powerful API to interact with a Hyperledger Fabric v1.0 blockchain. The SDK is designed to be used in the Node.js JavaScript runtime.

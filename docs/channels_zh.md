@@ -1,6 +1,6 @@
 
 | 原文 | 作者 | 审核修正 |
-| --- | --- | —--- |
+| --- | --- | --- |
 | [原文](http://hyperledger-fabric.readthedocs.io/en/latest/channels.html) | Yi Zeng |  |
 
 A Hyperledger Fabric channel is a private “subnet” of communication between two or more specific network members, for the purpose of conducting private and confidential transactions. A channel is defined by members (organizations), anchor peers per member, the shared ledger, chaincode application(s) and the ordering service node(s). Each transaction on the network is executed on a channel, where each party must be authenticated and authorized to transact on that channel. Each peer that joins a channel, has its own identity given by a membership services provider (MSP), which authenticates each peer to its channel peers and services.

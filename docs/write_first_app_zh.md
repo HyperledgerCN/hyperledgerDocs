@@ -1,6 +1,6 @@
 
 | 原文 | 作者 | 审核修正 |
-| --- | --- | —--- |
+| --- | --- | --- |
 | [原文](http://hyperledger-fabric.readthedocs.io/en/latest/write_first_app.html) | Qiang Sheng |  |
 
 #编写第一个应用(Writing Your First Application)

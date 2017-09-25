@@ -1,6 +1,6 @@
 
 | 原文 | 作者 | 审核修正 |
-| --- | --- | —--- |
+| --- | --- | --- |
 | [原文](https://github.com/hyperledger/fabric-sdk-java) | Xuanyong Wu |  |
 
 
