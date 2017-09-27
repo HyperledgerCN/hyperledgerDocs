@@ -86,7 +86,7 @@ The blocks of transactions are “delivered” to all peers on the channel. The 
 
 Each peer appends the block to the channel’s chain, and for each valid transaction the write sets are committed to current state database. An event is emitted, to notify the client application that the transaction (invocation) has been immutably appended to the chain, as well as notification of whether the transaction was validated or invalidated.
 
-每个节点都把区块追加到通道的链中，对每项有效交易，写入集合被提交到当前状态的数据库。发出事务通知客户端应用，交易（宣誓）被永久追加到链中以及交易是有效或者无效的。
+每个节点都把区块追加到通道的链中，对每项有效交易，写入集合被提交到当前状态的数据库。发出事务通知客户端应用，交易（调用）被永久追加到链中以及交易是有效或者无效的。
 
 Note: See the Chaincode Swimlanes diagram to better understand the server side flow and the protobuffers.
 注意：参照链码泳道图以获得服务端流程和协议缓冲的更好理解。
