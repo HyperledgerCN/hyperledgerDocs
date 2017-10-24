@@ -15,6 +15,7 @@
 ## 用Zanata翻译Hyperledger文档
 
 1. 注册用户并登陆
+将您的Zanata ID添加至项目组[wiki页面](https://wiki.hyperledger.org/groups/twgc/team_ie)。我们会将您加入Zanata翻译工作组中。若您没有被及时加入该组，欢迎联系Linsheng Yu或Jiannan Guo。
 2. 查找并单击进入项目`hyperledger-fabric-docs`
 ![](img/zanata-1.jpeg)
 3. 单击选择版本号
