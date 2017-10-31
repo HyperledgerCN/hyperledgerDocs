@@ -320,7 +320,7 @@ CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/c
 
 我们将使用`docker exec`命令进入CLI容器：
 ```bash
-docker exec -it bash
+docker exec -it cli bash
 ```
 
 如果成功，你将看到下列信息：

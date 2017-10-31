@@ -42,6 +42,7 @@ pages:
     - Fabric SDK 设计: sdk-design_zh.md
     - Makefile文件解析: makefile_zh.md
     - BCCSP密码算法套件解析: blockchain-crypto-service-provider_zh.md
+    - Zanata使用指南: zanata_guide.md
 
 markdown_extensions:
   - extra
