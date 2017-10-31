@@ -8,9 +8,9 @@ Hyperledger Fabric是一个提供分布式账本解决方案的平台。Hyperled
 
 Hyperledger Fabric提供了一个独特的可伸缩、可扩展的架构，这也是Hyperledger Fabric与其他区块链解决方案的显著区别。假如你正在计划部署具备完整审查机制以及开源架构的企业级区块链，Hyperledger Fabric是你的一个不错的起点。
 
-对于初学者，推荐首先阅读下文中的简介，以便于理解区块链的工作原理、具备的主要特点以及Hyperledger Fabric中包含的组件。
+对于初学者，推荐首先阅读下文中的简介，以便于理解区块链的工作原理、具有的主要特点以及Hyperledger Fabric中包含的组件。
 
-如果你已经对区块链和Hyperledger Fabric有所了解，可直接阅读[快速入门](https://hyperledgercn.github.io/hyperledgerDocs/getting_started/)，快速入门中包含相关示例、技术规格以及APIs等等。
+如果你已经对区块链和Hyperledger Fabric有所了解，可直接阅读[快速入门](https://hyperledgercn.github.io/hyperledgerDocs/getting_started/)，在快速入门中包含相关示例、技术规格以及APIs等等。
 
 # 区块链是什么？
 
@@ -46,21 +46,51 @@ Hyperledger Fabric提供了一个独特的可伸缩、可扩展的架构，这�
 
 ## 当前的记录系统
 
-目前的交易网络
+自从商业数据记录网络系统诞生以来，直到今天的交易网络并没有发生太大的变化。在**商业网络**中的成员进行相互交易时，他们各自维护着自己独立的交易记录。同时，人们交易的物品——无论是16世纪佛兰德的挂毯，还是现代的有价证券——都任然需要在每次卖出交易过程中提供来源信息，以确保卖方拥有所出售商品的所有权。
 
-**商业网络**的成员进行相互交易时，他们各自维护着独立的交易记录。
+当前的商业网络就像下图描述的一样：
 
-##区块链的不同点
+![current_network](img/current_network.png)
 
+随着科技的进步，上图中的交易流程不断演化发展，经历了从使用石碑、使用纸质账本、使用硬盘存储器直到使用云计算平台的不同阶段，但流程的底层架构并没有发生任何变化。
 
+在今天的信息和过程共享断裂的方法中，建立一个跨越商业网络的记录系统是不可能的，尽管可见性和信任的需求是明确的。
+
+## 区块链的不同点
+
+以上描述的商业网络就如下图所示：
+
+![future_net](img/future_net.png)
 
 # Hyperledger Fabric是什么？
 
+2015年，Linux基金会启动了Hyperledger项目，目标是发展跨行业的区块链技术。Hyperledger项目并不仅仅是定义一个单一的区块链标准，它更鼓励通过开源社区的力量协作开发区块链技术。with intellectual property rights that encourage open development and the adoption of key standards over time. 
+
+Hyperledger Fabric是Hyperledger中的一个区块链项目。与其他区块链技术类似，Hyperledger Fabric包含一个账本，使用智能合约并且是一个通过所有参与者管理交易的系统。
+
+Hyperledger Fabric与其他区块链系统最大的不同体现在私有和许可。与开放无需许可的网络系统允许未知身份的参与者加入网络不同（需要通过工作量证明协议来保证交易有效并维护网络的安全），Hyperledger Fabric通过**Membership Service Provider(MSP)**来登记所有的成员。
+
+Hyperledger Fabric也提供了多个可拔插选项。账本数据可被存储为多种格式，共识机制可被接入或者断开，同时支持多种不同的MSP。
+
+Hyperledger Fabric提供了建立channel的功能，这允许参与者为交易新建一个单独的账本。当网络中的一些参与者是竞争对手时，这个功能变得尤为重要。因为这些参与者并不希望所有的交易信息——比如提供给部分客户的特定价格信息——都对网络中所有参与者公开。只有在同一个channel中的参与者，才会拥有该channel中的账本，而其他不在此channel中的参与者则看不到这个账本。
+
 ## 共享账本
+
+Hyperledger Fabric包含一个账本子系统，这个子系统包含两个组件：世界状态(world state)和交易记录。在Hyperledger Fabric网络中的每一个参与者都拥有一个账本的副本。
+
+
 
 ## 智能合约
 
+Hyperledger Fabric智能合约被称为**chaincode**，当一个区块链外部的一个应用程序需要访问账本时，就会调用chaincode。大多数情况下，chaincode只会访问账本的数据库组件和世界状态(world state)（比如查询），但不会查询交易记录。
+
+chaincode可通过多种不同编程语言实现。目前支持chaincode的语言是Go（包含对java的支持），更多的编程语言会在今后的版本中获得支持。
+
 ## 隐私
+
+根据网络的需求，在一个Business-to-Business（B2B）网络中的参与者会对信息共享的程度极为敏感。然而，对于其他的网络，隐私并不是首要考虑的因素。
+
+Hyperledger Fabric支持构建隐私保护严格的网络，也支持构建相对开放的网络。
 
 ## 共识
 
@@ -68,6 +98,10 @@ Hyperledger Fabric提供了一个独特的可伸缩、可扩展的架构，这�
 
 # 后续学习
 
-## 快速入门
+## [快速入门](https://hyperledgercn.github.io/hyperledgerDocs/getting_started/)
 
-## Hyperledger Fabric模型
+我们提供了一些
+
+## [Hyperledger Fabric模型](https://hyperledger-fabric.readthedocs.io/en/latest/fabric_model.html)
+
+对在这篇简介中提到的组件和概念进行了深入讲解，也包含一些其他未提到的内容，并通过一个交易流程示例描述了他们的工作机制。
