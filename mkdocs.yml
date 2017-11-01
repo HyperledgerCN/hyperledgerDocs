@@ -11,6 +11,7 @@ theme: readthedocs
 pages:
     - 欢迎: index.md
     - 词汇表: glossary.md
+    - 简介: blockchain_zh.md
     - 快速入门: getting_started.md
     - 协议规范: protocol-spec_zh.md
     - Fabric教程:
