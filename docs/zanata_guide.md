@@ -15,16 +15,22 @@
 ## 用Zanata翻译Hyperledger文档
 
 1. 注册用户并登陆
-将您的Zanata ID添加至项目组[wiki页面](https://wiki.hyperledger.org/groups/twgc/team_ie)。我们会将您加入Zanata翻译工作组中。若您没有被及时加入该组，欢迎联系Linsheng Yu或Jiannan Guo。
-2. 查找并单击进入项目`hyperledger-fabric-docs`
+
+    注册新用户，并将您的Zanata ID添加至项目组[wiki页面](https://wiki.hyperledger.org/groups/twgc/team_ie)。
+
+2. 申请加入Zanata中文团队
+
+    通过`Launguage`->`Chinese (Simplified, China)`->`Request to Join`，申请加入Zanata中文翻译团队。通常这个申请只需要一两天就可以被通过。若两天后您的申请仍处于`pending`状态，请联系Linsheng Yu或Jiannan Guo。
+
+3. 查找并单击进入项目`hyperledger-fabric-docs`
 ![](img/zanata-1.jpeg)
-3. 单击选择版本号
+4. 单击选择版本号
 ![](img/zanata-2.jpg)
-4. 单击选择语言
+5. 单击选择语言
 ![](img/zanata-3.jpg)
-5. 单击选择要翻译的文件
+6. 单击选择要翻译的文件
 ![](img/zanata-4.jpg)
-6. 在右侧编辑翻译
+7. 在右侧编辑翻译
 
     在右侧输入译文，编辑完后会自动保存；下侧是翻译提示内容，可直接`copy`；也可以点击`使用新版`体验新版翻译页面。
 
@@ -34,7 +40,7 @@
     新版翻译页面
 ![](img/zanata-6.jpg)
 
-**7. 原文更新及译后文档的展示操作，之后补充说明**
+**8. 原文更新及译后文档的展示操作，之后补充说明**
 
 
 ## 问题
