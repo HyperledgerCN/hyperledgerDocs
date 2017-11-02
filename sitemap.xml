@@ -4,7 +4,7 @@
     
     <url>
      <loc>https://hyperledgercn.github.io/hyperledgerDocs//</loc>
-     <lastmod>2017-10-24</lastmod>
+     <lastmod>2017-11-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,7 +12,7 @@
     
     <url>
      <loc>https://hyperledgercn.github.io/hyperledgerDocs//glossary/</loc>
-     <lastmod>2017-10-24</lastmod>
+     <lastmod>2017-11-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -20,7 +20,7 @@
     
     <url>
      <loc>https://hyperledgercn.github.io/hyperledgerDocs//getting_started/</loc>
-     <lastmod>2017-10-24</lastmod>
+     <lastmod>2017-11-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -28,7 +28,7 @@
     
     <url>
      <loc>https://hyperledgercn.github.io/hyperledgerDocs//protocol-spec_zh/</loc>
-     <lastmod>2017-10-24</lastmod>
+     <lastmod>2017-11-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -37,31 +37,31 @@
         
     <url>
      <loc>https://hyperledgercn.github.io/hyperledgerDocs//build_network_zh/</loc>
-     <lastmod>2017-10-24</lastmod>
+     <lastmod>2017-11-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://hyperledgercn.github.io/hyperledgerDocs//write_first_app_zh/</loc>
-     <lastmod>2017-10-24</lastmod>
+     <lastmod>2017-11-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://hyperledgercn.github.io/hyperledgerDocs//chaincode_zh/</loc>
-     <lastmod>2017-10-24</lastmod>
+     <lastmod>2017-11-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://hyperledgercn.github.io/hyperledgerDocs//chaincode_developers_zh/</loc>
-     <lastmod>2017-10-24</lastmod>
+     <lastmod>2017-11-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://hyperledgercn.github.io/hyperledgerDocs//chaincode_operators_zh/</loc>
-     <lastmod>2017-10-24</lastmod>
+     <lastmod>2017-11-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -71,43 +71,43 @@
         
     <url>
      <loc>https://hyperledgercn.github.io/hyperledgerDocs//msp_zh/</loc>
-     <lastmod>2017-10-24</lastmod>
+     <lastmod>2017-11-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://hyperledgercn.github.io/hyperledgerDocs//configtx_zh/</loc>
-     <lastmod>2017-10-24</lastmod>
+     <lastmod>2017-11-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://hyperledgercn.github.io/hyperledgerDocs//configtxgen_zh/</loc>
-     <lastmod>2017-10-24</lastmod>
+     <lastmod>2017-11-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://hyperledgercn.github.io/hyperledgerDocs//configtxlator_zh/</loc>
-     <lastmod>2017-10-24</lastmod>
+     <lastmod>2017-11-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://hyperledgercn.github.io/hyperledgerDocs//endorsement-policies_zh/</loc>
-     <lastmod>2017-10-24</lastmod>
+     <lastmod>2017-11-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://hyperledgercn.github.io/hyperledgerDocs//error-handling_zh/</loc>
-     <lastmod>2017-10-24</lastmod>
+     <lastmod>2017-11-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://hyperledgercn.github.io/hyperledgerDocs//logging-control_zh/</loc>
-     <lastmod>2017-10-24</lastmod>
+     <lastmod>2017-11-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -117,61 +117,61 @@
         
     <url>
      <loc>https://hyperledgercn.github.io/hyperledgerDocs//arch-deep-dive_zh/</loc>
-     <lastmod>2017-10-24</lastmod>
+     <lastmod>2017-11-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://hyperledgercn.github.io/hyperledgerDocs//txflow_zh/</loc>
-     <lastmod>2017-10-24</lastmod>
+     <lastmod>2017-11-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://hyperledgercn.github.io/hyperledgerDocs//ca-setup_zh/</loc>
-     <lastmod>2017-10-24</lastmod>
+     <lastmod>2017-11-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://hyperledgercn.github.io/hyperledgerDocs//sdk_node_zh/</loc>
-     <lastmod>2017-10-24</lastmod>
+     <lastmod>2017-11-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://hyperledgercn.github.io/hyperledgerDocs//sdk_java_zh/</loc>
-     <lastmod>2017-10-24</lastmod>
+     <lastmod>2017-11-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://hyperledgercn.github.io/hyperledgerDocs//kafka_zh/</loc>
-     <lastmod>2017-10-24</lastmod>
+     <lastmod>2017-11-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://hyperledgercn.github.io/hyperledgerDocs//channels_zh/</loc>
-     <lastmod>2017-10-24</lastmod>
+     <lastmod>2017-11-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://hyperledgercn.github.io/hyperledgerDocs//ledger_zh/</loc>
-     <lastmod>2017-10-24</lastmod>
+     <lastmod>2017-11-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://hyperledgercn.github.io/hyperledgerDocs//read-write-set/</loc>
-     <lastmod>2017-10-24</lastmod>
+     <lastmod>2017-11-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://hyperledgercn.github.io/hyperledgerDocs//gossip_zh/</loc>
-     <lastmod>2017-10-24</lastmod>
+     <lastmod>2017-11-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -180,7 +180,7 @@
     
     <url>
      <loc>https://hyperledgercn.github.io/hyperledgerDocs//msp_acl_zh/</loc>
-     <lastmod>2017-10-24</lastmod>
+     <lastmod>2017-11-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -188,7 +188,7 @@
     
     <url>
      <loc>https://hyperledgercn.github.io/hyperledgerDocs//sdk-design_zh/</loc>
-     <lastmod>2017-10-24</lastmod>
+     <lastmod>2017-11-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -196,7 +196,7 @@
     
     <url>
      <loc>https://hyperledgercn.github.io/hyperledgerDocs//makefile_zh/</loc>
-     <lastmod>2017-10-24</lastmod>
+     <lastmod>2017-11-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -204,7 +204,7 @@
     
     <url>
      <loc>https://hyperledgercn.github.io/hyperledgerDocs//blockchain-crypto-service-provider_zh/</loc>
-     <lastmod>2017-10-24</lastmod>
+     <lastmod>2017-11-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -212,7 +212,7 @@
     
     <url>
      <loc>https://hyperledgercn.github.io/hyperledgerDocs//zanata_guide/</loc>
-     <lastmod>2017-10-24</lastmod>
+     <lastmod>2017-11-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
