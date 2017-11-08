@@ -38,6 +38,8 @@ pages:
       -  账本: ledger_zh.md
       - Read-Write set: read-write-set.md
       - Gossip数据传输协议: gossip_zh.md
+    - 故障排除和常见问题:
+      - Hyperledger Fabric 答疑: Fabric-FAQ.md
     - MSP&ACL: msp_acl_zh.md
     - Fabric SDK 设计: sdk-design_zh.md
     - Makefile文件解析: makefile_zh.md
