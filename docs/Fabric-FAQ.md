@@ -214,13 +214,13 @@ Support for additional languages and the development of a templating language
 have been discussed, and more details will be released in the near future.
 
 It is also possible to build Hyperledger Fabric applications using
-`Hyperledger Composer <https://hyperledger.github.io/composer/>`__.
+[Hyperledger Composer](<https://hyperledger.github.io/composer/>).
 
 答案：链码可以使用任何编程语言编写并在容器内执行。第一个全功能支持的语言是Golang。
 
 对其他语言的支持和模板语言的开发正在被讨论，更多细节会在近期发布。
 
-还可以通过`Hyperledger Composer <https://hyperledger.github.io/composer/>`__ 来构建Hyperledger Fabric应用。
+还可以通过[Hyperledger Composer](<https://hyperledger.github.io/composer/>)来构建Hyperledger Fabric应用。
 
 Q. Does the Hyperledger Fabric have native currency?
 
@@ -241,20 +241,18 @@ Q. As part of the v1.0.0 release, what are the highlight differences between v0.
 问题：V0.6版本和V1.0版本的最大区别是什么？
 
 A. The differences between any subsequent releases are provided together with the
-`Release Notes <http://hyperledger-fabric.readthedocs.io/en/latest/releases.html>`__.
-Since Fabric is a pluggable modular framework, you can refer to the `design-docs
-<https://wiki.hyperleger.org/projects/fabric/design-docs>`__ for further information of these difference.
+[Release Notes](<http://hyperledger-fabric.readthedocs.io/en/latest/releases.html>).
+Since Fabric is a pluggable modular framework, you can refer to the [design-docs](<https://wiki.hyperleger.org/projects/fabric/design-docs>) for further information of these difference.
 
-答案：任何后续版本的差异都在版本说明中展现。 `Release Notes <http://hyperledger-fabric.readthedocs.io/en/latest/releases.html>`__. 因为Fabric是一个模块可替换的框架，你可以参考设计文档`design-docs
-<https://wiki.hyperleger.org/projects/fabric/design-docs>`__ 获取更多差异信息。
+答案：任何后续版本的差异都在[版本说明](<http://hyperledger-fabric.readthedocs.io/en/latest/releases.html>)中展现。因为Fabric是一个模块可替换的框架，你可以参考[设计文档](<https://wiki.hyperleger.org/projects/fabric/design-docs>)获取更多差异信息。
 
 Q. Where to get help for the technical questions not answered above?
 
 问题：哪里可以获得上文中没被解答的技术问题的帮助？
 
-A. Please use `StackOverflow <https://stackoverflow.com/questions/tagged/hyperledger>`__.
+A. Please use [StackOverflow](<https://stackoverflow.com/questions/tagged/hyperledger>).
 
-答案：请使用 `StackOverflow <https://stackoverflow.com/questions/tagged/hyperledger>`__.
+答案：请使用 [StackOverflow](<https://stackoverflow.com/questions/tagged/hyperledger>).
 
 
 .. Licensed under Creative Commons Attribution 4.0 International License
