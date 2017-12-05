@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Hyperledger国际化工作组">
+  
+  <title>Hyperledger Fabric 答疑 - Hyperledger中文文档</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Hyperledger Fabric 答疑";
+    var mkdocs_page_input_path = "Fabric-FAQ.md";
+    var mkdocs_page_url = "/Fabric-FAQ/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Hyperledger中文文档</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">欢迎</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../glossary/">词汇表</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../blockchain_zh/">简介</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../getting_started/">快速入门</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../protocol-spec_zh/">协议规范</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric教程</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../build_network_zh/">构建第一个fabric网络</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../write_first_app_zh/">编写第一个应用</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../chaincode_zh/">Chaincode 指南</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../chaincode_developers_zh/">Chaincode 开发手册</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../chaincode_operators_zh/">Chaincode 操作手册</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric操作指南</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../msp_zh/">MSP</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configtx_zh/">Channel 配置(configtx)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configtxgen_zh/">Channel 配置(configtxgen)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configtxlator_zh/">Channel 重新配置(configtxlator)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../endorsement-policies_zh/">背书策略</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../error-handling_zh/">错误处理</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../logging-control_zh/">日志控制</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Fabric设计</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../arch-deep-dive_zh/">架构说明</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../txflow_zh/">交易流程</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ca-setup_zh/">CA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../sdk_node_zh/">SDK--node</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../sdk_java_zh/">SDK--java</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../kafka_zh/">基于kafka的排序服务</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../channels_zh/">Channels</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ledger_zh/">账本</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../read-write-set/">Read-Write set</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../gossip_zh/">Gossip数据传输协议</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>故障排除和常见问题</span></li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Hyperledger Fabric 答疑</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#hyperledger-fabric-faqhyperledger-fabric">Hyperledger Fabric FAQHyperledger Fabric 答疑</a></li>
+                
+                    <li><a class="toctree-l4" href="#endorsement">Endorsement背书</a></li>
+                
+                    <li><a class="toctree-l4" href="#security-access-control">Security &amp; Access Control安全和权限控制</a></li>
+                
+                    <li><a class="toctree-l4" href="#application-side-programming-model">Application-side Programming Model应用端编程模型</a></li>
+                
+                    <li><a class="toctree-l4" href="#chaincode-smart-contracts-and-digital-assets">Chaincode (Smart Contracts and Digital Assets)链码（智能合约和数字资产）</a></li>
+                
+                    <li><a class="toctree-l4" href="#differences-in-most-recent-releases">Differences in Most Recent Releases最近版本的区别</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../msp_acl_zh/">MSP&ACL</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../sdk-design_zh/">Fabric SDK 设计</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../makefile_zh/">Makefile文件解析</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../blockchain-crypto-service-provider_zh/">BCCSP密码算法套件解析</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../zanata_guide/">Zanata使用指南</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Hyperledger中文文档</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>故障排除和常见问题 &raquo;</li>
+        
+      
+    
+    <li>Hyperledger Fabric 答疑</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/HyperledgerCN/hyperledgerDocs" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <table>
+<thead>
+<tr>
+<th>原文</th>
+<th>作者</th>
+<th>审核修正</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://hyperledger-fabric.readthedocs.io/en/latest/Fabric-FAQ.html">原文</a></td>
+<td>Shaoxi Qiu</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="hyperledger-fabric-faqhyperledger-fabric">Hyperledger Fabric FAQ<br />Hyperledger Fabric 答疑<a class="headerlink" href="#hyperledger-fabric-faqhyperledger-fabric" title="Permanent link">&para;</a></h1>
+<h2 id="endorsement">Endorsement<br />背书<a class="headerlink" href="#endorsement" title="Permanent link">&para;</a></h2>
+<p><strong>Endorsement architecture</strong>:</p>
+<p><strong>背书操作架构</strong>:</p>
+<p>Q. How many peers in the network need to endorse a transaction?</p>
+<p>问题：多少个网络中的节点需要对交易进行背书？</p>
+<p>A. The number of peers required to endorse a transaction is driven by the endorsement
+policy that is specified at chaincode deployment time.</p>
+<p>答案：需要对交易进行背书操作的节点数量由背书策略决定，背书策略在链码部署的时候指定。</p>
+<p>Q. Does an application client need to connect to all peers?</p>
+<p>问题：应用客户端需要连接到所有节点吗？</p>
+<p>A. Clients only need to connect to as many peers as are required by the
+endorsement policy for the chaincode.</p>
+<p>答案：客户端只需要连接到链码对应的背书策略所要求的足够多的节点。</p>
+<h2 id="security-access-control">Security &amp; Access Control<br />安全和权限控制<a class="headerlink" href="#security-access-control" title="Permanent link">&para;</a></h2>
+<p><strong>Data Privacy and Access Control</strong>:</p>
+<p><strong>数据隐私和权限控制</strong>:</p>
+<p>Q. How do I ensure data privacy?</p>
+<p>问题：我如何能够保证数据的隐私？</p>
+<p>A. There are various aspects to data privacy.
+First, you can segregate your network into channels, where each channel
+represents a subset of participants that are authorized to see the data
+for the chaincodes that are deployed to that channel.
+Second, within a channel you can restrict the input data to chaincode to the
+set of endorsers only, by using visibility settings. The visibility setting
+will determine whether input and output chaincode data is included in the
+submitted transaction,  versus just output data.
+Third, you can hash or encrypt the data before calling chaincode. If you hash
+the data then you will need to provide a means to share the source data.
+If you encrypt the data then you will need to provide a means to share the
+decryption keys.
+Fourth, you can restrict data access to certain roles in your organization, by
+building access control into the chaincode logic.
+Fifth, ledger data at rest can be encrypted via file system encryption on
+the peer, and data in-transit is encrypted via TLS.</p>
+<p>答案：数据隐私包括几个方面。</p>
+<p>第一、你可以将你的网络拆分为多个通道，每个通道代表参与者的子集，这些参与者有权访问该通道所部署的链码所包含的数据。</p>
+<p>第二、通过通道你可以限制链码的输入数据只对背书节点可见。可见性设置将决定链码的输入输出数据是否包含在提交交易中，可以只包含输出数据。</p>
+<p>第三、你能在调用链码前对数据进行哈希操作或者加密。如果对数据进行哈希操作，你需要提供获取原数据的方式。如果对数据进行加密，你需要提供获取密钥的方式。</p>
+<p>第四、你可以通过链码中的访问控制逻辑限制数据访问权限，只有机构中特定的角色可以访问。</p>
+<p>第五、节点中的账本数据可以通过文件系统进行加密，节点间数据传输通过TLS进行加密。</p>
+<p>Q. Do the orderers see the transaction data?</p>
+<p>问题：排序节点能否看到交易数据？</p>
+<p>A. No, the orderers only order transactions, they do not open the transactions.
+If you do not want the data to go through the orderers at all, and you are only
+concerned about the input data, then you can use visibility settings. The
+visibility setting will determine whether input and output chaincode data is
+included in the submitted transaction,  versus just output data. Therefore,
+the input data can be private to the endorsers only.
+If you do not want the orderers to see chaincode output, then you can hash or
+encrypt the data before calling chaincode. If you hash the data then you will
+need to provide a meansto share the source data. If you encrypt the data then
+you will need to provide a means to share the decryption keys.</p>
+<p>答案：不能，排序节点只是排序交易，不能解析交易。如果你只关心输入数据，不希望经过排序节点，你可以使用可见性设置。可见性设置将决定链码的输入输出数据是否包含在提交交易中，可以只包含输出数据，这样只有背书节点能看到输入数据。如果你不希望排序节点看到交易输出数据，你能在调用链码前对数据进行哈希操作或者加密。如果对数据进行哈希操作，你需要提供获取原数据的方式。如果对数据进行加密，你需要提供获取密钥的方式。</p>
+<h2 id="application-side-programming-model">Application-side Programming Model<br />应用端编程模型<a class="headerlink" href="#application-side-programming-model" title="Permanent link">&para;</a></h2>
+<p><strong>Transaction execution result</strong>:</p>
+<p><strong>交易执行结果</strong>:</p>
+<p>Q. How do application clients know the outcome of a transaction?</p>
+<p>问题：应用客户端如何知道交易的输出？</p>
+<p>A. The transaction simulation results are returned to the client by the
+endorser in the proposal response.  If there are multiple endorsers, the
+client can check that the responses are all the same, and submit the results
+and endorsements for ordering and commitment. Ultimately the committing peers
+will validate or invalidate the transaction, and the client becomes
+aware of the outcome via an event, that the SDK makes available to the
+application client.</p>
+<p>答案：背书节点会返回提案模拟交易的结果。如果有多个背书节点，客户端能检查返回结果是否相同后再提交交易结果以及排序和生效所需要的背书。最终，生效节点会验证交易是否合法，客户端通过SDK提供的事件通知方式接收交易结果。</p>
+<p><strong>Ledger queries</strong>:</p>
+<p><strong>账本查询</strong>:</p>
+<p>Q. How do I query the ledger data?</p>
+<p>问题：如何查询账本数据？</p>
+<p>A. Within chaincode you can query based on keys. Keys can be queried by range,
+and composite keys can be modeled to enable equivalence queries against multiple
+parameters. For example a composite key of (owner,asset_id) can be used to
+query all assets owned by a certain entity. These key-based queries can be used
+for read-only queries against the ledger, as well as in transactions that
+update the ledger.</p>
+<p>If you model asset data as JSON in chaincode and use CouchDB as the state
+database, you can also perform complex rich queries against the chaincode
+data values, using the CouchDB JSON query language within chaincode. The
+application client can perform read-only queries, but these responses are
+not typically submitted as part of transactions to the ordering service.</p>
+<p>答案：通过链码可以通过键值查询数据。可以对键值进行范围查询，复合主键可以允许查询出部分键值相同的值，例如由 (owner,asset_id) 组成的复合主键可以用来查询特定实体所拥有的所有asset。</p>
+<p>Q. How do I query the historical data to understand data provenance?</p>
+<p>问题：如何查询数据历史来理解数据出处？</p>
+<p>A. The chaincode API <code>GetHistoryForKey()</code> will return history of
+values for a key.</p>
+<p>答案： 链码中API  <code>GetHistoryForKey()</code> 会返回键值对应的数据历史。</p>
+<p>Q. How to guarantee the query result is correct, especially when the peer being
+queried may be recovering and catching up on block processing?</p>
+<p>问题：如何保证查询结果是正确的，特别是当查询的节点可能正处在恢复和获取最新区块的过程中？</p>
+<p>A. The client can query multiple peers, compare their block heights, compare
+their query results, and favor the peers at the higher block heights.</p>
+<p>答案：客户端可以查询多个节点，比较他们的区块高度查询结果，选用区块高度最高的结果。</p>
+<h2 id="chaincode-smart-contracts-and-digital-assets">Chaincode (Smart Contracts and Digital Assets)<br />链码（智能合约和数字资产）<a class="headerlink" href="#chaincode-smart-contracts-and-digital-assets" title="Permanent link">&para;</a></h2>
+<p>Q. Does Hyperledger Fabric support smart contract logic?</p>
+<p>问题：Hyperledger Fabric 是否支持智能合约逻辑？</p>
+<p>A. Yes. We call this feature :ref:<code>chaincode</code>. It is our interpretation of the
+smart contract method/algorithm, with additional features.</p>
+<p>A chaincode is programmatic code deployed on the network, where it is
+executed and validated by chain validators together during the consensus
+process. Developers can use chaincodes to develop business contracts,
+asset definitions, and collectively-managed decentralized applications.</p>
+<p>答案：是的，我们称这个功能为 :ref:<code>chaincode</code>. 这是我们对带有附加功能的智能合同方法/算法的理解。</p>
+<p>链码是部署在网络中的程序代码，通过共识流程被链的验证者共同执行并验证。开发者能使用链码来开发商业合同、资产定义和集体管理的去中心化应用。</p>
+<p>Q. How do I create a business contract?</p>
+<p>问题：如何创建商业合同？</p>
+<p>A. There are generally two ways to develop business contracts: the first way is
+to code individual contracts into standalone instances of chaincode; the
+second way, and probably the more efficient way, is to use chaincode to
+create decentralized applications that manage the life cycle of one or
+multiple types of business contracts, and let end users instantiate
+instances of contracts within these applications.</p>
+<p>答案：通常有两种方法来开发商业合同：第一个方法是开发单独的合同在独立的链码实例;第二个也是最有效的方法是使用链码创建去中心化的应用来管理一种或多种类型的商业合同的生命周期，并让终端用户实例化带有这些应用的合同实例。</p>
+<p>Q. How do I create assets?</p>
+<p>如何创建资产？</p>
+<p>A. Users can use chaincode (for business rules) and membership service (for digital tokens) to
+design assets, as well as the logic that manages them.</p>
+<p>There are two popular approaches to defining assets in most blockchain
+solutions: the stateless UTXO model, where account balances are encoded
+into past transaction records; and the account model, where account
+balances are kept in state storage space on the ledger.</p>
+<p>Each approach carries its own benefits and drawbacks. This blockchain
+technology does not advocate either one over the other. Instead, one of our
+first requirements was to ensure that both approaches can be easily
+implemented.</p>
+<p>答案：用户可以使用链码（在商业规则方面）和成员管理服务（在数字密钥方面）来设计资产和资产管理逻辑。</p>
+<p>区块链解决方案中有两种流行的方法来设计资产：无状态的UTXO模型，账户余额是过去交易记录中没有使用的交易输出的合计;另一种是账户模型，账户余额被存储在账本中的状态值中。</p>
+<p>每一个方法都有好处和弊端。本区块链技术对两种方法没有倾向。我们最初的要求就是确保两个方法都能够被容易实现。</p>
+<p>Q. Which languages are supported for writing chaincode?</p>
+<p>问题：链码支持哪些语言？</p>
+<p>A. Chaincode can be written in any programming language and executed in
+containers.  The first fully supported chaincode language is Golang.</p>
+<p>Support for additional languages and the development of a templating language
+have been discussed, and more details will be released in the near future.</p>
+<p>It is also possible to build Hyperledger Fabric applications using
+<a href="https://hyperledger.github.io/composer/">Hyperledger Composer</a>.</p>
+<p>答案：链码可以使用任何编程语言编写并在容器内执行。第一个全功能支持的语言是Golang。</p>
+<p>对其他语言的支持和模板语言的开发正在被讨论，更多细节会在近期发布。</p>
+<p>还可以通过<a href="https://hyperledger.github.io/composer/">Hyperledger Composer</a>来构建Hyperledger Fabric应用。</p>
+<p>Q. Does the Hyperledger Fabric have native currency?</p>
+<p>问题：Hyperledger Fabric是否有原生的货币？</p>
+<p>A. No. However, if you really need a native currency for your chain network,
+you can develop your own native currency with chaincode. One common attribute
+of native currency is that some amount will get transacted (the chaincode
+defining that currency will get called) every time a transaction is processed
+on its chain.</p>
+<p>答案：没有。然而，如果你的区块链网络确实需要原生的货币，你可以使用链码来开发货币。原生货币的一个基本的属性是一些数量会被转移（定义货币的链码会被调用）当每次链上交易被执行。</p>
+<h2 id="differences-in-most-recent-releases">Differences in Most Recent Releases<br />最近版本的区别<a class="headerlink" href="#differences-in-most-recent-releases" title="Permanent link">&para;</a></h2>
+<p>Q. As part of the v1.0.0 release, what are the highlight differences between v0.6 and v1.0?</p>
+<p>问题：V0.6版本和V1.0版本的最大区别是什么？</p>
+<p>A. The differences between any subsequent releases are provided together with the
+<a href="http://hyperledger-fabric.readthedocs.io/en/latest/releases.html">Release Notes</a>.
+Since Fabric is a pluggable modular framework, you can refer to the <a href="https://wiki.hyperleger.org/projects/fabric/design-docs">design-docs</a> for further information of these difference.</p>
+<p>答案：任何后续版本的差异都在<a href="http://hyperledger-fabric.readthedocs.io/en/latest/releases.html">版本说明</a>中展现。因为Fabric是一个模块可替换的框架，你可以参考<a href="https://wiki.hyperleger.org/projects/fabric/design-docs">设计文档</a>获取更多差异信息。</p>
+<p>Q. Where to get help for the technical questions not answered above?</p>
+<p>问题：哪里可以获得上文中没被解答的技术问题的帮助？</p>
+<p>A. Please use <a href="https://stackoverflow.com/questions/tagged/hyperledger">StackOverflow</a>.</p>
+<p>答案：请使用 <a href="https://stackoverflow.com/questions/tagged/hyperledger">StackOverflow</a>.</p>
+<p>.. Licensed under Creative Commons Attribution 4.0 International License</p>
+<p>.. 本文通过Creative Commons Attribution 4.0 International License协议进行授权</p>
+<p>https://creativecommons.org/licenses/by/4.0/</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../msp_acl_zh/" class="btn btn-neutral float-right" title="MSP&ACL">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../gossip_zh/" class="btn btn-neutral" title="Gossip数据传输协议"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Hyperledger国际化工作组(yls@chainnova.com)</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/HyperledgerCN/hyperledgerDocs" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../gossip_zh/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../msp_acl_zh/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>
