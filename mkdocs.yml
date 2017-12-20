@@ -17,6 +17,7 @@ pages:
     - Fabric教程:
       - 构建第一个fabric网络: build_network_zh.md
       - 编写第一个应用: write_first_app_zh.md
+      - 重新配置第一个网络: channel_update_zh.md
       - Chaincode 指南: chaincode_zh.md
       - Chaincode 开发手册: chaincode_developers_zh.md
       - Chaincode 操作手册: chaincode_operators_zh.md
