@@ -322,7 +322,7 @@
                 <li class="toctree-l3"><a href="#zanatahyperledger">用Zanata翻译Hyperledger文档</a></li>
                 
             
-                <li class="toctree-l3"><a href="#_1">问题</a></li>
+                <li class="toctree-l3"><a href="#zanata-github-read-the-docs">Zanata + Github + Read the Docs</a></li>
                 
             
             </ul>
@@ -404,29 +404,32 @@
 <img alt="" src="../img/zanata-1.jpeg" /></p>
 </li>
 <li>单击选择版本号
-<img alt="" src="../img/zanata-2.jpg" /></li>
+<img alt="" src="../img/zanata-2.png" /></li>
 <li>单击选择语言
 <img alt="" src="../img/zanata-3.jpg" /></li>
-<li>单击选择要翻译的文件
+<li>单击选择要翻译的文件（或先6后5）
 <img alt="" src="../img/zanata-4.jpg" /></li>
 <li>
 <p>在右侧编辑翻译</p>
 <p>在右侧输入译文，编辑完后会自动保存；下侧是翻译提示内容，可直接<code>copy</code>；也可以点击<code>使用新版</code>体验新版翻译页面。</p>
-<p><strong>注意：翻译中的固定术语尽量按照翻译提示统一命名，以免混乱！！！</strong>
-<img alt="" src="../img/zanata-5.jpg" /></p>
+<p><strong>注意：翻译中的固定术语尽量按照翻译提示统一命名，以免混乱！！！</strong></p>
+<p><strong>注意：翻译中的原文特有的格式符号（如<code>---</code>、<code>====</code>等）一定要保留！！！</strong></p>
+<p><img alt="" src="../img/zanata-5.jpg" /></p>
 <p>新版翻译页面
 <img alt="" src="../img/zanata-6.jpg" /></p>
 </li>
+<li>
+<p>译文显示</p>
+<p>点击<a href="http://hyperledger-zh.readthedocs.io/zh_CN/latest/">查看译文</a>，<strong>译文设置为20分钟自动编译更新一次</strong>，所以请不要着急，接着翻译其他内容，等一会儿就能看到译文了。</p>
+</li>
+<li>
+<p>原文更新</p>
+<p>fabric官方源文档更新后，会有专人跟新Zanata上的原文。原文更新后，变化的地方如果被翻译过则译文会被删除掉，同时文档完成度会降低。</p>
+</li>
 </ol>
-<p><strong>8. 原文更新及译后文档的展示操作，之后补充说明</strong></p>
-<h2 id="_1">问题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>目前编者对Zanata并不够熟悉，还有很多问题没有解决，请大家多多指教。</p>
-<ol>
-<li>Zanata文档与github的关联，如何自动更新原文，如何将译文自动push到github仓库。</li>
-<li>新用户如何能直接翻译文档，而无需管理者事先将译者用户加入到项目中。</li>
-<li>Zanata不支持fabric官方文档的<code>rst</code>格式，目前是将之转换为<code>html</code>格式，导致Zanata上的原文包含很多重复信息（如目录、网页标题等）。</li>
-<li></li>
-</ol>
+<h2 id="zanata-github-read-the-docs">Zanata + Github + Read the Docs<a class="headerlink" href="#zanata-github-read-the-docs" title="Permanent link">&para;</a></h2>
+<p>目前使用Jenkins实现了Zanata+github+Read the docs的集成。<strong>Jenkins20分钟自动编译一次</strong>，编译过程包括见下图。</p>
+<p><img alt="" src="../img/zanata-7.png" /></p>
               
             </div>
           </div>
