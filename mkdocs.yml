@@ -1,7 +1,7 @@
 site_name: Hyperledger中文文档
 site_url: https://hyperledgercn.github.io/hyperledgerDocs/
 repo_url: https://github.com/HyperledgerCN/hyperledgerDocs
-site_description: 'Hyperledger中文文档'
+site_description: 'HyperLedger中文文档'
 
 site_author: Hyperledger国际化工作组
 copyright: Hyperledger国际化工作组(yls@chainnova.com)
